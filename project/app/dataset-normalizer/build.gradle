@@ -1,7 +1,17 @@
-plugins {
-    id 'java'
-    id 'application'
+apply plugin: 'java'
+apply plugin: 'application'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
+    }
 }
+
+
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group 'com.faceid'
 version '1.0-SNAPSHOT'
@@ -11,6 +21,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
