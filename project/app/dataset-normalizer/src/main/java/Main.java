@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
  * Created by Botan on 4/11/2020. 4:12 PM
  **/
 public class Main {
-    private final static Size faceSize = new Size(96, 96);
+    private static Size faceSize = new Size(96, 96);
 
     private static boolean writeFace(CascadeClassifier faceCascade, Mat matrix, File file) {
         MatOfRect faces = new MatOfRect();
@@ -86,6 +86,16 @@ public class Main {
         System.load(new File("libs/opencv_java420.dll").getAbsolutePath());
 
         String directoryPath = "C:\\Users\\botan\\Work\\FaceID\\project\\dataset";
+
+        for (String arg : args) {
+            String[] split = arg.split("=");
+            if(split[0].toLowerCase().equals("--path")) {
+                directoryPath = split[1];
+            } else if(split[0].toLowerCase().equals("--size")) {
+                faceSize = new Size(Integer.parseInt(split[1]), Integer.parseInt(split[1]));
+            }
+        }
+
         System.out.println("Scanning directory <" + directoryPath + "> ...");
         File directory = new File(directoryPath);
         File trainDirectory = new File(directory.getAbsolutePath() + "\\train");
