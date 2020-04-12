@@ -1,6 +1,5 @@
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
-import org.opencv.core.Rect;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -14,71 +13,85 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Botan on 4/11/2020. 4:12 PM
  **/
 public class Main {
-    private static Size faceSize = new Size(96, 96);
+    private static Size faceSize = new Size(48, 48);
+    private static Size minSize = new Size(400, 400);
 
     private static boolean writeFace(CascadeClassifier faceCascade, Mat matrix, File file) {
         MatOfRect faces = new MatOfRect();
-        faceCascade.detectMultiScale(matrix, faces, 1.1, 2, Objdetect.CASCADE_SCALE_IMAGE,
-                new Size(200, 200), new Size());
+        faceCascade.detectMultiScale(matrix, faces, 1.1, 1, Objdetect.CASCADE_SCALE_IMAGE,
+                minSize, new Size());
 
-        Rect[] facesArray = faces.toArray();
-
-        if (facesArray.length > 0) {
-            Rect firstFaceRect = facesArray[0];
-            Rect faceRect = new Rect(firstFaceRect.x, firstFaceRect.y, firstFaceRect.width, firstFaceRect.height);
-            Mat face = new Mat(matrix, faceRect);
+        AtomicBoolean found = new AtomicBoolean(false);
+        faces.toList().stream().min((o1, o2) -> o2.width - o1.width).ifPresent(rect -> {
+            Mat face = new Mat(matrix, rect);
             Imgproc.resize(face, face, faceSize);
 
-
             File newFile = new File(file.getAbsolutePath().replace("raw", "train"));
+
             if (newFile.exists())
                 newFile.delete();
             try {
                 Imgcodecs.imwrite(newFile.getAbsolutePath(), face);
                 face.release();
-                return true;
+                found.set(true);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
-        }
-        return false;
+        });
+
+        return found.get();
     }
 
     private static void convertLabel(File source) {
         List<CascadeClassifier> classifierList = new ArrayList<>() {{
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt.xml"));
             add(new CascadeClassifier("models/face-detector/haarcascade_frontalcatface_extended.xml"));
+            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_default.xml"));
             add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt.xml"));
             add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt2.xml"));
             add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt_tree.xml"));
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_default.xml"));
         }};
 
         new File(source.getAbsolutePath().replace("raw", "train")).mkdirs();
 
-        int faceFind = 0;
+        final AtomicInteger faceFind = new AtomicInteger();
         int total = Objects.requireNonNull(source.listFiles()).length;
         System.out.println(String.format("Find %d images for label %s", total, source.getName()));
         for (File file : Objects.requireNonNull(source.listFiles())) {
             Mat matrix = Imgcodecs.imread(file.getAbsolutePath());
             if (!matrix.empty()) {
-                for (CascadeClassifier cascadeClassifier : classifierList) {
-                    if (writeFace(cascadeClassifier, matrix, file)) {
-                        faceFind++;
-                        break;
+                classifierList.stream().flatMap(classifier -> {
+                    MatOfRect faces = new MatOfRect();
+                    classifier.detectMultiScale(matrix, faces, 1.1, 1, Objdetect.CASCADE_SCALE_IMAGE,
+                            minSize, new Size());
+                    return Arrays.stream(faces.toArray());
+                }).min((o1, o2) -> o2.width - o1.width).ifPresent(rect -> {
+                    Mat face = new Mat(matrix, rect);
+                    Imgproc.resize(face, face, faceSize);
+
+                    File newFile = new File(file.getAbsolutePath().replace("raw", "train"));
+
+                    if (newFile.exists())
+                        newFile.delete();
+                    try {
+                        Imgcodecs.imwrite(newFile.getAbsolutePath(), face);
+                        face.release();
+                        faceFind.incrementAndGet();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                }
+                });
                 matrix.release();
-                ;
             }
         }
 
-        System.out.println(String.format("Extract %d faces of %d images for label %s", faceFind, total, source.getName()));
+        System.out.println(String.format("Extract %d faces of %d images for label %s", faceFind.get(), total, source.getName()));
     }
 
     public static void main(String[] args) {
@@ -89,10 +102,12 @@ public class Main {
 
         for (String arg : args) {
             String[] split = arg.split("=");
-            if(split[0].toLowerCase().equals("--path")) {
+            if (split[0].toLowerCase().equals("--path")) {
                 directoryPath = split[1];
-            } else if(split[0].toLowerCase().equals("--size")) {
+            } else if (split[0].toLowerCase().equals("--size")) {
                 faceSize = new Size(Integer.parseInt(split[1]), Integer.parseInt(split[1]));
+            } else if (split[0].toLowerCase().equals("--min-size")) {
+                minSize = new Size(Integer.parseInt(split[1]), Integer.parseInt(split[1]));
             }
         }
 
