@@ -2,22 +2,21 @@
 
 #include <iostream>
 #include <algorithm>
+#include "random"
 
 using namespace std;
 
 extern "C" {
 
-float random(int min, int max) {
-    return (float) min + (float) rand() / ((float) RAND_MAX / (float) (max - min));
-}
+__declspec(dllexport) double *createModel(int size) {
+    double * W = new double[size + 1];
 
-__declspec(dllexport) double *createModel(int size, int seed) {
-    srand(seed);
+    random_device rd;
+    mt19937 e2(rd());
+    uniform_real_distribution<> dist(-1.0, 1.0);
 
-    auto W = new double[size + 1];
-
-    for (int i = 0; i < size; i++) {
-        W[i] = random(-1, 1);
+    for (int i = 0; i < size + 1; i++) {
+        W[i] = dist(e2);
     }
 
     return W;
@@ -35,12 +34,12 @@ void printModel(double *model, int size) {
 }
 
 __declspec(dllexport) void
-trainModel(double *model, double *X[], double *Y, int *shape, int iteration, double alpha) {
+trainModel(double *model, double *X, const double *Y, int exampleCount, int inputSize, int iteration, double alpha) {
     for (int i = 0; i < iteration; i++) {
-        int k = (int) random(0, shape[0]);
-        double gxk = predictClassificationModel(model, X[k], shape[1]);
-        for (int j = 0; j < shape[1]; j++) {
-            model[j + 1] += alpha * (Y[k] - gxk) * X[k][j];
+        int k = rand() % exampleCount;
+        double gxk = predictClassificationModel(model, X + (k * inputSize), inputSize);
+        for (int j = 0; j < inputSize; j++) {
+            model[j + 1] += alpha * (Y[k] - gxk) * (X[(inputSize * k) + j]);
         }
         model[0] += alpha * (Y[k] - gxk);
     }

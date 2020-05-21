@@ -2,10 +2,10 @@
 #define UNTITLED_LIBRARY_H
 
 extern "C" {
-__declspec(dllexport) double *createModel(int size, int seed);
+__declspec(dllexport) double *createModel(int size);
 
 __declspec(dllexport) void
-trainModel(double *model, double * X[], double *Y, int *shape, int iteration, double alpha);
+trainModel(double *model, double *X, const double *Y, int exampleCount, int inputSize, int iteration, double alpha);
 
 __declspec(dllexport) double predictRegressionModel(const double *model, const double *inputs, int size);
 

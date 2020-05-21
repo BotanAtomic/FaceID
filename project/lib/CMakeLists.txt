@@ -4,7 +4,6 @@ project(ML-test)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(ML-framework library.cpp library.h)
+add_library(ML-framework SHARED library.cpp library.h)
 
 add_executable(ML-test library.cpp library.h test.cpp)
-
