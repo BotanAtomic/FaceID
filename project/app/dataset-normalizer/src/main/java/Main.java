@@ -51,11 +51,11 @@ public class Main {
 
     private static void convertLabel(File source) {
         List<CascadeClassifier> classifierList = new ArrayList<>() {{
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalcatface_extended.xml"));
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_default.xml"));
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt.xml"));
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt2.xml"));
-            add(new CascadeClassifier("models/face-detector/haarcascade_frontalface_alt_tree.xml"));
+            add(new CascadeClassifier("../../models/face-detector/haarcascade_frontalcatface_extended.xml"));
+            add(new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_default.xml"));
+            add(new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_alt.xml"));
+            add(new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_alt2.xml"));
+            add(new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_alt_tree.xml"));
         }};
 
         new File(source.getAbsolutePath().replace("raw", "train")).mkdirs();
