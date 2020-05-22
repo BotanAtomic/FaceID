@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/botan/Work/FaceID/project/lib/library.cpp
+fstream
+-
+iostream
+-
+algorithm
+-
+random
+C:/Users/botan/Work/FaceID/project/lib/random
+
