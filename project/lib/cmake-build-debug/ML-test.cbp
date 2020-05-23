@@ -130,10 +130,6 @@
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/library.h">
-			<Option target="ML-framework"/>
-			<Option target="ML-test"/>
-		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/test.cpp">
 			<Option target="ML-test"/>
 		</Unit>

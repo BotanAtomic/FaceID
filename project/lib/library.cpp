@@ -7,6 +7,18 @@ using namespace std;
 
 extern "C" {
 
+
+void printModel(double *model, int size) {
+    cout << "Linear Model { ";
+    for (int i = 0; i < size; i++) {
+        if (i) {
+            cout << ", ";
+        }
+        cout << model[i];
+    }
+    cout << " }\n";
+}
+
 __declspec(dllexport) double *createModel(int size) {
     double *W = new double[size + 1];
 
@@ -17,6 +29,8 @@ __declspec(dllexport) double *createModel(int size) {
     for (int i = 0; i < size + 1; i++) {
         W[i] = dist(e2);
     }
+
+    printModel(W, size + 1);
 
     return W;
 }
@@ -78,8 +92,8 @@ __declspec(dllexport) double *loadModel(char *path) {
 
     int size = 0;
     modelFile.read(reinterpret_cast<char *>(&(size)), sizeof(size));
-    
-    double * model = createModel(size);
+
+    double *model = createModel(size);
 
     for (int i = 0; i < size + 1; i++) {
         modelFile.read((char *) (model + i), sizeof(double));
@@ -90,15 +104,5 @@ __declspec(dllexport) double *loadModel(char *path) {
     return model;
 }
 
-void printModel(double *model, int size) {
-    cout << "Linear Model { ";
-    for (int i = 0; i < size; i++) {
-        if (i) {
-            cout << ", ";
-        }
-        cout << model[i];
-    }
-    cout << " }\n";
-}
 
 }

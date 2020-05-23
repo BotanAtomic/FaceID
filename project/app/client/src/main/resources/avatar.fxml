@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="158.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Circle fill="WHITE" radius="30.0" stroke="GREY" strokeType="INSIDE" strokeWidth="0.5" />
+      <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="146.0" spacing="10.0">
+         <children>
+            <Label text="Botan">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="451 images" textFill="GREY" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

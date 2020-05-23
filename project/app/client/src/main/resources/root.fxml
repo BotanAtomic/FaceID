@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="495.0" prefWidth="757.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.esgi.faceid.controller.Controller">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="43.0" layoutY="91.0" maxHeight="400.0" prefHeight="400.0" prefWidth="190.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox fx:id="datasetView" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <StackPane prefHeight="34.0" prefWidth="148.0" style="-fx-border-color: #3f51b5; -fx-background-radius: 5; -fx-border-radius: 5;">
+                     <children>
+                        <Label text="+ NEW FACE" textFill="#3f51b5">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="-20.0" right="-20.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="webcamView" fitHeight="495.0" fitWidth="567.0" layoutX="253.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
