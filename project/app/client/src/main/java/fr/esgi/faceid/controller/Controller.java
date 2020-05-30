@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -16,6 +17,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Pair;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
@@ -33,6 +35,8 @@ import static fr.esgi.faceid.utils.UI.implementAvatarContextMenu;
  * Created by Botan on 5/22/2020. 6:50 PM
  **/
 public class Controller {
+
+    public static final Image LOADING_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/loading.gif"));
 
     private final Executor executor = Executors.newSingleThreadExecutor();
 
@@ -58,18 +62,22 @@ public class Controller {
     }
 
     private void initCamera() {
+        webcamView.setImage(LOADING_IMAGE);
+
         VideoStream stream = VideoStream.getInstance();
         stream.allowMultipleFace(true);
         stream.setImagePreprocessing((matrix, face, coordinates) -> {
-            User prediction = neuralNetworkManager.predict(face);
+            Pair<User, Double> prediction = neuralNetworkManager.predict(face);
             if (prediction == null) return;
-            Size textWidth = Imgproc.getTextSize(prediction.getName(), 1, 2, 1, new int[]{1});
-            Imgproc.putText(matrix, prediction.getName(), OpenCV.middlePoint(
+            String text = String.format("%s (%d)", prediction.getKey().getName(), (int) (prediction.getValue() * 100)) + "%";
+            Size textWidth = Imgproc.getTextSize(text, 1, 2, 1, new int[]{1});
+            Imgproc.putText(matrix, text, OpenCV.middlePoint(
                     new Point(coordinates.x - textWidth.width / 2, coordinates.y + textWidth.height),
                     new Point((coordinates.x + coordinates.width) - textWidth.width / 2, coordinates.y + textWidth.height)
             ), 1, 2, new Scalar(255));
         });
         stream.setMatrixCallback(mat -> webcamView.setImage(matToImage(mat)));
+        stream.setFaceCallback(null);
         stream.showLandmark(true);
     }
 
@@ -131,6 +139,9 @@ public class Controller {
 
     @FXML
     private void train() {
+        if (neuralNetworkManager.isTraining())
+            return;
+
         executor.execute(() -> {
             try {
                 neuralNetworkManager.train(this::initCamera);

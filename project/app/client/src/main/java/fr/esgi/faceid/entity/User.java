@@ -49,7 +49,7 @@ public class User {
 
     public int countImages() {
         try {
-            return directory.listFiles().length;
+            return directory.listFiles(file -> !file.getName().equals("model")).length;
         } catch (Exception e) {
             return 0;
         }

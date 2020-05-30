@@ -25,8 +25,7 @@ public class VideoStream extends Thread {
 
     private static final VideoStream instance = new VideoStream();
 
-    private final static Size faceSize = new Size(48, 48);
-    private final static Size minFaceSize = new Size(150, 150);
+    private final static Size minFaceSize = new Size(96, 96);
 
     private final VideoCapture videoCapture;
     private final CascadeClassifier faceCascade = new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_default.xml");
