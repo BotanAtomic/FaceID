@@ -25,6 +25,9 @@ javafx {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile group: 'net.java.dev.jna', name: 'jna', version: '5.5.0'
+    compile group: 'org.nd4j', name: 'nd4j-native-platform', version: '1.0.0-beta7'
+    compile group: 'org.nd4j', name: 'nd4j-api', version: '1.0.0-beta7'
+    compile group: 'org.datavec', name: 'datavec-data-image', version: '1.0.0-beta7'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

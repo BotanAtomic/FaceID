@@ -10,4 +10,14 @@ public interface ILinearModel extends Library {
 
     Pointer createModel(int size);
 
+    double predictRegressionModel(Pointer model, double[] inputs, int size);
+
+    double trainModel(Pointer model, double[] inputs, double[] labels, int size, int inputSize, int epoch, double alpha);
+
+    Pointer saveModel(Pointer model, int size, String path);
+
+    Pointer loadModel(String path);
+
+    void deleteModel(Pointer model);
+
 }

@@ -1,14 +1,22 @@
 package fr.esgi.faceid.utils;
 
 
+import javafx.scene.image.Image;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
 import org.opencv.core.Point;
+import org.opencv.core.Rect;
+
+import java.io.ByteArrayInputStream;
+
+import static org.opencv.imgcodecs.Imgcodecs.imencode;
 
 /**
  * Created by Botan on 5/23/2020. 11:22 AM
  **/
 public class OpenCV {
 
-    public final static int[] FACIAL_POINTS = {19, 24, 36, 39, 42, 45, 35, 33 ,31, 54 ,48, 12 ,4, 8};
+    public final static int[] FACIAL_POINTS = {19, 24, 36, 39, 42, 45, 35, 33, 31, 54, 48, 12, 4, 8};
     public final static int[][] FACIAL_LINE = {
             {19, 24},
             {36, 39},
@@ -42,4 +50,19 @@ public class OpenCV {
         return new Point((p.x + p2.x) / 2, (p.y + p2.y) / 2);
     }
 
+    public static Image matToImage(Mat matrix) {
+        MatOfByte buffer = new MatOfByte();
+        imencode(".jpg", matrix, buffer);
+
+        Image image = new Image(new ByteArrayInputStream(buffer.toArray()));
+        buffer.release();
+        return image;
+    }
+
+    public static Mat cropCenter(Mat src) {
+        int width = src.width();
+        int height = src.height();
+
+        return new Mat(src, new Rect(width / 4, 0, width / 2, height));
+    }
 }
