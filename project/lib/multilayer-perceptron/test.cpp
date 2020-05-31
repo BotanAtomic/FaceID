@@ -1,49 +1,27 @@
 //
-// Created by botan on 5/4/2020.
+// Created by botan on 5/30/2020.
 //
 
 #include <iostream>
-#include "library.cpp"
+#include "network/MultiLayerNetwork.h"
 
 using namespace std;
 
 int main(int size, char **args) {
-    int shape[2] = {3, 2};
-    double values[3][2] = {{1, 1},
-                           {2,  3},
-                           {3,  3}};
+    int epochs = 2000;
+    int inputSize = 2;
+    int outputSize = 1;
+    int hiddenLayer = 1;
+    int hiddenLayerSize = 2;
 
-    double Y[3] = {1, -1, -1};
+    double inputs[] = {0, 0,
+                       0, 1,
+                       1, 0,
+                       1, 1};
 
+    double labels[] = {0, 1, 1, 0};
 
-    double *model = createModel(shape[1]);
-    printModel(model, shape[1] + 1);
+    MultiLayerNetwork network(inputSize, hiddenLayer, hiddenLayerSize, outputSize, 0.1);
 
-    auto *X = static_cast<double *>(malloc(1));
-    int index = 0;
-    for (int i = 0; i < shape[0]; i++) {
-        double * v = values[i];
-        for(int j = 0; j < shape[1]; j++) {
-            X[index] = v[j];
-            index++;
-        }
-    }
-
-    trainModel(model, X, Y, shape[0], shape[1], 100, 0.1);
-
-    int correct = 0;
-    for (int i = 0; i < shape[0]; i++) {
-        double prediction = predictClassificationModel(model, X + i, shape[1]);
-        std::cout << "[" << (X + i)[0] << ", " << (X + i)[1] << "] ->  predicted: " << prediction << " | value: "
-                  << Y[i]
-                  << "\n";
-        if ((int) prediction == (int) Y[i]) {
-            correct++;
-        }
-    }
-
-
-    std::cout << "Accuracy: " << ((float) correct / (float) shape[0] * 100) << "%";
-
-    deleteModel(model);
+    network.train(inputs, labels, 4, 20000);
 }

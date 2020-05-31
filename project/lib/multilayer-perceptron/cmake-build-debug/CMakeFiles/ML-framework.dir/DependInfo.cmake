@@ -5,6 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/library.cpp" "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/library.cpp.obj"
+  "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/MultiLayerNetwork.cpp" "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.obj"
+  "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/layer/Layer.cpp" "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/network/layer/Layer.cpp.obj"
+  "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/neuron/Neuron.cpp" "C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/network/neuron/Neuron.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

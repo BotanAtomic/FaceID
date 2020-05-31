@@ -128,15 +128,40 @@
 		</Build>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/library.cpp">
 			<Option target="ML-framework"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/matrix/Matrix.h">
+			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/maths.h">
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/MultiLayerNetwork.cpp">
+			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/multilayer-perceptron.h">
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/MultiLayerNetwork.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/layer/Layer.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/layer/Layer.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/neuron/Neuron.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/neuron/Neuron.h">
+			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/test.cpp">
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/utils/maths.h">
+			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/CMakeLists.txt">
