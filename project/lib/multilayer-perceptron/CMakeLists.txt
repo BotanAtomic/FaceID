@@ -4,8 +4,18 @@ project(ML-test)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(ML-framework SHARED library.cpp network/neuron/Neuron.cpp network/neuron/Neuron.h network/layer/Layer.cpp
-        network/layer/Layer.h network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h matrix/Matrix.h utils/maths.h)
+add_library(ML-framework SHARED
+        library.cpp
+        layer/Layer.cpp layer/Layer.h
+        network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
+        matrix/Matrix.h matrix/Matrix.cpp
+        utils/utils.h utils/utils.cpp
+        activation/ActivationFunction.h activation/implementation/Sigmoid.h activation/implementation/Softmax.h)
 
-add_executable(ML-test test.cpp network/neuron/Neuron.cpp network/neuron/Neuron.h network/layer/Layer.cpp
-        network/layer/Layer.h network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h matrix/Matrix.h utils/maths.h)
+add_executable(ML-test
+        test.cpp
+        layer/Layer.cpp layer/Layer.h
+        network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
+        matrix/Matrix.h matrix/Matrix.cpp
+        utils/utils.h utils/utils.cpp
+        activation/ActivationFunction.h activation/implementation/Sigmoid.h activation/implementation/Softmax.h)

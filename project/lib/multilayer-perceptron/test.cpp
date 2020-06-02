@@ -2,26 +2,43 @@
 // Created by botan on 5/30/2020.
 //
 
-#include <iostream>
+
 #include "network/MultiLayerNetwork.h"
+#include "activation/implementation/Softmax.h"
 
 using namespace std;
 
 int main(int size, char **args) {
-    int epochs = 2000;
-    int inputSize = 2;
-    int outputSize = 1;
-    int hiddenLayer = 1;
-    int hiddenLayerSize = 2;
+    int epochs = 20000;
+    double alpha = 0.05;
+    int inputSize = 3;
+    int outputSize = 2;
 
-    double inputs[] = {0, 0,
-                       0, 1,
-                       1, 0,
-                       1, 1};
+    double test1[] = {0, 0, 1,
+                      0, 1, 1,
+                      1, 0, 1,
+                      0, 1, 0,
+                      1, 0, 0,
+                      1, 1, 1,
+                      0, 0, 0};
 
-    double labels[] = {0, 1, 1, 0};
+    double test1_label[] = {0, 1, 1, 1, 1, 0, 0};
 
-    MultiLayerNetwork network(inputSize, hiddenLayer, hiddenLayerSize, outputSize, 0.1);
+    double test2[] = {1, 1,
+                      1, 0,
+                      0, 1,
+                      0, 0};
+    double test2_label[] = {1, 0, 0, 0};
 
-    network.train(inputs, labels, 4, 20000);
+    MultiLayerNetwork network(inputSize);
+    network.addLayer("hidden-layer1", 4);
+    network.addLayer("output-layer", outputSize);
+    network.initialize();
+
+    network.dump();
+    network.train(test1, test1_label, 7, epochs, alpha);
+    network.dump();
+
+    cout << "Prediction: " << vectorToString(network.predict(new double[3]{1, 1, 0}));
+
 }

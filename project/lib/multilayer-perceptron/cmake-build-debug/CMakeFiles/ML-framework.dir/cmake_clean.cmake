@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ML-framework.dir/layer/Layer.cpp.obj"
   "CMakeFiles/ML-framework.dir/library.cpp.obj"
+  "CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.obj"
   "CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.obj"
-  "CMakeFiles/ML-framework.dir/network/layer/Layer.cpp.obj"
-  "CMakeFiles/ML-framework.dir/network/neuron/Neuron.cpp.obj"
+  "CMakeFiles/ML-framework.dir/utils/utils.cpp.obj"
   "ML-framework.dll"
   "ML-framework.dll.manifest"
   "ML-framework.lib"

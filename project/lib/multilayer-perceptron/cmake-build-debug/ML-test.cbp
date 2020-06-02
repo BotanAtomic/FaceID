@@ -126,8 +126,32 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/activation/ActivationFunction.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/activation/implementation/Sigmoid.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/activation/implementation/Softmax.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/layer/Layer.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/layer/Layer.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/library.cpp">
 			<Option target="ML-framework"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/matrix/Matrix.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/matrix/Matrix.h">
 			<Option target="ML-framework"/>
@@ -141,26 +165,14 @@
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/layer/Layer.cpp">
-			<Option target="ML-framework"/>
-			<Option target="ML-test"/>
-		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/layer/Layer.h">
-			<Option target="ML-framework"/>
-			<Option target="ML-test"/>
-		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/neuron/Neuron.cpp">
-			<Option target="ML-framework"/>
-			<Option target="ML-test"/>
-		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/network/neuron/Neuron.h">
-			<Option target="ML-framework"/>
-			<Option target="ML-test"/>
-		</Unit>
 		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/test.cpp">
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/utils/maths.h">
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/utils/utils.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/utils/utils.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>

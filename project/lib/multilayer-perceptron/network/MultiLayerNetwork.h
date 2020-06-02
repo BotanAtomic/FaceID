@@ -5,23 +5,36 @@
 #ifndef ML_TEST_MULTILAYERNETWORK_H
 #define ML_TEST_MULTILAYERNETWORK_H
 
-#include "layer/Layer.h"
+#include "../utils/utils.h"
+#include "../layer/Layer.h"
+#include "../activation/implementation/Sigmoid.h"
 
 using namespace std;
 
 class MultiLayerNetwork {
 
 private:
-    long inputSize;
-    int hiddenLayer;
-    long outputSize;
-    double learningRate;
-    vector<Layer*> layers;
+    int inputSize;
+    vector<Layer *> layers;
 
 public:
-    MultiLayerNetwork(long inputSize, int hiddenLayer, long hiddenLayerSize, long outputSize, double learningRate);
+    explicit MultiLayerNetwork(int inputSize);
 
-    void train(double * inputs, double * labels, int size, int epochs);
+    void addLayer(const string &name, int size);
+
+    void addLayer(const string &name, int size, ActivationFunction *activationFunction);
+
+    void initialize();
+
+    vector<double> predict(double *inputs);
+
+    void train(double *inputs, double *labels, int size, int epochs, double alpha);
+
+    void backPropagation(const vector<double> &errors);
+
+    void updateWeights(double *inputs, double alpha);
+
+    void dump();
 };
 
 

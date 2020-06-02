@@ -137,6 +137,36 @@ ML-test\fast:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\build
 .PHONY : ML-test\fast
 
+layer\Layer.obj: layer\Layer.cpp.obj
+
+.PHONY : layer\Layer.obj
+
+# target to build an object file
+layer\Layer.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\layer\Layer.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\layer\Layer.cpp.obj
+.PHONY : layer\Layer.cpp.obj
+
+layer\Layer.i: layer\Layer.cpp.i
+
+.PHONY : layer\Layer.i
+
+# target to preprocess a source file
+layer\Layer.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\layer\Layer.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\layer\Layer.cpp.i
+.PHONY : layer\Layer.cpp.i
+
+layer\Layer.s: layer\Layer.cpp.s
+
+.PHONY : layer\Layer.s
+
+# target to generate assembly for a file
+layer\Layer.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\layer\Layer.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\layer\Layer.cpp.s
+.PHONY : layer\Layer.cpp.s
+
 library.obj: library.cpp.obj
 
 .PHONY : library.obj
@@ -163,6 +193,36 @@ library.s: library.cpp.s
 library.cpp.s:
 	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\library.cpp.s
 .PHONY : library.cpp.s
+
+matrix\Matrix.obj: matrix\Matrix.cpp.obj
+
+.PHONY : matrix\Matrix.obj
+
+# target to build an object file
+matrix\Matrix.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\matrix\Matrix.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\matrix\Matrix.cpp.obj
+.PHONY : matrix\Matrix.cpp.obj
+
+matrix\Matrix.i: matrix\Matrix.cpp.i
+
+.PHONY : matrix\Matrix.i
+
+# target to preprocess a source file
+matrix\Matrix.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\matrix\Matrix.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\matrix\Matrix.cpp.i
+.PHONY : matrix\Matrix.cpp.i
+
+matrix\Matrix.s: matrix\Matrix.cpp.s
+
+.PHONY : matrix\Matrix.s
+
+# target to generate assembly for a file
+matrix\Matrix.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\matrix\Matrix.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\matrix\Matrix.cpp.s
+.PHONY : matrix\Matrix.cpp.s
 
 network\MultiLayerNetwork.obj: network\MultiLayerNetwork.cpp.obj
 
@@ -194,66 +254,6 @@ network\MultiLayerNetwork.cpp.s:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\MultiLayerNetwork.cpp.s
 .PHONY : network\MultiLayerNetwork.cpp.s
 
-network\layer\Layer.obj: network\layer\Layer.cpp.obj
-
-.PHONY : network\layer\Layer.obj
-
-# target to build an object file
-network\layer\Layer.cpp.obj:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\layer\Layer.cpp.obj
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\layer\Layer.cpp.obj
-.PHONY : network\layer\Layer.cpp.obj
-
-network\layer\Layer.i: network\layer\Layer.cpp.i
-
-.PHONY : network\layer\Layer.i
-
-# target to preprocess a source file
-network\layer\Layer.cpp.i:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\layer\Layer.cpp.i
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\layer\Layer.cpp.i
-.PHONY : network\layer\Layer.cpp.i
-
-network\layer\Layer.s: network\layer\Layer.cpp.s
-
-.PHONY : network\layer\Layer.s
-
-# target to generate assembly for a file
-network\layer\Layer.cpp.s:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\layer\Layer.cpp.s
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\layer\Layer.cpp.s
-.PHONY : network\layer\Layer.cpp.s
-
-network\neuron\Neuron.obj: network\neuron\Neuron.cpp.obj
-
-.PHONY : network\neuron\Neuron.obj
-
-# target to build an object file
-network\neuron\Neuron.cpp.obj:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\neuron\Neuron.cpp.obj
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\neuron\Neuron.cpp.obj
-.PHONY : network\neuron\Neuron.cpp.obj
-
-network\neuron\Neuron.i: network\neuron\Neuron.cpp.i
-
-.PHONY : network\neuron\Neuron.i
-
-# target to preprocess a source file
-network\neuron\Neuron.cpp.i:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\neuron\Neuron.cpp.i
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\neuron\Neuron.cpp.i
-.PHONY : network\neuron\Neuron.cpp.i
-
-network\neuron\Neuron.s: network\neuron\Neuron.cpp.s
-
-.PHONY : network\neuron\Neuron.s
-
-# target to generate assembly for a file
-network\neuron\Neuron.cpp.s:
-	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\network\neuron\Neuron.cpp.s
-	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\network\neuron\Neuron.cpp.s
-.PHONY : network\neuron\Neuron.cpp.s
-
 test.obj: test.cpp.obj
 
 .PHONY : test.obj
@@ -281,6 +281,36 @@ test.cpp.s:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\test.cpp.s
 .PHONY : test.cpp.s
 
+utils\utils.obj: utils\utils.cpp.obj
+
+.PHONY : utils\utils.obj
+
+# target to build an object file
+utils\utils.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\utils\utils.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\utils\utils.cpp.obj
+.PHONY : utils\utils.cpp.obj
+
+utils\utils.i: utils\utils.cpp.i
+
+.PHONY : utils\utils.i
+
+# target to preprocess a source file
+utils\utils.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\utils\utils.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\utils\utils.cpp.i
+.PHONY : utils\utils.cpp.i
+
+utils\utils.s: utils\utils.cpp.s
+
+.PHONY : utils\utils.s
+
+# target to generate assembly for a file
+utils\utils.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\utils\utils.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\utils\utils.cpp.s
+.PHONY : utils\utils.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -291,21 +321,24 @@ help:
 	@echo ... ML-framework
 	@echo ... ML-test
 	@echo ... edit_cache
+	@echo ... layer/Layer.obj
+	@echo ... layer/Layer.i
+	@echo ... layer/Layer.s
 	@echo ... library.obj
 	@echo ... library.i
 	@echo ... library.s
+	@echo ... matrix/Matrix.obj
+	@echo ... matrix/Matrix.i
+	@echo ... matrix/Matrix.s
 	@echo ... network/MultiLayerNetwork.obj
 	@echo ... network/MultiLayerNetwork.i
 	@echo ... network/MultiLayerNetwork.s
-	@echo ... network/layer/Layer.obj
-	@echo ... network/layer/Layer.i
-	@echo ... network/layer/Layer.s
-	@echo ... network/neuron/Neuron.obj
-	@echo ... network/neuron/Neuron.i
-	@echo ... network/neuron/Neuron.s
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
+	@echo ... utils/utils.obj
+	@echo ... utils/utils.i
+	@echo ... utils/utils.s
 .PHONY : help
 
 

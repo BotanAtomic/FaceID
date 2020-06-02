@@ -5,124 +5,60 @@
 #ifndef ML_TEST_MATRIX_H
 #define ML_TEST_MATRIX_H
 
+#include "iostream"
+#include "string"
+#include "../utils/utils.h"
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
 class Matrix {
 
 private:
-    unsigned int rows, columns;
-    mutable double *data;
+
+    int rows, columns;
+    vector<double> data;
 
 public:
 
-    Matrix(unsigned int rows, unsigned int cols) {
-        this->rows = rows;
-        this->columns = cols;
-        this->data = new double[rows * cols];
-    }
+    Matrix(int rows, int columns);
 
-    Matrix(double *inputs, long inputSize, long size) {
-        this->rows = size;
-        this->columns = inputSize;
-        this->data = inputs;
-    }
+    Matrix(double * inputs, int inputSize, int size);
 
-    double get(int i, int j) {
-        return (data + (columns * i))[j];
-    }
+    explicit Matrix(const vector<double>& inputs);
 
-    int size() const { return rows * columns; }
+    double * operator[](int i);
 
-    int getRows() const { return rows; }
+    Matrix dot(Matrix other);
 
-    int getColumns() const { return columns; }
+    Matrix operator*(double number);
 
-    double *operator[](unsigned int row) const {
-        return data + (columns * row);
-    }
+    Matrix operator-(Matrix other);
 
-    Matrix operator*(Matrix other) {
-        if (this->columns == other.rows) {
-            Matrix product(this->rows, other.columns);
-            for (int i = 0; i < this->rows; ++i)
-                for (int j = 0; j < other.columns; ++j) {
-                    product[i][j] = 0;
-                    for (int k = 0; k < this->columns; ++k) {
-                        product[i][j] += get(i, k) * other[k][j];
-                    }
-                }
-            return product;
-        } else {
-            printf("cannot multiply matrix(%d, %d) (%d, %d)\n", rows, columns, other.rows, other.columns);
-            return *this;
-        }
-    }
+    Matrix T();
 
-    Matrix operator*(double number) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                this->operator[](i)[j] *= number;
-            }
-        }
-        return *this;
-    }
+    Matrix apply(double transformer(double));
 
-    Matrix operator-(Matrix other) {
-        if (this->columns == other.columns && this->rows == other.rows) {
-            Matrix newMatrix(this->rows, other.columns);
-            for (int i = 0; i < this->rows; ++i)
-                for (int j = 0; j < this->columns; ++j) {
-                    newMatrix[i][j] = get(i, j) - other[i][j];
-                }
-            return newMatrix;
-        } else {
-            return *this;
-        }
-    }
+    double get(int i, int j);
 
-    void dump(string name) {
-        cout << "Matrix(" << rows << "," << columns << ") [" << name << "]" << endl;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; ++j) {
-                if (j > 0)
-                    cout << " | ";
-                cout << get(i, j);
-            }
-            cout << endl;
-        }
-        cout << "____________" << endl << endl;
-    }
+    double *get(int i);
 
-    void apply(double transformer(double)) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                this->operator[](i)[j] = transformer(get(i, j));
-            }
-        }
-    }
+    void set(int i, int j, double value);
 
-    Matrix transpose() {
-        Matrix newMatrix(columns, rows);
+    void set(int i, double value);
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                newMatrix[j][i] = get(i, j);
-            }
-        }
+    void add(Matrix other);
 
-        return newMatrix;
-    }
+    int getRows() const;
 
-    Matrix multiply(Matrix other) {
-        if (this->columns == other.columns && this->rows == other.rows) {
-            Matrix newMatrix(this->rows, other.columns);
-            for (int i = 0; i < this->rows; ++i)
-                for (int j = 0; j < this->columns; ++j) {
-                    newMatrix[i][j] = get(i, j) * other[i][j];
-                }
-            return newMatrix;
-        } else {
-            return *this;
-        }
-    }
+    int getColumns() const;
+
+    void dump(string name);
+
+    string toString();
+
+    vector<double> toVector();
 };
 
 #endif //ML_TEST_MATRIX_H
