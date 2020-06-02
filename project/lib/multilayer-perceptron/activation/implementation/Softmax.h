@@ -27,7 +27,7 @@ class Softmax : public ActivationFunction {
     }
 
     double getDerivation(double input) override {
-        //todo
+        //todo: psq j ai rien capté la
         return input;
     }
 

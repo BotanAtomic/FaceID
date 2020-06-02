@@ -33,6 +33,7 @@ int main(int size, char **args) {
     MultiLayerNetwork network(inputSize);
     network.addLayer("hidden-layer1", 4);
     network.addLayer("output-layer", outputSize);
+
     network.initialize();
 
     network.dump();

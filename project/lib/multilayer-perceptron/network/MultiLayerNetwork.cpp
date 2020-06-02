@@ -37,16 +37,10 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int size, int epoc
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 
-            if (networkPredictions.size() > 1) {
-                expectedPredictions[labels[i]] = 1;
+            expectedPredictions[networkPredictions.size() > 1 ? labels[i] : 0] = labels[i];
 
-                for (int j = 0; j < networkPredictions.size(); j++) {
-                    error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
-                }
-            } else {
-                expectedPredictions[0] = labels[i];
-                error += pow((expectedPredictions[0] - networkPredictions[0]), 2);
-            }
+            for (int j = 0; j < networkPredictions.size(); j++)
+                error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
 
             backPropagation(expectedPredictions);
             updateWeights(inputsMatrix[i], alpha);

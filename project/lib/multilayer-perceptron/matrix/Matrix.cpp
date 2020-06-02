@@ -15,9 +15,7 @@ Matrix::Matrix(int rows, int columns) {
 Matrix::Matrix(double *inputs, int inputSize, int size) {
     this->rows = size;
     this->columns = inputSize;
-    for (int i = 0; i < rows * rows; i++) {
-        this->data.push_back(inputs[i]);
-    }
+    this->data.assign(inputs, inputs + (inputSize * size));
 }
 
 Matrix::Matrix(const vector<double> &inputs) {
