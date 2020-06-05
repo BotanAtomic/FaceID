@@ -6,12 +6,14 @@
 #define ML_TEST_ACTIVATIONFUNCTION_H
 
 
+#include <cstring>
 #include "../matrix/Matrix.h"
 
 class ActivationFunction {
 
 public:
-    virtual void activate(Matrix & matrix) = 0;
+
+    virtual void activate(Matrix &matrix) = 0;
 
     virtual double getDerivation(double x) = 0;
 

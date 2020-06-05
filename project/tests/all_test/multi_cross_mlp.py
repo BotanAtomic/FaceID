@@ -24,22 +24,23 @@ Y = np.array([np.argmax(p) for p in Y])
 ml_lib = load_multilayer_perceptron_ml_library(output)
 
 network = ml_lib.createModel(len(X[0]))
-ml_lib.addLayer(network, 32, cstring("relu"))  # hidden layer 1
-ml_lib.addLayer(network, 16, cstring("sigmoid"))  # hidden layer 2
-ml_lib.addLayer(network, 8, cstring("sigmoid"))  # hidden layer 3
-ml_lib.addLayer(network, 4, cstring("sigmoid"))  # hidden layer 4
-ml_lib.addLayer(network, output, cstring("sigmoid"))  # output layer
+ml_lib.addLayer(network, 16, cstring("relu"))  # hidden layer 1
+ml_lib.addLayer(network, 8, cstring("tanh"))  # hidden layer 2
+ml_lib.addLayer(network, 4, cstring("tanh"))  # hidden layer 3
+ml_lib.addLayer(network, 2, cstring("tanh"))  # hidden layer 4
+ml_lib.addLayer(network, output, cstring("tanh"))  # output layer
 
 XFlattened = np.reshape(X, len(X) * len(X[0]))
 labels = (c_double * len(Y))(*list(Y))
 inputs = (c_double * len(XFlattened))(*list(XFlattened))
 
-ml_lib.trainModel(network, inputs, labels, len(labels), 4000, 0.01)
+ml_lib.trainModel(network, inputs, labels, len(labels), 400, 0.1)
 
 
 # Test
 def test(input_test, label):
     predictions = [p for p in ml_lib.predict(network, (c_double * len(input_test))(*list(input_test))).contents]
+    print(predictions)
     return 1 if np.argmax(predictions) == label else 0
 
 

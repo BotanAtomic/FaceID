@@ -136,179 +136,182 @@ ML-test/fast:
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/build
 .PHONY : ML-test/fast
 
-layer/Layer.o: layer/Layer.cpp.o
+src/layer/Layer.o: src/layer/Layer.cpp.o
 
-.PHONY : layer/Layer.o
-
-# target to build an object file
-layer/Layer.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/layer/Layer.cpp.o
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/layer/Layer.cpp.o
-.PHONY : layer/Layer.cpp.o
-
-layer/Layer.i: layer/Layer.cpp.i
-
-.PHONY : layer/Layer.i
-
-# target to preprocess a source file
-layer/Layer.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/layer/Layer.cpp.i
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/layer/Layer.cpp.i
-.PHONY : layer/Layer.cpp.i
-
-layer/Layer.s: layer/Layer.cpp.s
-
-.PHONY : layer/Layer.s
-
-# target to generate assembly for a file
-layer/Layer.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/layer/Layer.cpp.s
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/layer/Layer.cpp.s
-.PHONY : layer/Layer.cpp.s
-
-library.o: library.cpp.o
-
-.PHONY : library.o
+.PHONY : src/layer/Layer.o
 
 # target to build an object file
-library.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/library.cpp.o
-.PHONY : library.cpp.o
+src/layer/Layer.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o
+.PHONY : src/layer/Layer.cpp.o
 
-library.i: library.cpp.i
+src/layer/Layer.i: src/layer/Layer.cpp.i
 
-.PHONY : library.i
+.PHONY : src/layer/Layer.i
 
 # target to preprocess a source file
-library.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/library.cpp.i
-.PHONY : library.cpp.i
+src/layer/Layer.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/layer/Layer.cpp.i
+.PHONY : src/layer/Layer.cpp.i
 
-library.s: library.cpp.s
+src/layer/Layer.s: src/layer/Layer.cpp.s
 
-.PHONY : library.s
+.PHONY : src/layer/Layer.s
 
 # target to generate assembly for a file
-library.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/library.cpp.s
-.PHONY : library.cpp.s
+src/layer/Layer.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/layer/Layer.cpp.s
+.PHONY : src/layer/Layer.cpp.s
 
-matrix/Matrix.o: matrix/Matrix.cpp.o
+src/library.o: src/library.cpp.o
 
-.PHONY : matrix/Matrix.o
+.PHONY : src/library.o
 
 # target to build an object file
-matrix/Matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.o
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/matrix/Matrix.cpp.o
-.PHONY : matrix/Matrix.cpp.o
+src/library.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.o
+.PHONY : src/library.cpp.o
 
-matrix/Matrix.i: matrix/Matrix.cpp.i
+src/library.i: src/library.cpp.i
 
-.PHONY : matrix/Matrix.i
+.PHONY : src/library.i
 
 # target to preprocess a source file
-matrix/Matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.i
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/matrix/Matrix.cpp.i
-.PHONY : matrix/Matrix.cpp.i
+src/library.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.i
+.PHONY : src/library.cpp.i
 
-matrix/Matrix.s: matrix/Matrix.cpp.s
+src/library.s: src/library.cpp.s
 
-.PHONY : matrix/Matrix.s
+.PHONY : src/library.s
 
 # target to generate assembly for a file
-matrix/Matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.s
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/matrix/Matrix.cpp.s
-.PHONY : matrix/Matrix.cpp.s
+src/library.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.s
+.PHONY : src/library.cpp.s
 
-network/MultiLayerNetwork.o: network/MultiLayerNetwork.cpp.o
+src/matrix/Matrix.o: src/matrix/Matrix.cpp.o
 
-.PHONY : network/MultiLayerNetwork.o
+.PHONY : src/matrix/Matrix.o
 
 # target to build an object file
-network/MultiLayerNetwork.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.o
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/network/MultiLayerNetwork.cpp.o
-.PHONY : network/MultiLayerNetwork.cpp.o
+src/matrix/Matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o
+.PHONY : src/matrix/Matrix.cpp.o
 
-network/MultiLayerNetwork.i: network/MultiLayerNetwork.cpp.i
+src/matrix/Matrix.i: src/matrix/Matrix.cpp.i
 
-.PHONY : network/MultiLayerNetwork.i
+.PHONY : src/matrix/Matrix.i
 
 # target to preprocess a source file
-network/MultiLayerNetwork.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.i
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/network/MultiLayerNetwork.cpp.i
-.PHONY : network/MultiLayerNetwork.cpp.i
+src/matrix/Matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.i
+.PHONY : src/matrix/Matrix.cpp.i
 
-network/MultiLayerNetwork.s: network/MultiLayerNetwork.cpp.s
+src/matrix/Matrix.s: src/matrix/Matrix.cpp.s
 
-.PHONY : network/MultiLayerNetwork.s
+.PHONY : src/matrix/Matrix.s
 
 # target to generate assembly for a file
-network/MultiLayerNetwork.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.s
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/network/MultiLayerNetwork.cpp.s
-.PHONY : network/MultiLayerNetwork.cpp.s
+src/matrix/Matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.s
+.PHONY : src/matrix/Matrix.cpp.s
 
-test.o: test.cpp.o
+src/network/MultiLayerNetwork.o: src/network/MultiLayerNetwork.cpp.o
 
-.PHONY : test.o
+.PHONY : src/network/MultiLayerNetwork.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/test.cpp.o
-.PHONY : test.cpp.o
+src/network/MultiLayerNetwork.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o
+.PHONY : src/network/MultiLayerNetwork.cpp.o
 
-test.i: test.cpp.i
+src/network/MultiLayerNetwork.i: src/network/MultiLayerNetwork.cpp.i
 
-.PHONY : test.i
+.PHONY : src/network/MultiLayerNetwork.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/test.cpp.i
-.PHONY : test.cpp.i
+src/network/MultiLayerNetwork.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.i
+.PHONY : src/network/MultiLayerNetwork.cpp.i
 
-test.s: test.cpp.s
+src/network/MultiLayerNetwork.s: src/network/MultiLayerNetwork.cpp.s
 
-.PHONY : test.s
+.PHONY : src/network/MultiLayerNetwork.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/test.cpp.s
-.PHONY : test.cpp.s
+src/network/MultiLayerNetwork.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.s
+.PHONY : src/network/MultiLayerNetwork.cpp.s
 
-utils/utils.o: utils/utils.cpp.o
+src/test.o: src/test.cpp.o
 
-.PHONY : utils/utils.o
+.PHONY : src/test.o
 
 # target to build an object file
-utils/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/utils/utils.cpp.o
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/utils/utils.cpp.o
-.PHONY : utils/utils.cpp.o
+src/test.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
 
-utils/utils.i: utils/utils.cpp.i
+src/test.i: src/test.cpp.i
 
-.PHONY : utils/utils.i
+.PHONY : src/test.i
 
 # target to preprocess a source file
-utils/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/utils/utils.cpp.i
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/utils/utils.cpp.i
-.PHONY : utils/utils.cpp.i
+src/test.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
 
-utils/utils.s: utils/utils.cpp.s
+src/test.s: src/test.cpp.s
 
-.PHONY : utils/utils.s
+.PHONY : src/test.s
 
 # target to generate assembly for a file
-utils/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/utils/utils.cpp.s
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/utils/utils.cpp.s
-.PHONY : utils/utils.cpp.s
+src/test.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
+src/utils/utils.o: src/utils/utils.cpp.o
+
+.PHONY : src/utils/utils.o
+
+# target to build an object file
+src/utils/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/utils/utils.cpp.o
+.PHONY : src/utils/utils.cpp.o
+
+src/utils/utils.i: src/utils/utils.cpp.i
+
+.PHONY : src/utils/utils.i
+
+# target to preprocess a source file
+src/utils/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/utils/utils.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/utils/utils.cpp.i
+.PHONY : src/utils/utils.cpp.i
+
+src/utils/utils.s: src/utils/utils.cpp.s
+
+.PHONY : src/utils/utils.s
+
+# target to generate assembly for a file
+src/utils/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/utils/utils.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/utils/utils.cpp.s
+.PHONY : src/utils/utils.cpp.s
 
 # Help Target
 help:
@@ -320,24 +323,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... ML-framework"
 	@echo "... ML-test"
-	@echo "... layer/Layer.o"
-	@echo "... layer/Layer.i"
-	@echo "... layer/Layer.s"
-	@echo "... library.o"
-	@echo "... library.i"
-	@echo "... library.s"
-	@echo "... matrix/Matrix.o"
-	@echo "... matrix/Matrix.i"
-	@echo "... matrix/Matrix.s"
-	@echo "... network/MultiLayerNetwork.o"
-	@echo "... network/MultiLayerNetwork.i"
-	@echo "... network/MultiLayerNetwork.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
-	@echo "... utils/utils.o"
-	@echo "... utils/utils.i"
-	@echo "... utils/utils.s"
+	@echo "... src/layer/Layer.o"
+	@echo "... src/layer/Layer.i"
+	@echo "... src/layer/Layer.s"
+	@echo "... src/library.o"
+	@echo "... src/library.i"
+	@echo "... src/library.s"
+	@echo "... src/matrix/Matrix.o"
+	@echo "... src/matrix/Matrix.i"
+	@echo "... src/matrix/Matrix.s"
+	@echo "... src/network/MultiLayerNetwork.o"
+	@echo "... src/network/MultiLayerNetwork.i"
+	@echo "... src/network/MultiLayerNetwork.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
+	@echo "... src/utils/utils.o"
+	@echo "... src/utils/utils.i"
+	@echo "... src/utils/utils.s"
 .PHONY : help
 
 

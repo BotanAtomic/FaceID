@@ -4,7 +4,6 @@
 
 #include "utils.h"
 
-
 string vectorToString(vector<double> vec) {
     std::ostringstream vts;
     vts << "[";
@@ -23,4 +22,20 @@ double *vectorToArray(vector<double> vec) {
         array[i] = vec[i];
     }
     return array;
+}
+
+vector<std::string> split(string str, string delimiter) {
+    std::vector<std::string> tokens;
+    char *str_c = strdup(str.c_str());
+    char *token = nullptr;
+
+    token = strtok(str_c, delimiter.c_str());
+    while (token != nullptr) {
+        tokens.emplace_back(token);
+        token = strtok(nullptr, delimiter.c_str());
+    }
+
+    delete[] str_c;
+
+    return tokens;
 }

@@ -4,23 +4,20 @@
 
 #include "Layer.h"
 
-Layer::Layer(const string &name, int neurons, ActivationFunction * activation) {
+Layer::Layer(const string &name, int neurons, ActivationFunction *activation, Initializer *initializer) {
     this->name = name;
     this->neurons = neurons;
     this->outputs = new Matrix(neurons);
     this->errors = new Matrix(neurons);
     this->activation = activation;
+    this->initializer = initializer;
 }
 
 void Layer::initialize(int inputSize) {
     this->weights = new Matrix(this->neurons, inputSize);
 
-    random_device rd;
-    mt19937 e2(rd());
-    uniform_real_distribution<> dist(-1.0f, 1.0f);
-
     for (int i = 0; i < this->neurons * inputSize; i++) {
-        (*this->weights).set(i, dist(e2));
+        (*this->weights).set(i, initializer->get());
     }
 }
 
@@ -32,23 +29,23 @@ string Layer::getName() {
     return this->name;
 }
 
-Matrix * Layer::getWeights() {
+Matrix *Layer::getWeights() {
     return this->weights;
 }
 
-Matrix * Layer::getOutputs() {
+Matrix *Layer::getOutputs() {
     return this->outputs;
 }
 
-Matrix * Layer::getErrors() {
+Matrix *Layer::getErrors() {
     return this->errors;
 }
 
-ActivationFunction * Layer::getActivation() {
+ActivationFunction *Layer::getActivation() {
     return this->activation;
 }
 
-void Layer::setOutputs(Matrix & o) {
+void Layer::setOutputs(Matrix &o) {
     *outputs = o;
 }
 
@@ -58,6 +55,6 @@ void Layer::computeErrors(const vector<double> &currentErrors) {
     }
 }
 
-void Layer::updateWeights(Matrix * correction) {
+void Layer::updateWeights(Matrix *correction) {
     weights->add(*correction);
 }

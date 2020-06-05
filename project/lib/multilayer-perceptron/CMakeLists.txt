@@ -5,21 +5,24 @@ project(ML-test)
 set(CMAKE_CXX_STANDARD 14)
 
 add_library(ML-framework SHARED
-        library.cpp
-        layer/Layer.cpp layer/Layer.h
-        network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
-        matrix/Matrix.h matrix/Matrix.cpp
-        utils/utils.h utils/utils.cpp
-        activation/ActivationFunction.h activation/implementation/Hyperbolic.h
-        activation/implementation/Sigmoid.h activation/implementation/Softmax.h
-        activation/implementation/Relu.h)
+        src/library.cpp
+        src/layer/Layer.cpp src/layer/Layer.h
+        src/network/MultiLayerNetwork.cpp src/network/MultiLayerNetwork.h
+        src/matrix/Matrix.h src/matrix/Matrix.cpp
+        src/utils/utils.h src/utils/utils.cpp
+        src/activation/ActivationFunction.h src/activation/implementation/Hyperbolic.h
+        src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
+        src/activation/implementation/Relu.h
+        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h)
 
 add_executable(ML-test
-        test.cpp
-        layer/Layer.cpp layer/Layer.h
-        network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
-        matrix/Matrix.h matrix/Matrix.cpp
-        utils/utils.h utils/utils.cpp
-        activation/ActivationFunction.h activation/implementation/Hyperbolic.h
-        activation/implementation/Sigmoid.h activation/implementation/Softmax.h
-        activation/implementation/Relu.h)
+        src/test.cpp
+        src/library.cpp
+        src/layer/Layer.cpp src/layer/Layer.h
+        src/network/MultiLayerNetwork.cpp src/network/MultiLayerNetwork.h
+        src/matrix/Matrix.h src/matrix/Matrix.cpp
+        src/utils/utils.h src/utils/utils.cpp
+        src/activation/ActivationFunction.h src/activation/implementation/Hyperbolic.h
+        src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
+        src/activation/implementation/Relu.h
+        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h)

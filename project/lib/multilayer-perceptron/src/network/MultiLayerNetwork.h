@@ -8,6 +8,7 @@
 #include "../utils/utils.h"
 #include "../layer/Layer.h"
 #include "../activation/implementation/Sigmoid.h"
+#include "../initializer/implementation/RandomUniform.h"
 
 using namespace std;
 
@@ -23,6 +24,8 @@ public:
     void addLayer(const string &name, int size);
 
     void addLayer(const string &name, int size, ActivationFunction *activationFunction);
+
+    void addLayer(const string &name, int size, ActivationFunction *activationFunction, Initializer * initializer);
 
     void initialize();
 

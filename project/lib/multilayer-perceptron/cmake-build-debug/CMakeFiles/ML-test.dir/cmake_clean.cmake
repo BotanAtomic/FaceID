@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ML-test.dir/test.cpp.o"
-  "CMakeFiles/ML-test.dir/layer/Layer.cpp.o"
-  "CMakeFiles/ML-test.dir/network/MultiLayerNetwork.cpp.o"
-  "CMakeFiles/ML-test.dir/matrix/Matrix.cpp.o"
-  "CMakeFiles/ML-test.dir/utils/utils.cpp.o"
+  "CMakeFiles/ML-test.dir/src/test.cpp.o"
+  "CMakeFiles/ML-test.dir/src/library.cpp.o"
+  "CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o"
+  "CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o"
+  "CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o"
+  "CMakeFiles/ML-test.dir/src/utils/utils.cpp.o"
   "ML-test.pdb"
   "ML-test"
 )

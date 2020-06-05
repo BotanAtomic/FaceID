@@ -11,11 +11,16 @@ MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
 }
 
 void MultiLayerNetwork::addLayer(const string &name, int size) {
-    layers.push_back(new Layer(name, size, new Sigmoid()));
+    layers.push_back(new Layer(name, size, new Sigmoid(), new RandomUniform(-1.0, 1.0)));
 }
 
 void MultiLayerNetwork::addLayer(const string &name, int size, ActivationFunction *activationFunction) {
-    layers.push_back(new Layer(name, size, activationFunction));
+    layers.push_back(new Layer(name, size, activationFunction, new RandomUniform(-1.0, 1.0)));
+}
+
+void MultiLayerNetwork::addLayer(const string &name, int size, ActivationFunction *activationFunction,
+                                 Initializer *initializer) {
+    layers.push_back(new Layer(name, size, activationFunction, initializer));
 }
 
 void MultiLayerNetwork::initialize() {
