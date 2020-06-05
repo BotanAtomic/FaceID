@@ -4,6 +4,7 @@
 
 #include "utils.h"
 
+
 string vectorToString(vector<double> vec) {
     std::ostringstream vts;
     vts << "[";

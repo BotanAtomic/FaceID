@@ -4,7 +4,12 @@
 
 #include "Matrix.h"
 
-#include <utility>
+Matrix::Matrix(int size) {
+    this->rows = 1;
+    this->columns = size;
+    this->data.assign(size, 0.0f);
+}
+
 
 Matrix::Matrix(int rows, int columns) {
     this->rows = rows;
@@ -15,7 +20,13 @@ Matrix::Matrix(int rows, int columns) {
 Matrix::Matrix(double *inputs, int inputSize, int size) {
     this->rows = size;
     this->columns = inputSize;
-    this->data.assign(inputs, inputs + (inputSize * size));
+    data.assign(inputs, inputs + (rows * columns));
+}
+
+Matrix::Matrix(Matrix * matrix, int inputSize, int size) {
+    this->rows = size;
+    this->columns = inputSize;
+    this->data = matrix->data;
 }
 
 Matrix::Matrix(const vector<double> &inputs) {
@@ -25,27 +36,21 @@ Matrix::Matrix(const vector<double> &inputs) {
 }
 
 double *Matrix::operator[](int i) {
-    return get(i);
+    return &data[i * columns];
 }
 
 Matrix Matrix::T() {
-    Matrix newMatrix(columns, rows);
-
-    for (int i = 0; i < rows; i++)
-        for (int j = 0; j < columns; j++)
-            newMatrix[j][i] = get(i, j);
-
-    return newMatrix;
+    return Matrix(this, rows, columns);
 }
 
-Matrix Matrix::dot(Matrix other) {
+Matrix Matrix::dot(Matrix &other) {
     if (this->columns == other.rows) {
         Matrix product(this->rows, other.columns);
         for (int i = 0; i < this->rows; ++i)
             for (int j = 0; j < other.columns; ++j) {
-                product[i][j] = 0;
+                product.set(i, j, 0);
                 for (int k = 0; k < this->columns; ++k) {
-                    product[i][j] += get(i, k) * other[k][j];
+                    product[i][j] += get(i, k) * other.get(k, j);
                 }
             }
         return product;
@@ -55,27 +60,13 @@ Matrix Matrix::dot(Matrix other) {
     }
 }
 
-Matrix Matrix::operator*(double number) {
+Matrix *Matrix::operator*(double number) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
             set(i, j, get(i, j) * number);
         }
     }
-    return *this;
-}
-
-Matrix Matrix::operator-(Matrix other) {
-    if (this->columns == other.columns && this->rows == other.rows) {
-        Matrix newMatrix(this->rows, other.columns);
-        for (int i = 0; i < this->rows; ++i)
-            for (int j = 0; j < this->columns; ++j) {
-                newMatrix[i][j] = get(i, j) - other[i][j];
-            }
-        return newMatrix;
-    } else {
-        printf("cannot compute (-) matrix (%d, %d) with (%d, %d)\n", rows, columns, other.rows, other.columns);
-        exit(-1);
-    }
+    return this;
 }
 
 Matrix Matrix::apply(double transformer(double)) {
@@ -91,8 +82,8 @@ double Matrix::get(int i, int j) {
     return data[i * columns + j];
 }
 
-double *Matrix::get(int i) {
-    return &data[i * columns];
+double Matrix::get(int i) {
+    return data[i];
 }
 
 void Matrix::set(int i, int j, double value) {
@@ -119,7 +110,7 @@ int Matrix::getRows() const { return rows; }
 
 int Matrix::getColumns() const { return columns; }
 
-void Matrix::dump(string name) {
+void Matrix::dump(const string& name) {
     cout << "Matrix(" << rows << "," << columns << ") " << name << endl;
     cout << toString() << endl;
 }
@@ -143,12 +134,6 @@ string Matrix::toString() {
     return stream.str();
 }
 
-vector<double> Matrix::toVector() {
-    vector<double> vector;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
-            vector.push_back(get(i, j));
-        }
-    }
-    return vector;
+vector<double> &Matrix::toVector() {
+    return data;
 }

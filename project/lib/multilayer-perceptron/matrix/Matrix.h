@@ -7,9 +7,9 @@
 
 #include "iostream"
 #include "string"
-#include "../utils/utils.h"
 #include <sstream>
 #include <vector>
+#include "../utils/utils.h"
 
 using namespace std;
 
@@ -22,19 +22,21 @@ private:
 
 public:
 
+    explicit Matrix(int size);
+
     Matrix(int rows, int columns);
 
-    Matrix(double * inputs, int inputSize, int size);
+    Matrix(double *inputs, int inputSize, int size);
 
-    explicit Matrix(const vector<double>& inputs);
+    Matrix(Matrix * matrix, int inputSize, int size);
 
-    double * operator[](int i);
+    explicit Matrix(const vector<double> &inputs);
 
-    Matrix dot(Matrix other);
+    double *operator[](int i);
 
-    Matrix operator*(double number);
+    Matrix dot(Matrix &other);
 
-    Matrix operator-(Matrix other);
+    Matrix *operator*(double number);
 
     Matrix T();
 
@@ -42,7 +44,7 @@ public:
 
     double get(int i, int j);
 
-    double *get(int i);
+    double get(int i);
 
     void set(int i, int j, double value);
 
@@ -54,11 +56,11 @@ public:
 
     int getColumns() const;
 
-    void dump(string name);
+    void dump(const string &name);
 
     string toString();
 
-    vector<double> toVector();
+    vector<double> &toVector();
 };
 
 #endif //ML_TEST_MATRIX_H

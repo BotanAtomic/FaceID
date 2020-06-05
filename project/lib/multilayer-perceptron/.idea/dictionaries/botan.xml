@@ -2,6 +2,7 @@
   <dictionary name="botan">
     <words>
       <w>perceptron</w>
+      <w>relu</w>
       <w>softmax</w>
     </words>
   </dictionary>

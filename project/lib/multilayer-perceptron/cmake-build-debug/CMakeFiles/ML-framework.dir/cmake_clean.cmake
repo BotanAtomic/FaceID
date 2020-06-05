@@ -1,13 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ML-framework.dir/layer/Layer.cpp.obj"
-  "CMakeFiles/ML-framework.dir/library.cpp.obj"
-  "CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.obj"
-  "CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.obj"
-  "CMakeFiles/ML-framework.dir/utils/utils.cpp.obj"
-  "ML-framework.dll"
-  "ML-framework.dll.manifest"
-  "ML-framework.lib"
-  "ML-framework.pdb"
+  "CMakeFiles/ML-framework.dir/library.cpp.o"
+  "CMakeFiles/ML-framework.dir/layer/Layer.cpp.o"
+  "CMakeFiles/ML-framework.dir/network/MultiLayerNetwork.cpp.o"
+  "CMakeFiles/ML-framework.dir/matrix/Matrix.cpp.o"
+  "CMakeFiles/ML-framework.dir/utils/utils.cpp.o"
+  "libML-framework.pdb"
+  "libML-framework.so"
 )
 
 # Per-language clean rules from dependency scanning.

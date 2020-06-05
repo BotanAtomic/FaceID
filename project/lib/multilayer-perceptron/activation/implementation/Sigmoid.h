@@ -9,19 +9,15 @@
 
 class Sigmoid : public ActivationFunction {
 
-    static double sigmoid(double x) {
-        return 1.0f / (1.0f + std::exp(-x));
+    static double sigmoidFunction(double x) {
+        return 1.0f / (1.0f + exp(-x));
     }
 
-    static double sigmoid_(double x) {
-        return x * (1.0f - x);
+    void activate(Matrix & matrix) override {
+        matrix.apply(sigmoidFunction);
     }
 
-    void activate(Matrix &matrix) override {
-        matrix.apply(sigmoid);
-    }
-
-    virtual double getDerivation(double x) override {
+    double getDerivation(double x) override {
         return x * (1.0f - x);
     }
 

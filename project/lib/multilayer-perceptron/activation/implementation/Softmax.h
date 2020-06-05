@@ -5,11 +5,12 @@
 #ifndef ML_TEST_SOFTMAX_CPP
 #define ML_TEST_SOFTMAX_CPP
 
+#include <algorithm>
 #include "../ActivationFunction.h"
 
 class Softmax : public ActivationFunction {
 
-    void activate(Matrix &matrix) override {
+    void activate(Matrix & matrix) override {
         std::vector<double> vector = matrix.toVector();
 
         double max = *std::max_element(vector.begin(), vector.end());
@@ -23,12 +24,12 @@ class Softmax : public ActivationFunction {
         for (double &i : vector) {
             i = exp(i - offset);
         }
-        matrix = Matrix(vector);
     }
 
-    double getDerivation(double input) override {
+    double getDerivation(double x) override {
         //todo: psq j ai rien capté la
-        return input;
+        //use sigmoid for the moment
+        return x * (1.0f - x);
     }
 
 };

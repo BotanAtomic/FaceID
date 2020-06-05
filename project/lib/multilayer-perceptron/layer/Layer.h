@@ -17,9 +17,9 @@ class Layer {
 private:
     string name = "unnamed-layer";
     int neurons;
-    Matrix weights = Matrix(0, 0);
-    vector<double> outputs;
-    vector<double> errors;
+    Matrix * weights{};
+    Matrix * outputs;
+    Matrix * errors;
     ActivationFunction * activation;
 public:
     explicit Layer(const string& name, int neurons, ActivationFunction * activation);
@@ -28,21 +28,21 @@ public:
 
     int getSize() const;
 
-    Matrix getWeights();
-
     string getName();
 
-    vector<double> getOutputs();
+    Matrix * getWeights();
 
-    vector<double> getErrors();
+    Matrix * getOutputs();
+
+    Matrix * getErrors();
 
     ActivationFunction * getActivation();
 
-    void setOutputs(const vector<double>& o);
+    void setOutputs(Matrix & o);
 
     void computeErrors(const vector<double>& currentErrors);
 
-    void updateWeights(Matrix correction);
+    void updateWeights(Matrix * correction);
 };
 
 

@@ -11,9 +11,9 @@
 class ActivationFunction {
 
 public:
-    virtual void activate(Matrix &matrix) = 0;
+    virtual void activate(Matrix & matrix) = 0;
 
-    virtual double getDerivation(double input) = 0;
+    virtual double getDerivation(double x) = 0;
 
 };
 

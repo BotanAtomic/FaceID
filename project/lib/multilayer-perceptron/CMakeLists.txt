@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10.2)
 project(ML-framework)
 project(ML-test)
 
@@ -10,7 +10,9 @@ add_library(ML-framework SHARED
         network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
         matrix/Matrix.h matrix/Matrix.cpp
         utils/utils.h utils/utils.cpp
-        activation/ActivationFunction.h activation/implementation/Sigmoid.h activation/implementation/Softmax.h)
+        activation/ActivationFunction.h activation/implementation/Hyperbolic.h
+        activation/implementation/Sigmoid.h activation/implementation/Softmax.h
+        activation/implementation/Relu.h)
 
 add_executable(ML-test
         test.cpp
@@ -18,4 +20,6 @@ add_executable(ML-test
         network/MultiLayerNetwork.cpp network/MultiLayerNetwork.h
         matrix/Matrix.h matrix/Matrix.cpp
         utils/utils.h utils/utils.cpp
-        activation/ActivationFunction.h activation/implementation/Sigmoid.h activation/implementation/Softmax.h)
+        activation/ActivationFunction.h activation/implementation/Hyperbolic.h
+        activation/implementation/Sigmoid.h activation/implementation/Softmax.h
+        activation/implementation/Relu.h)
