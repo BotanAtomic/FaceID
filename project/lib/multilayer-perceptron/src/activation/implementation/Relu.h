@@ -13,6 +13,10 @@ class Relu : public ActivationFunction {
         return x <= 0 ? 0 : x;
     }
 
+    string getName() override {
+        return "relu";
+    }
+
     void activate(Matrix &matrix) override {
         matrix.apply(reluFunction);
     }

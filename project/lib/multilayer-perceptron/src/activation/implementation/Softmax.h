@@ -10,6 +10,10 @@
 
 class Softmax : public ActivationFunction {
 
+    string getName() override {
+        return "softmax";
+    }
+
     void activate(Matrix & matrix) override {
         std::vector<double> vector = matrix.toVector();
 
@@ -27,8 +31,7 @@ class Softmax : public ActivationFunction {
     }
 
     double getDerivation(double x) override {
-        //todo: psq j ai rien capté la
-        //use sigmoid for the moment
+        //todo: psq j ai rien capté la donc sigmoid pr l instant
         return x * (1.0f - x);
     }
 

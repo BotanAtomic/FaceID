@@ -6,10 +6,10 @@
 #define ML_TEST_UTILS_H
 
 #include <cmath>
-#include <string.h>
-#include <sstream>
-#include "vector"
-#include "random"
+#include <string>
+#include <vector>
+#include <random>
+#include "fstream"
 
 using namespace std;
 
@@ -17,6 +17,6 @@ string vectorToString(vector<double> vec);
 
 double *vectorToArray(vector<double> vec);
 
-vector<string> split(std::string string, std::string delimiter);
+vector<string> split(const std::string& string, const std::string& delimiter);
 
 #endif //ML_TEST_UTILS_H

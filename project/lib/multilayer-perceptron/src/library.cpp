@@ -3,6 +3,7 @@
 #include "activation/implementation/Softmax.h"
 #include "activation/implementation/Hyperbolic.h"
 #include "activation/implementation/Relu.h"
+#include "activation/implementation/Linear.h"
 
 #ifdef _WIN32
 #define EXPORT __declspec(dllexport)
@@ -16,29 +17,6 @@ struct Parameters {
     Initializer *initializer = new RandomUniform(-1.0, 1.0);
 };
 
-ActivationFunction *getActivation(string activation) {
-    if (activation.compare("sigmoid") == 0)
-        return new Sigmoid();
-    else if (activation.compare("tanh") == 0)
-        return new Hyperbolic();
-    else if (activation.compare("softmax") == 0)
-        return new Softmax();
-    else if (activation.compare("relu") == 0)
-        return new Relu();
-    return new Sigmoid();
-}
-
-Initializer *getInitializer(vector<string> params) {
-    if (params[0].compare("random_uniform") == 0) {
-        if (params.size() < 3)
-            cout << "Invalid parameters for initializer: required 3, got " << params.size() << endl;
-        else
-            return new RandomUniform(stod(params[1]), stod(params[2]));
-    }
-
-    return new RandomUniform(-1.0, 1.0);
-}
-
 Parameters parseParameters(char *input) {
     Parameters parameters;
 
@@ -48,12 +26,13 @@ Parameters parseParameters(char *input) {
         });
         for (string s: split(input, ";")) {
             vector<string> pair = split(s, "=");
+            if (pair.size() < 2) continue;
             string key = pair[0], value = pair[1];
 
             if (key.compare("activation") == 0) {
-                parameters.activationFunction = getActivation(value.c_str());
+                parameters.activationFunction = MultiLayerNetwork::getActivation(value);
             } else if (key.compare("initializer") == 0) {
-                parameters.initializer = getInitializer(split(value, ","));
+                parameters.initializer = MultiLayerNetwork::getInitializer(split(value, ","));
             }
         }
     }
@@ -75,14 +54,16 @@ EXPORT void addLayer(MultiLayerNetwork *network, int size, char *params) {
 EXPORT void
 trainModel(MultiLayerNetwork *network, double *inputs, double *labels, int size, int epochs, double alpha) {
     network->initialize();
-    network->dump();
     network->train(inputs, labels, size, epochs, alpha);
+}
+
+EXPORT void summary(MultiLayerNetwork *model) {
+    model->dump();
 }
 
 EXPORT double *predict(MultiLayerNetwork *network, double *inputs) {
     return vectorToArray(network->predict(inputs));
 }
-
 
 EXPORT void deleteModel(MultiLayerNetwork *network) {
     delete network;

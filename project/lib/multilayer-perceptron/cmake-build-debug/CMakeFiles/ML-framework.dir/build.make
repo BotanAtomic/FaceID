@@ -177,13 +177,63 @@ CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o.provides: CMakeFiles/ML-framew
 CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o.provides.build: CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o
 
 
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o: CMakeFiles/ML-framework.dir/flags.make
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o: ../src/file/FileWriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp
+
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp > CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.i
+
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp -o CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.s
+
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.requires
+
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.provides: CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.provides
+
+CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.provides.build: CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o
+
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o: CMakeFiles/ML-framework.dir/flags.make
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o: ../src/file/FileReader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp > CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.i
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp -o CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.s
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.requires
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.provides: CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.provides
+
+CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.provides.build: CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o
+
+
 # Object files for target ML-framework
 ML__framework_OBJECTS = \
 "CMakeFiles/ML-framework.dir/src/library.cpp.o" \
 "CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.o" \
 "CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o" \
 "CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.o" \
-"CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o"
+"CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o" \
+"CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o" \
+"CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o"
 
 # External object files for target ML-framework
 ML__framework_EXTERNAL_OBJECTS =
@@ -193,9 +243,11 @@ libML-framework.so: CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.o
 libML-framework.so: CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o
 libML-framework.so: CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.o
 libML-framework.so: CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o
+libML-framework.so: CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o
+libML-framework.so: CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o
 libML-framework.so: CMakeFiles/ML-framework.dir/build.make
 libML-framework.so: CMakeFiles/ML-framework.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libML-framework.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libML-framework.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ML-framework.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -208,6 +260,8 @@ CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/layer/Laye
 CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o.requires
 CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.o.requires
 CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/utils/utils.cpp.o.requires
+CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o.requires
+CMakeFiles/ML-framework.dir/requires: CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o.requires
 
 .PHONY : CMakeFiles/ML-framework.dir/requires
 

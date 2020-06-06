@@ -11,6 +11,7 @@
 class Initializer {
 
 public:
+
     virtual double get() = 0;
 
 };

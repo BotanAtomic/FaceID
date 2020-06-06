@@ -26,15 +26,20 @@ output = 3
 ml_lib = load_multilayer_perceptron_ml_library(output)
 
 network = ml_lib.createModel(len(X[0]))
-ml_lib.addLayer(network, (len(X[0]) * 3) + 1, cstring("activation=sigmoid"))  # hidden layer 1
-ml_lib.addLayer(network, output, cstring("activation=sigmoid"))  # output layer
+
+
+ml_lib.addLayer(network, (len(X[0]) * 3) + 1, None)  # hidden layer 1
+ml_lib.addLayer(network, (len(X[0]) * 3) + 1, None)  # hidden layer 2
+ml_lib.addLayer(network, output, None)               # output layer
+
 
 XFlattened = np.reshape(X, len(X) * len(X[0]))
 labels = (c_double * len(Y))(*list(Y))
 inputs = (c_double * len(XFlattened))(*list(XFlattened))
 
-ml_lib.trainModel(network, inputs, labels, len(labels), 2000, 0.1)
+ml_lib.trainModel(network, inputs, labels, len(labels), 1000, 0.1)
 
+ml_lib.summary(network)
 
 # Test
 def test(input_test, label):

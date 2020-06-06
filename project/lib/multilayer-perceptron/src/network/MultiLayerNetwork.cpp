@@ -4,19 +4,15 @@
 
 #include "MultiLayerNetwork.h"
 
-static int o = 0;
-
 MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
     this->inputSize = inputSize;
 }
 
-void MultiLayerNetwork::addLayer(const string &name, int size) {
-    layers.push_back(new Layer(name, size, new Sigmoid(), new RandomUniform(-1.0, 1.0)));
+MultiLayerNetwork::MultiLayerNetwork(vector<Layer *> layers) {
+    this->inputSize = layers[0]->getSize();
+    this->layers = layers;
 }
 
-void MultiLayerNetwork::addLayer(const string &name, int size, ActivationFunction *activationFunction) {
-    layers.push_back(new Layer(name, size, activationFunction, new RandomUniform(-1.0, 1.0)));
-}
 
 void MultiLayerNetwork::addLayer(const string &name, int size, ActivationFunction *activationFunction,
                                  Initializer *initializer) {
@@ -37,17 +33,12 @@ void MultiLayerNetwork::initialize() {
 void MultiLayerNetwork::train(double *inputs, double *labels, int size, int epochs, double alpha) {
     cout << "Start training model: size=" << size << ", epochs=" << epochs << ", alpha=" << alpha << endl;
 
-    Matrix inputsMatrix(inputs, inputSize, size);
-    inputsMatrix.dump("input matrix");
-
-    cout << "labels: " << vectorToString(vector<double>(labels, labels + size)) << endl;
+    Matrix inputsMatrix(inputs, size, inputSize);
 
     for (int _ = 1; _ <= epochs; _++) {
         double error = 0;
         for (int i = 0; i < size; i++) {
             vector<double> networkPredictions = predict(inputsMatrix[i]);
-
-
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 
             if (networkPredictions.size() > 1) {
@@ -56,20 +47,21 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int size, int epoc
                 expectedPredictions[0] = labels[i];
             }
 
-            for (int j = 0; j < networkPredictions.size(); j++)
-                error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
+            if (_ % 1000 == 0)
+                for (int j = 0; j < networkPredictions.size(); j++)
+                    error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
 
             backPropagation(expectedPredictions);
             updateWeights(inputsMatrix[i], alpha);
         }
 
-        if (_ % 100 == 0)
+        if (_ % 1000 == 0)
             cout << "> epochs " << _ << " - error=" << error << endl;
     }
 }
 
 vector<double> MultiLayerNetwork::predict(double *inputs) {
-    Matrix matrix(inputs, 1, this->inputSize);
+    Matrix matrix(inputs, this->inputSize, 1);
 
     for (auto &layer : layers) {
         matrix = layer->getWeights()->dot(matrix);
@@ -109,17 +101,56 @@ void MultiLayerNetwork::updateWeights(double *inputs, double alpha) {
         Matrix delta = layer->getErrors()->T().dot(transversedInputs);
 
         layer->updateWeights(delta * alpha);
-
     }
 }
 
 
 void MultiLayerNetwork::dump() {
     for (auto layer : layers) {
-        cout << layer->getName() << " (" << layer->getSize() << " neurons, " << layer->getWeights()->getColumns()
-             << " input neurons): " << endl << layer->getWeights()->toString() << endl;
+        cout << layer->getName() << " [" << layer->getSize() << " neurons, " << layer->getWeights()->getColumns()
+             << " inputs, activation=" << layer->getActivation()->getName() << "]: " << endl
+             << layer->getWeights()->toString() << endl;
     }
 }
 
+void MultiLayerNetwork::save(char *path) {
+    FileWriter fileWriter(path);
 
+    if (!fileWriter.isOpen())
+        return;
 
+    fileWriter.writeInt(layers.size());
+
+    for (Layer *layer: layers) {
+        fileWriter.writeString(layer->getName());
+        fileWriter.writeInt(layer->getSize());
+        fileWriter.writeString(layer->getActivation()->getName());
+        fileWriter.writeMatrix(layer->getWeights());
+    }
+
+    fileWriter.close();
+}
+
+MultiLayerNetwork *MultiLayerNetwork::load(char *path) {
+    FileReader fileReader(path);
+
+    if (!fileReader.isOpen())
+        return nullptr;
+
+    int layersSize = fileReader.readInt();
+
+    vector<Layer *> layers;
+
+    for (int i = 0; i < layersSize; i++) {
+        string name = fileReader.readString();
+        int neurons = fileReader.readInt();
+        string activationName = fileReader.readString();
+        Matrix *weights = fileReader.readMatrix();
+
+        auto *layer = new Layer(name, neurons, getActivation(activationName), nullptr);
+        layer->initialize(weights);
+        layers.push_back(layer);
+    }
+
+    return new MultiLayerNetwork(layers);
+}

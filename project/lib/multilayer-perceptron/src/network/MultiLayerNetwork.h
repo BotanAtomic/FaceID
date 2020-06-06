@@ -8,11 +8,45 @@
 #include "../utils/utils.h"
 #include "../layer/Layer.h"
 #include "../activation/implementation/Sigmoid.h"
+#include "../activation/implementation/Hyperbolic.h"
+#include "../activation/implementation/Linear.h"
+#include "../activation/implementation/Relu.h"
+#include "../activation/implementation/Softmax.h"
+
 #include "../initializer/implementation/RandomUniform.h"
+#include "../file/FileWriter.h"
+#include "../file/FileReader.h"
 
 using namespace std;
 
 class MultiLayerNetwork {
+
+public:
+    static ActivationFunction *getActivation(const string &activation) {
+        if (activation == "sigmoid")
+            return new Sigmoid();
+        else if (activation == "tanh")
+            return new Hyperbolic();
+        else if (activation == "softmax")
+            return new Softmax();
+        else if (activation == "relu")
+            return new Relu();
+        else if (activation == "linear")
+            return new Linear();
+        return new Sigmoid();
+    }
+
+    static Initializer *getInitializer(vector<string> params) {
+        if (params[0] == "random_uniform") {
+            if (params.size() < 3)
+                cout << "Invalid parameters for initializer: required 3, got " << params.size() << endl;
+            else
+                return new RandomUniform(stod(params[1]), stod(params[2]));
+        }
+
+        return new RandomUniform(-1.0, 1.0);
+    }
+
 
 private:
     int inputSize;
@@ -21,11 +55,9 @@ private:
 public:
     explicit MultiLayerNetwork(int inputSize);
 
-    void addLayer(const string &name, int size);
+    explicit MultiLayerNetwork(vector<Layer*> layers);
 
-    void addLayer(const string &name, int size, ActivationFunction *activationFunction);
-
-    void addLayer(const string &name, int size, ActivationFunction *activationFunction, Initializer * initializer);
+    void addLayer(const string &name, int size, ActivationFunction *activationFunction, Initializer *initializer);
 
     void initialize();
 
@@ -38,6 +70,10 @@ public:
     void updateWeights(double *inputs, double alpha);
 
     void dump();
+
+    void save(char *path);
+
+    static MultiLayerNetwork *load(char *path);
 };
 
 

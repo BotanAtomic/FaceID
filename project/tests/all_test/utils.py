@@ -41,6 +41,9 @@ def load_multilayer_perceptron_ml_library(outputSize):
     library.addLayer.argtypes = [c_void_p, c_int, c_char_p]
     library.addLayer.restype = None
 
+    library.summary.argtypes = [c_void_p]
+    library.summary.restype = None
+
     library.predict.argtypes = [c_void_p, c_void_p]
     library.predict.restype = POINTER(c_double * outputSize)
 

@@ -13,6 +13,10 @@ class Hyperbolic : public ActivationFunction {
         return tanh(x);
     }
 
+    string getName() override {
+        return "tanh";
+    }
+
     void activate(Matrix &matrix) override {
         matrix.apply(hyperbolicFunction);
     }

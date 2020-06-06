@@ -13,6 +13,10 @@ class Sigmoid : public ActivationFunction {
         return 1.0f / (1.0f + exp(-x));
     }
 
+    string getName() override {
+        return "sigmoid";
+    }
+
     void activate(Matrix & matrix) override {
         matrix.apply(sigmoidFunction);
     }

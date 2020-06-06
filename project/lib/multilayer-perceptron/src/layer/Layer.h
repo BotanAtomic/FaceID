@@ -18,7 +18,7 @@ class Layer {
 private:
     string name;
     int neurons;
-    Matrix *weights{};
+    Matrix *weights;
     Matrix *outputs;
     Matrix *errors;
     ActivationFunction *activation;
@@ -27,6 +27,8 @@ public:
     explicit Layer(const string &name, int neurons, ActivationFunction *activation, Initializer * initializer);
 
     void initialize(int weights);
+
+    void initialize(Matrix * loadedWeights);
 
     int getSize() const;
 

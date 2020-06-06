@@ -24,15 +24,16 @@ double *vectorToArray(vector<double> vec) {
     return array;
 }
 
-vector<std::string> split(string str, string delimiter) {
-    std::vector<std::string> tokens;
-    char *str_c = strdup(str.c_str());
+vector<string> split(const string& str, const string& delimiter) {
+    std::vector<string> tokens;
+    char *str_c = _strdup(str.c_str());
     char *token = nullptr;
 
-    token = strtok(str_c, delimiter.c_str());
+    char * nextToken;
+    token = strtok_s(str_c, delimiter.c_str(), &nextToken);
     while (token != nullptr) {
         tokens.emplace_back(token);
-        token = strtok(nullptr, delimiter.c_str());
+        token = strtok_s(nullptr, delimiter.c_str(), &nextToken);
     }
 
     delete[] str_c;

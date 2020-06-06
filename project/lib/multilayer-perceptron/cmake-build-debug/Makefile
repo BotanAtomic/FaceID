@@ -136,6 +136,63 @@ ML-test/fast:
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/build
 .PHONY : ML-test/fast
 
+src/file/FileReader.o: src/file/FileReader.cpp.o
+
+.PHONY : src/file/FileReader.o
+
+# target to build an object file
+src/file/FileReader.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o
+.PHONY : src/file/FileReader.cpp.o
+
+src/file/FileReader.i: src/file/FileReader.cpp.i
+
+.PHONY : src/file/FileReader.i
+
+# target to preprocess a source file
+src/file/FileReader.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.i
+.PHONY : src/file/FileReader.cpp.i
+
+src/file/FileReader.s: src/file/FileReader.cpp.s
+
+.PHONY : src/file/FileReader.s
+
+# target to generate assembly for a file
+src/file/FileReader.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.s
+.PHONY : src/file/FileReader.cpp.s
+
+src/file/FileWriter.o: src/file/FileWriter.cpp.o
+
+.PHONY : src/file/FileWriter.o
+
+# target to build an object file
+src/file/FileWriter.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o
+.PHONY : src/file/FileWriter.cpp.o
+
+src/file/FileWriter.i: src/file/FileWriter.cpp.i
+
+.PHONY : src/file/FileWriter.i
+
+# target to preprocess a source file
+src/file/FileWriter.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.i
+.PHONY : src/file/FileWriter.cpp.i
+
+src/file/FileWriter.s: src/file/FileWriter.cpp.s
+
+.PHONY : src/file/FileWriter.s
+
+# target to generate assembly for a file
+src/file/FileWriter.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.s
+.PHONY : src/file/FileWriter.cpp.s
+
 src/layer/Layer.o: src/layer/Layer.cpp.o
 
 .PHONY : src/layer/Layer.o
@@ -323,6 +380,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... ML-framework"
 	@echo "... ML-test"
+	@echo "... src/file/FileReader.o"
+	@echo "... src/file/FileReader.i"
+	@echo "... src/file/FileReader.s"
+	@echo "... src/file/FileWriter.o"
+	@echo "... src/file/FileWriter.i"
+	@echo "... src/file/FileWriter.s"
 	@echo "... src/layer/Layer.o"
 	@echo "... src/layer/Layer.i"
 	@echo "... src/layer/Layer.s"

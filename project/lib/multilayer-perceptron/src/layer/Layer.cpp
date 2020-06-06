@@ -11,6 +11,7 @@ Layer::Layer(const string &name, int neurons, ActivationFunction *activation, In
     this->errors = new Matrix(neurons);
     this->activation = activation;
     this->initializer = initializer;
+    this->weights = nullptr;
 }
 
 void Layer::initialize(int inputSize) {
@@ -19,6 +20,10 @@ void Layer::initialize(int inputSize) {
     for (int i = 0; i < this->neurons * inputSize; i++) {
         (*this->weights).set(i, initializer->get());
     }
+}
+
+void Layer::initialize(Matrix *loadedWeights) {
+    this->weights = loadedWeights;
 }
 
 int Layer::getSize() const {

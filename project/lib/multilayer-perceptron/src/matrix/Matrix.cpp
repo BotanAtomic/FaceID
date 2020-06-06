@@ -17,9 +17,9 @@ Matrix::Matrix(int rows, int columns) {
     this->data.assign(rows * columns, 0.0f);
 }
 
-Matrix::Matrix(double *inputs, int inputSize, int size) {
-    this->rows = size;
-    this->columns = inputSize;
+Matrix::Matrix(double *inputs, int rows, int columns) {
+    this->rows = rows;
+    this->columns = columns;
     data.assign(inputs, inputs + (rows * columns));
 }
 
