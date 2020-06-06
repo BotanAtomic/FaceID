@@ -18,7 +18,7 @@ void Layer::initialize(int inputSize) {
     this->weights = new Matrix(this->neurons, inputSize);
 
     for (int i = 0; i < this->neurons * inputSize; i++) {
-        (*this->weights).set(i, initializer->get());
+        this->weights->set(i, initializer->get());
     }
 }
 
