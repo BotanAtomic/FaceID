@@ -15,24 +15,25 @@
 struct Parameters {
     ActivationFunction *activationFunction = new Sigmoid();
     Initializer *initializer = new RandomUniform(-1.0, 1.0);
+    string name = "unnamed-layer";
 };
 
 Parameters parseParameters(char *input) {
     Parameters parameters;
 
     if (input != nullptr && strlen(input) > 0) {
-        std::for_each(input, input + (strlen(input)), [](char &c) {
-            c = ::tolower(c);
-        });
-        for (string s: split(input, ";")) {
+        std::for_each(input, input + (strlen(input)), [](char &c) { c = ::tolower(c); });
+        for (const string &s: split(input, ";")) {
             vector<string> pair = split(s, "=");
             if (pair.size() < 2) continue;
             string key = pair[0], value = pair[1];
 
-            if (key.compare("activation") == 0) {
+            if (key == "activation") {
                 parameters.activationFunction = MultiLayerNetwork::getActivation(value);
-            } else if (key.compare("initializer") == 0) {
+            } else if (key == "initializer") {
                 parameters.initializer = MultiLayerNetwork::getInitializer(split(value, ","));
+            } else if (key == "name") {
+                parameters.name = value;
             }
         }
     }
@@ -48,7 +49,7 @@ EXPORT void *createModel(int inputSize) {
 
 EXPORT void addLayer(MultiLayerNetwork *network, int size, char *params) {
     Parameters p = parseParameters(params);
-    network->addLayer("unnamed-layer", size, p.activationFunction, p.initializer);
+    network->addLayer(p.name, size, p.activationFunction, p.initializer);
 }
 
 EXPORT void
