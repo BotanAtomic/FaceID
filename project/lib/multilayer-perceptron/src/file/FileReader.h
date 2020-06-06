@@ -8,6 +8,7 @@
 
 #include <string>
 #include "../matrix/Matrix.h"
+#include "fstream"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ private:
     ifstream stream;
 
 public:
-    explicit FileReader(char * path);
+    explicit FileReader(const string& path);
 
     bool isOpen();
 

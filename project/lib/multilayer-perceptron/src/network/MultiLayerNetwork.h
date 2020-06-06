@@ -71,9 +71,9 @@ public:
 
     void dump();
 
-    void save(char *path);
+    void save(const string& path);
 
-    static MultiLayerNetwork *load(char *path);
+    static MultiLayerNetwork *load(const string& path);
 };
 
 

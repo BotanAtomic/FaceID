@@ -15,7 +15,7 @@ class FileWriter {
 private:
     ofstream stream;
 public:
-    explicit FileWriter(char *path);
+    explicit FileWriter(const string& path);
 
     bool isOpen();
 

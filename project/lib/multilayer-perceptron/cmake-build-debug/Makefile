@@ -143,6 +143,7 @@ src/file/FileReader.o: src/file/FileReader.cpp.o
 # target to build an object file
 src/file/FileReader.cpp.o:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o
 .PHONY : src/file/FileReader.cpp.o
 
 src/file/FileReader.i: src/file/FileReader.cpp.i
@@ -152,6 +153,7 @@ src/file/FileReader.i: src/file/FileReader.cpp.i
 # target to preprocess a source file
 src/file/FileReader.cpp.i:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileReader.cpp.i
 .PHONY : src/file/FileReader.cpp.i
 
 src/file/FileReader.s: src/file/FileReader.cpp.s
@@ -161,6 +163,7 @@ src/file/FileReader.s: src/file/FileReader.cpp.s
 # target to generate assembly for a file
 src/file/FileReader.cpp.s:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/file/FileReader.cpp.s
 .PHONY : src/file/FileReader.cpp.s
 
 src/file/FileWriter.o: src/file/FileWriter.cpp.o

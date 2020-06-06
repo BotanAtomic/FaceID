@@ -4,7 +4,7 @@
 
 #include "FileWriter.h"
 
-FileWriter::FileWriter(char *path) {
+FileWriter::FileWriter(const string &path) {
     this->stream.open(path, ofstream::binary | ofstream::ate);
 }
 
@@ -13,12 +13,12 @@ bool FileWriter::isOpen() {
 }
 
 void FileWriter::writeInt(int value) {
-    stream.write(reinterpret_cast<const char *>(&value), sizeof(value));
+    stream.write(reinterpret_cast<const char *>(&value), sizeof(int));
 }
 
 void FileWriter::writeString(const string &value) {
     writeInt(value.length());
-    stream.write(reinterpret_cast<const char *>(value.c_str()), sizeof(value.length()));
+    stream << value;
 }
 
 void FileWriter::writeMatrix(Matrix *value) {

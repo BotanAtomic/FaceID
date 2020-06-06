@@ -4,7 +4,7 @@
 
 #include "FileReader.h"
 
-FileReader::FileReader(char *path) {
+FileReader::FileReader(const string& path) {
     stream.open(path, ofstream::binary);
 }
 
@@ -14,14 +14,15 @@ bool FileReader::isOpen() {
 
 int FileReader::readInt() {
     int value = 0;
-    stream.read(reinterpret_cast<char *>(&(value)), sizeof(value));
+    stream.read(reinterpret_cast<char *>(&(value)), sizeof(int));
     return value;
 }
 
 string FileReader::readString() {
     int size = readInt();
-    string value;
-    stream.read(reinterpret_cast<char *>(&(value)), size);
+    char * value = new char[size + 1];
+    stream.read(value, sizeof(char) * size);
+    value[size] = 0;
     return value;
 }
 
@@ -29,7 +30,7 @@ Matrix *FileReader::readMatrix() {
     int rows = readInt();
     int columns = readInt();
     auto *values = new double[rows * columns];
-    stream.read(reinterpret_cast<char *>(&(values)), rows * columns);
+    stream.read(reinterpret_cast<char *>(values), sizeof(double) * (rows * columns));
     return new Matrix(values, rows, columns);
 }
 

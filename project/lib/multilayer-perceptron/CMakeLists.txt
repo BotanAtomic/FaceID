@@ -25,4 +25,4 @@ add_executable(ML-test
         src/activation/ActivationFunction.h src/activation/implementation/Hyperbolic.h
         src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
         src/activation/implementation/Relu.h src/activation/implementation/Linear.h
-        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h src/file/FileWriter.cpp src/file/FileWriter.h)
+        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h src/file/FileWriter.cpp src/file/FileWriter.h src/file/FileReader.cpp src/file/FileReader.h)

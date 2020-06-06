@@ -113,7 +113,7 @@ void MultiLayerNetwork::dump() {
     }
 }
 
-void MultiLayerNetwork::save(char *path) {
+void MultiLayerNetwork::save(const string& path) {
     FileWriter fileWriter(path);
 
     if (!fileWriter.isOpen())
@@ -131,7 +131,7 @@ void MultiLayerNetwork::save(char *path) {
     fileWriter.close();
 }
 
-MultiLayerNetwork *MultiLayerNetwork::load(char *path) {
+MultiLayerNetwork *MultiLayerNetwork::load(const string& path) {
     FileReader fileReader(path);
 
     if (!fileReader.isOpen())
