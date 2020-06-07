@@ -7,12 +7,13 @@
 
 
 #include "../matrix/Matrix.h"
+#include <functional> // bind
 
 class Initializer {
 
 public:
 
-    virtual double get() = 0;
+    virtual void fill(Matrix &input) = 0;
 
 };
 

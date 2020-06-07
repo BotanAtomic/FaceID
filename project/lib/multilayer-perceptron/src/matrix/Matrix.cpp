@@ -7,23 +7,23 @@
 Matrix::Matrix(int size) {
     this->rows = 1;
     this->columns = size;
-    this->data.assign(size, 0.0f);
+    this->data = vector<double>(size);
 }
 
 
 Matrix::Matrix(int rows, int columns) {
     this->rows = rows;
     this->columns = columns;
-    this->data.assign(rows * columns, 0.0f);
+    this->data = vector<double>(rows * columns);
 }
 
 Matrix::Matrix(double *inputs, int rows, int columns) {
     this->rows = rows;
     this->columns = columns;
-    data.assign(inputs, inputs + (rows * columns));
+    this->data = vector<double>(inputs, inputs + (rows * columns));
 }
 
-Matrix::Matrix(Matrix * matrix, int inputSize, int size) {
+Matrix::Matrix(Matrix *matrix, int inputSize, int size) {
     this->rows = size;
     this->columns = inputSize;
     this->data = matrix->data;
@@ -50,7 +50,7 @@ Matrix Matrix::dot(Matrix &other) {
             for (int j = 0; j < other.columns; ++j) {
                 product.set(i, j, 0);
                 for (int k = 0; k < this->columns; ++k) {
-                    product[i][j] += get(i, k) * other.get(k, j);
+                    product.set(i, j, get(i, k) * other.get(k, j));
                 }
             }
         return product;
@@ -110,7 +110,7 @@ int Matrix::getRows() const { return rows; }
 
 int Matrix::getColumns() const { return columns; }
 
-void Matrix::dump(const string& name) {
+void Matrix::dump(const string &name) {
     cout << "Matrix(" << rows << "," << columns << ") " << name << endl;
     cout << toString() << endl;
 }

@@ -5,6 +5,7 @@
 #ifndef ML_TEST_MULTILAYERNETWORK_H
 #define ML_TEST_MULTILAYERNETWORK_H
 
+#include "chrono"
 #include "../utils/utils.h"
 #include "../layer/Layer.h"
 #include "../activation/implementation/Sigmoid.h"

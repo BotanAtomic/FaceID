@@ -233,7 +233,6 @@ src/library.o: src/library.cpp.o
 # target to build an object file
 src/library.cpp.o:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.o
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.o
 .PHONY : src/library.cpp.o
 
 src/library.i: src/library.cpp.i
@@ -243,7 +242,6 @@ src/library.i: src/library.cpp.i
 # target to preprocess a source file
 src/library.cpp.i:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.i
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.i
 .PHONY : src/library.cpp.i
 
 src/library.s: src/library.cpp.s
@@ -253,7 +251,6 @@ src/library.s: src/library.cpp.s
 # target to generate assembly for a file
 src/library.cpp.s:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.s
-	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.s
 .PHONY : src/library.cpp.s
 
 src/matrix/Matrix.o: src/matrix/Matrix.cpp.o

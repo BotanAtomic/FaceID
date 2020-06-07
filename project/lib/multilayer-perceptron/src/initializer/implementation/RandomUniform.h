@@ -19,8 +19,9 @@ public:
         this->distribution = uniform_real_distribution<>(min, max);
     }
 
-    double get() override {
-        return distribution(e2);
+    void fill(Matrix &input) override {
+        for (long i = 0; i < input.getColumns() * input.getRows(); i++)
+            input.set(i, distribution(e2));
     }
 
 };

@@ -4,6 +4,8 @@ project(ML-test)
 
 set(CMAKE_CXX_STANDARD 14)
 
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Oi")
+
 add_library(ML-framework SHARED
         src/library.cpp
         src/layer/Layer.cpp src/layer/Layer.h
@@ -17,7 +19,6 @@ add_library(ML-framework SHARED
 
 add_executable(ML-test
         src/test.cpp
-        src/library.cpp
         src/layer/Layer.cpp src/layer/Layer.h
         src/network/MultiLayerNetwork.cpp src/network/MultiLayerNetwork.h
         src/matrix/Matrix.h src/matrix/Matrix.cpp
@@ -26,3 +27,4 @@ add_executable(ML-test
         src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
         src/activation/implementation/Relu.h src/activation/implementation/Linear.h
         src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h src/file/FileWriter.cpp src/file/FileWriter.h src/file/FileReader.cpp src/file/FileReader.h)
+

@@ -15,11 +15,12 @@ Layer::Layer(const string &name, int neurons, ActivationFunction *activation, In
 }
 
 void Layer::initialize(int inputSize) {
+    cout << "initialize layer " << name << endl;
     this->weights = new Matrix(this->neurons, inputSize);
+    cout << "initialize layer [1] " << name << endl;
 
-    for (int i = 0; i < this->neurons * inputSize; i++) {
-        this->weights->set(i, initializer->get());
-    }
+    this->initializer->fill(*this->weights);
+    cout << "layer " << name << " initialized" << endl;
 }
 
 void Layer::initialize(Matrix *loadedWeights) {

@@ -6,6 +6,7 @@
 #define ML_TEST_UTILS_H
 
 #include <cmath>
+#include <cstring>
 #include <string>
 #include <vector>
 #include <random>

@@ -2,7 +2,7 @@ from ctypes import *
 import os
 
 LIB_PATH = os.path.abspath("..\\..\\lib\\linear-model\\cmake-build-debug\\ML-framework.dll")
-LIB_PATH2 = os.path.abspath("..\\..\\lib\\multilayer-perceptron\\cmake-build-debug-visual-studio\\ML-framework.dll")
+LIB_PATH2 = os.path.abspath("..\\..\\lib\\multilayer-perceptron\\cmake-build-release-visual-studio\\ML-framework.dll")
 
 
 def load_simple_perceptron_ml_library():

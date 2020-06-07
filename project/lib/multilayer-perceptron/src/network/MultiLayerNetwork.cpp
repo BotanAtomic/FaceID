@@ -3,6 +3,7 @@
 //
 
 #include "MultiLayerNetwork.h"
+using namespace std::chrono;
 
 MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
     this->inputSize = inputSize;
@@ -30,14 +31,16 @@ void MultiLayerNetwork::initialize() {
 }
 
 
-void MultiLayerNetwork::train(double *inputs, double *labels, int size, int epochs, double alpha) {
-    cout << "Start training model: size=" << size << ", epochs=" << epochs << ", alpha=" << alpha << endl;
+void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int epochs, double alpha) {
+    cout << "Start training network: inputsSize=" << inputSize << ", outputSize=" << layers[layers.size() - 1]->getSize()
+            << ", samples=" << samples << ", epochs=" << epochs << ", alpha=" << alpha << endl;
 
-    Matrix inputsMatrix(inputs, size, inputSize);
+    Matrix inputsMatrix(inputs, samples, inputSize);
+    int64_t timestamp = 0, total =0;
 
     for (int _ = 1; _ <= epochs; _++) {
         double error = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < samples; i++) {
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 
@@ -47,16 +50,14 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int size, int epoc
                 expectedPredictions[0] = labels[i];
             }
 
-            if (_ % 1000 == 0)
-                for (int j = 0; j < networkPredictions.size(); j++)
-                    error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
+            for (int j = 0; j < networkPredictions.size(); j++)
+                error += pow((expectedPredictions[j] - networkPredictions[j]), 2);
 
             backPropagation(expectedPredictions);
             updateWeights(inputsMatrix[i], alpha);
         }
 
-        if (_ % 1000 == 0)
-            cout << "> epochs " << _ << " - error=" << error << endl;
+        cout << "> epochs " << _ << " - error=" << error << endl;
     }
 }
 
@@ -79,10 +80,10 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
 
         if (i != layers.size()) {
             Layer *nextLayer = layers[i];
-            Matrix error = nextLayer->getErrors()->T();
-            errors = nextLayer->getWeights()->T().dot(error).toVector();
+            Matrix transposedErrors = nextLayer->getErrors()->T();
+            errors = nextLayer->getWeights()->T().dot(transposedErrors).toVector();
         } else {
-            errors.assign(layer->getSize(), 0.0f);
+            errors = vector<double>(layer->getSize());
             for (int j = 0; j < layer->getSize(); j++)
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
         }
@@ -91,16 +92,14 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
 }
 
 void MultiLayerNetwork::updateWeights(double *inputs, double alpha) {
-    vector<double> currentInputs(inputs, inputs + inputSize);
-    for (int _ = 0; _ < layers.size(); _++) {
-        Layer *layer = layers[_];
-        if (_ != 0)
-            currentInputs = layers[_ - 1]->getOutputs()->toVector();
+    Matrix currentInputs(inputs, 1, inputSize);
 
-        Matrix transversedInputs = Matrix(currentInputs).T();
-        Matrix delta = layer->getErrors()->T().dot(transversedInputs);
+    for (int i = 0; i < layers.size(); i++) {
+        Layer *layer = layers[i];
+        if (i != 0)
+            currentInputs = layers[i - 1]->getOutputs()->T();
 
-        layer->updateWeights(delta * alpha);
+        layer->updateWeights(layer->getErrors()->T().dot(currentInputs) * alpha);
     }
 }
 
@@ -113,7 +112,7 @@ void MultiLayerNetwork::dump() {
     }
 }
 
-void MultiLayerNetwork::save(const string& path) {
+void MultiLayerNetwork::save(const string &path) {
     FileWriter fileWriter(path);
 
     if (!fileWriter.isOpen())
@@ -131,7 +130,7 @@ void MultiLayerNetwork::save(const string& path) {
     fileWriter.close();
 }
 
-MultiLayerNetwork *MultiLayerNetwork::load(const string& path) {
+MultiLayerNetwork *MultiLayerNetwork::load(const string &path) {
     FileReader fileReader(path);
 
     if (!fileReader.isOpen())

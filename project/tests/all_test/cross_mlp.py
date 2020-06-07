@@ -42,8 +42,8 @@ def test(input_test, label):
     return 0
 
 
-# correctPrediction = 0
-# for i, value in enumerate(X):
-#     correctPrediction += test(value, Y[i])
+correctPrediction = 0
+for i, value in enumerate(X):
+    correctPrediction += test(value, Y[i])
 
-#print("Accuracy:", correctPrediction / len(X) * 100, "%")
+print("Accuracy:", correctPrediction / len(X) * 100, "%")
