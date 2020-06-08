@@ -73,9 +73,14 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
 vector<double> MultiLayerNetwork::predict(double *inputs) {
     Matrix matrix(inputs, this->inputSize, 1);
 
+    int i = 0;
     for (auto &layer : layers) {
+        i++;
         matrix = layer->getWeights()->dot(matrix);
-        layer->getActivation()->activate(matrix);
+
+        if (i < layers.size() || (layers[i - 1]->getSize() > 1))
+            layer->getActivation()->activate(matrix);
+
         layer->setOutputs(matrix);
     }
 
@@ -92,8 +97,13 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
             errors = nextLayer->getWeights()->T().dot(*nextLayer->getErrors()).toVector();
         } else {
             errors.assign(layer->getSize(), 0.0f);
-            for (int j = 0; j < layer->getSize(); j++)
+            for (int j = 0; j < layer->getSize(); j++) {
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
+                if (layer->getSize() > 1) {
+                    //errors[j] *= (1 - pow(layer->getOutputs()->get(j), 2));
+                }
+            }
+
         }
         layer->computeErrors(errors);
     }

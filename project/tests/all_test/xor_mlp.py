@@ -32,7 +32,6 @@ ml_lib.trainModel(network, inputs, labels, len(labels), 1000, 0.01)
 # Test
 def test(input_test, label):
     prediction = ml_lib.predict(network, (c_double * len(input_test))(*list(input_test))).contents[0]
-    print(prediction)
     if prediction > 0 and label == 1:
         return 1
     elif prediction <= 0 and label == -1:

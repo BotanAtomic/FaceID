@@ -24,10 +24,10 @@ Y = np.array([np.argmax(p) for p in Y])
 ml_lib = load_multilayer_perceptron_ml_library(output)
 
 network = ml_lib.createModel(len(X[0]))
-ml_lib.addLayer(network, 24, cstring("activation=relu"))    # hidden layer 1
-ml_lib.addLayer(network, 12, cstring("activation=sigmoid"))    # hidden layer 1
-ml_lib.addLayer(network, 6, cstring("activation=sigmoid"))    # hidden layer 1
-ml_lib.addLayer(network, 3, cstring("activation=sigmoid"))    # hidden layer 1
+ml_lib.addLayer(network, 16, cstring("activation=relu"))    # hidden layer 1
+ml_lib.addLayer(network, 8, cstring("activation=sigmoid"))  # hidden layer 2
+ml_lib.addLayer(network, 4, cstring("activation=sigmoid"))  # hidden layer 3
+ml_lib.addLayer(network, 2, cstring("activation=sigmoid"))  # hidden layer 4
 ml_lib.addLayer(network, 3, cstring("activation=tanh"))  # output layer
 
 XFlattened = np.reshape(X, len(X) * len(X[0]))

@@ -20,9 +20,9 @@ ml_lib = load_ml_library(len(labels))
 
 network = ml_lib.createModel(len(X[0]))
 
-ml_lib.addLayer(network, 512, cstring("activation=sigmoid;"))  # hidden layer
-ml_lib.addLayer(network, 512, cstring("activation=sigmoid;"))  # hidden layer
-ml_lib.addLayer(network, 3, cstring("activation=sigmoid;"))  # output layer
+ml_lib.addLayer(network, 512, cstring("activation=sigmoid"))  # hidden layer
+ml_lib.addLayer(network, 512, cstring("activation=sigmoid"))  # hidden layer
+ml_lib.addLayer(network, 3, cstring("activation=sigmoid"))  # output layer
 
 inputs = (c_double * len(XFlattened))(*list(XFlattened))
 ml_lib.trainModel(network, inputs, (c_double * len(Y))(*list(Y)), len(Y), 60, 0.1)
