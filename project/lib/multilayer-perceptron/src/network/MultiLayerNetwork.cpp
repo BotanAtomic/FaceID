@@ -99,13 +99,10 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
             errors.assign(layer->getSize(), 0.0f);
             for (int j = 0; j < layer->getSize(); j++) {
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
-                if (layer->getSize() > 1) {
-                    //errors[j] *= (1 - pow(layer->getOutputs()->get(j), 2));
-                }
             }
 
         }
-        layer->computeErrors(errors);
+        layer->computeErrors(errors,  i != layers.size() || layer->getSize() > 1);
     }
 }
 

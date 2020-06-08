@@ -44,7 +44,7 @@ public:
 
     void setOutputs(Matrix &o);
 
-    void computeErrors(const vector<double> &currentErrors);
+    void computeErrors(const vector<double> &currentErrors, bool useDerivation);
 
     void updateWeights(Matrix *correction);
 };

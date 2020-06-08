@@ -51,9 +51,9 @@ void Layer::setOutputs(Matrix &o) {
     *outputs = o;
 }
 
-void Layer::computeErrors(const vector<double> &currentErrors) {
+void Layer::computeErrors(const vector<double> &currentErrors, bool useDerivation) {
     for (int i = 0; i < neurons; i++) {
-        errors->set(i, currentErrors[i] * activation->getDerivation(outputs->get(i)));
+        errors->set(i, currentErrors[i] * (useDerivation ? activation->getDerivation(outputs->get(i)) : 1));
     }
 }
 
