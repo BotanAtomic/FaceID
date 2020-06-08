@@ -4,15 +4,17 @@
 
 #include "MultiLayerNetwork.h"
 
+#include <utility>
+
 using namespace std::chrono;
 
 MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
     this->inputSize = inputSize;
 }
 
-MultiLayerNetwork::MultiLayerNetwork(vector<Layer *> layers) {
-    this->inputSize = layers[0]->getSize();
-    this->layers = layers;
+MultiLayerNetwork::MultiLayerNetwork(int inputSize, vector<Layer *> layers) {
+    this->inputSize = inputSize;
+    this->layers = std::move(layers);
 }
 
 
@@ -48,7 +50,7 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 
-            if (networkPredictions.size() > 1) {
+            if (isClassification()) {
                 expectedPredictions[labels[i]] = 1;
             } else {
                 expectedPredictions[0] = labels[i];
@@ -81,7 +83,7 @@ vector<double> MultiLayerNetwork::predict(double *inputs) {
         if (i < layers.size())
             matrix.add(*layer->getBias());
 
-        if (i < layers.size() || (layers[i - 1]->getSize() > 1))
+        if (i < layers.size() || isClassification())
             layer->getActivation()->activate(matrix);
 
         Matrix output = matrix.T();
@@ -104,9 +106,8 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
             for (int j = 0; j < layer->getSize(); j++) {
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
             }
-
         }
-        layer->computeErrors(errors, i != layers.size() || layer->getSize() > 1);
+        layer->computeErrors(errors, i != layers.size() || isClassification());
     }
 }
 
@@ -141,6 +142,7 @@ void MultiLayerNetwork::save(const string &path) {
     if (!fileWriter.isOpen())
         return;
 
+    fileWriter.writeInt(inputSize);
     fileWriter.writeInt(layers.size());
 
     for (Layer *layer: layers) {
@@ -148,6 +150,7 @@ void MultiLayerNetwork::save(const string &path) {
         fileWriter.writeInt(layer->getSize());
         fileWriter.writeString(layer->getActivation()->getName());
         fileWriter.writeMatrix(layer->getWeights());
+        fileWriter.writeMatrix(layer->getBias());
     }
 
     fileWriter.close();
@@ -159,6 +162,7 @@ MultiLayerNetwork *MultiLayerNetwork::load(const string &path) {
     if (!fileReader.isOpen())
         return nullptr;
 
+    int inputSize = fileReader.readInt();
     int layersSize = fileReader.readInt();
 
     vector<Layer *> layers;
@@ -168,11 +172,12 @@ MultiLayerNetwork *MultiLayerNetwork::load(const string &path) {
         int neurons = fileReader.readInt();
         string activationName = fileReader.readString();
         Matrix *weights = fileReader.readMatrix();
+        Matrix *bias = fileReader.readMatrix();
 
         auto *layer = new Layer(name, neurons, getActivation(activationName), nullptr);
-        layer->initialize(weights);
+        layer->initialize(weights, bias);
         layers.push_back(layer);
     }
 
-    return new MultiLayerNetwork(layers);
+    return new MultiLayerNetwork(inputSize, layers);
 }

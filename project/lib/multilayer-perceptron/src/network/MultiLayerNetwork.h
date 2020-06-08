@@ -15,6 +15,8 @@
 #include "../activation/implementation/Softmax.h"
 
 #include "../initializer/implementation/RandomUniform.h"
+#include "../initializer/implementation/XavierUniform.h"
+
 #include "../file/FileWriter.h"
 #include "../file/FileReader.h"
 
@@ -43,6 +45,8 @@ public:
                 cout << "Invalid parameters for initializer: required 3, got " << params.size() << endl;
             else
                 return new RandomUniform(stod(params[1]), stod(params[2]));
+        } else if(params[0] == "xavier" || params[0] == "xavier_uniform") {
+            return new XavierUniform();
         }
 
         return new RandomUniform(-1.0, 1.0);
@@ -56,7 +60,7 @@ private:
 public:
     explicit MultiLayerNetwork(int inputSize);
 
-    explicit MultiLayerNetwork(vector<Layer*> layers);
+    explicit MultiLayerNetwork(int inputSize, vector<Layer *> layers);
 
     void addLayer(const string &name, int size, ActivationFunction *activationFunction, Initializer *initializer);
 
@@ -72,9 +76,13 @@ public:
 
     void dump();
 
-    void save(const string& path);
+    void save(const string &path);
 
-    static MultiLayerNetwork *load(const string& path);
+    inline bool isClassification() const {
+        return layers.back()->getSize() > 1;
+    }
+
+    static MultiLayerNetwork *load(const string &path);
 };
 
 

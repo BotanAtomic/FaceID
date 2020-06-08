@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "../ActivationFunction.h"
 
+//stable version of softmax
 class Softmax : public ActivationFunction {
     string getName() override {
         return "softmax";
@@ -30,7 +31,7 @@ class Softmax : public ActivationFunction {
     }
 
     double getDerivation(double x) override {
-        return 0;
+        return 1;
     }
 
 };

@@ -29,7 +29,7 @@ public:
 
     void initialize(int weights);
 
-    void initialize(Matrix * loadedWeights);
+    void initialize(Matrix * loadedWeights, Matrix *loadedBias);
 
     int getSize() const;
 

@@ -7,21 +7,21 @@
 #include "activation/implementation/Hyperbolic.h"
 #include "activation/implementation/Softmax.h"
 #include "activation/implementation/Relu.h"
+#include "initializer/implementation/XavierUniform.h"
 #include <chrono>
 
 using namespace std;
 using namespace std::chrono;
 
-
 int main(int size, char **args) {
-    double test2[] = {1, 0,
-                      0, 1,
+    double test2[] = {1, 1,
                       0, 0,
-                      1, 1};
-    double test2_label[] = {1, 1, -1, -1};
+                      0, 1,
+                      1, 0};
+    double test2_label[] = {0, 0, 1, 1};
 
     int epochs = 20000;
-    double alpha = 0.05;
+    double alpha = 0.01;
     int inputSize = 2;
     int outputSize = 1;
 
@@ -31,6 +31,8 @@ int main(int size, char **args) {
     MultiLayerNetwork *network = nullptr;
 
     bool loaded = false;
+
+
     if (ifstream(modelPath).good()) {
         network = MultiLayerNetwork::load(modelPath);
         loaded = true;
@@ -41,8 +43,8 @@ int main(int size, char **args) {
 
     if (!loaded) {
         int64_t timestamp = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-        network->addLayer("hidden-layer", 5, new Hyperbolic(), new RandomUniform(-1.0, 1.0));
-        network->addLayer("output-layer", outputSize, new Hyperbolic(), new RandomUniform(-1.0, 1.0));
+        network->addLayer("hidden-layer", 2, new Sigmoid(), new RandomUniform(0.0, 1.0));
+        network->addLayer("output-layer", outputSize, new Sigmoid(), new XavierUniform());
         network->initialize();
         network->dump();
         network->train(test2, test2_label, 4, epochs, alpha);
@@ -57,7 +59,7 @@ int main(int size, char **args) {
         cout << "response=" << response << " | prediction=" << vectorToString(predictions) << endl;
     }
 
-    if (!loaded && false)
-        network->save("C:\\Users\\botan\\Work\\FaceID\\project\\lib\\multilayer-perceptron\\model.mlp");
+    //if (!loaded)
+        //network->save(modelPath);
 
 }

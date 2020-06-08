@@ -20,8 +20,9 @@ void Layer::initialize(int inputSize) {
     this->initializer->fill(*this->weights);
 }
 
-void Layer::initialize(Matrix *loadedWeights) {
+void Layer::initialize(Matrix *loadedWeights, Matrix *loadedBias) {
     this->weights = loadedWeights;
+    this->bias = loadedBias;
 }
 
 int Layer::getSize() const {
