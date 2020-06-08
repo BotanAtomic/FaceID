@@ -5,7 +5,6 @@ from ctypes import *
 from utils import load_simple_perceptron_ml_library
 
 
-
 X = np.concatenate(
     [np.random.random((50, 2)) * 0.9 + np.array([1, 1]), np.random.random((50, 2)) * 0.9 + np.array([2, 2])])
 Y = np.concatenate([np.ones((50, 2)), np.ones((50, 2)) * -1.0])

@@ -11,10 +11,13 @@ Matrix::Matrix(int size) {
 }
 
 
-Matrix::Matrix(int rows, int columns) {
+Matrix::Matrix(int rows, int columns, double defaultValue) {
     this->rows = rows;
     this->columns = columns;
-    this->data = vector<double>(rows * columns);
+    if (defaultValue > 0)
+        this->data.assign(rows * columns, defaultValue);
+    else
+        this->data = vector<double>(rows * columns);
 }
 
 Matrix::Matrix(double *inputs, int rows, int columns) {

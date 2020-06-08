@@ -24,7 +24,7 @@ public:
 
     explicit Matrix(int size);
 
-    Matrix(int rows, int columns);
+    Matrix(int rows, int columns, double defaultValue = 0.0);
 
     Matrix(double *inputs, int inputSize, int size);
 

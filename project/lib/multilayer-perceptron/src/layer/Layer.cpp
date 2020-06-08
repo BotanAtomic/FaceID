@@ -7,8 +7,9 @@
 Layer::Layer(const string &name, int neurons, ActivationFunction *activation, Initializer *initializer) {
     this->name = name;
     this->neurons = neurons;
-    this->outputs = new Matrix(neurons, 1);
+    this->outputs = new Matrix(1, neurons);
     this->errors = new Matrix(neurons, 1);
+    this->bias = new Matrix(neurons, 1, 1.0);
     this->activation = activation;
     this->initializer = initializer;
     this->weights = nullptr;
@@ -41,6 +42,10 @@ Matrix *Layer::getOutputs() {
 
 Matrix *Layer::getErrors() {
     return this->errors;
+}
+
+Matrix *Layer::getBias() {
+    return this->bias;
 }
 
 ActivationFunction *Layer::getActivation() {

@@ -24,8 +24,8 @@ class Softmax : public ActivationFunction {
 
         double offset = max + log(sum);
 
-        for (double &i : vector) {
-            i = exp(i - offset);
+        for(int i = 0; i < (matrix.getRows() * matrix.getColumns()); i++) {
+            matrix.set(i, exp(matrix.get(i) - offset));
         }
     }
 

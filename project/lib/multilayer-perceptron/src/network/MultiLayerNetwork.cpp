@@ -78,10 +78,14 @@ vector<double> MultiLayerNetwork::predict(double *inputs) {
         i++;
         matrix = layer->getWeights()->dot(matrix);
 
+        if (i < layers.size())
+            matrix.add(*layer->getBias());
+
         if (i < layers.size() || (layers[i - 1]->getSize() > 1))
             layer->getActivation()->activate(matrix);
 
-        layer->setOutputs(matrix);
+        Matrix output = matrix.T();
+        layer->setOutputs(output);
     }
 
     return matrix.toVector();
@@ -96,28 +100,28 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
             Layer *nextLayer = layers[i];
             errors = nextLayer->getWeights()->T().dot(*nextLayer->getErrors()).toVector();
         } else {
-            errors.assign(layer->getSize(), 0.0f);
+            errors = vector<double>(layer->getSize());
             for (int j = 0; j < layer->getSize(); j++) {
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
             }
 
         }
-        layer->computeErrors(errors,  i != layers.size() || layer->getSize() > 1);
+        layer->computeErrors(errors, i != layers.size() || layer->getSize() > 1);
     }
 }
 
 void MultiLayerNetwork::updateWeights(double *inputs, double alpha) {
-    vector<double> currentInputs(inputs, inputs + inputSize);
+    Matrix currentInputs(inputs, 1, inputSize);
 
     for (int i = 0; i < layers.size(); i++) {
         Layer *layer = layers[i];
         if (i != 0)
-            currentInputs = layers[i - 1]->getOutputs()->toVector();
+            currentInputs = *layers[i - 1]->getOutputs();
 
 
-        Matrix transversedInputs = Matrix(currentInputs).T();
-        Matrix delta = layer->getErrors()->dot(transversedInputs);
+        Matrix delta = layer->getErrors()->dot(currentInputs);
 
+        layer->getBias()->add(*(*layer->getErrors() * alpha));
         layer->updateWeights(delta * alpha);
     }
 }

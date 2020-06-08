@@ -28,7 +28,7 @@ output = 1
 ml_lib = load_multilayer_perceptron_ml_library(output)
 
 network = ml_lib.createModel(len(X[0]))
-ml_lib.addLayer(network, output, cstring("activation=relu;initializer=random_uniform,0,1"))  # output layer
+ml_lib.addLayer(network, output, cstring("activation=linear;initializer=random_uniform,0,1"))  # output layer
 
 XFlattened = np.reshape(X, len(X) * len(X[0]))
 labels = (c_double * len(Y))(*list(Y))

@@ -43,15 +43,16 @@ def find_nearest(array, value):
 # Test
 def test(input_test, label):
     prediction = ml_lib.predict(network, (c_double * len(input_test))(*list(input_test))).contents[0]
+    print(prediction, label)
     return 1 if find_nearest(Y, prediction) == label else 0
 
 
 network = ml_lib.createModel(len(X[0]))
 ml_lib.addLayer(network, 5, cstring("activation=tanh"))  # hidden layer
 ml_lib.addLayer(network, 5, cstring("activation=tanh"))  # hidden layer
-ml_lib.addLayer(network, 5, cstring("activation=sigmoid"))  # hidden layer
-ml_lib.addLayer(network, output, cstring("activation=linear"))  # output layer
-ml_lib.trainModel(network, inputs, labels, len(labels), 2000, 0.1)
+ml_lib.addLayer(network, 5, cstring("activation=tanh"))  # hidden layer
+ml_lib.addLayer(network, output, None)  # output layer
+ml_lib.trainModel(network, inputs, labels, len(labels), 2000, 0.01)
 
 correctPrediction = 0
 for i, value in enumerate(X):

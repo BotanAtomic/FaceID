@@ -21,6 +21,7 @@ private:
     Matrix *weights;
     Matrix *outputs;
     Matrix *errors;
+    Matrix *bias;
     ActivationFunction *activation;
     Initializer *initializer;
 public:
@@ -39,6 +40,8 @@ public:
     Matrix *getOutputs();
 
     Matrix *getErrors();
+
+    Matrix *getBias();
 
     ActivationFunction *getActivation();
 
