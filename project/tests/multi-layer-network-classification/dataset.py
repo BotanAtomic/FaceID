@@ -25,8 +25,16 @@ def load_dataset(train_percent):
         total = len(files)
         index = 0
         for imageFile in files:
-            img_array = np.array(Image.open(imageFile)) / 255.0
+            img = Image.open(imageFile).convert('L')
+            img.thumbnail((img_size, img_size), Image.ANTIALIAS)
+
+            if index == 1:
+                plt.imshow(np.asarray(img), cmap='gray', vmin=0, vmax=255)
+                plt.show()
+
+            img_array = np.array(img) / 255.0
             img_array = np.reshape(img_array, img_total_size)
+
             if index / total < train_percent:
                 X.append(img_array)
                 Y.append(labels.index(label))
@@ -41,14 +49,13 @@ def load_dataset(train_percent):
 
 def analyse_dataset(ml_lib, network, X_test, Y_test):
     correct = 0
+    labels = np.array([0, 1, 2])
     for i in range(0, len(X_test)):
         data = X_test[i]
         must_predict = Y_test[i]
-        (predictions, best_match) = predict_face(ml_lib, network, data)
-        if best_match == must_predict:
+        (prediction, index) = predict_face(ml_lib, network, data)
+        print(must_predict, ' / ', prediction)
+        if must_predict == index:
             correct += 1
-        else:
-            plt.imshow(np.reshape(data, (img_size, img_size, img_channel)))
-            plt.show()
-            print('Mismatch', predictions, must_predict)
+
     return correct / len(Y_test) * 100

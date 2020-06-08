@@ -50,7 +50,7 @@ Matrix Matrix::dot(Matrix &other) {
             for (int j = 0; j < other.columns; ++j) {
                 product.set(i, j, 0);
                 for (int k = 0; k < this->columns; ++k) {
-                    product.set(i, j, get(i, k) * other.get(k, j));
+                    product[i][j] += get(i, k) * other[k][j];
                 }
             }
         return product;

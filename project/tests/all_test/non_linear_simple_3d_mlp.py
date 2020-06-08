@@ -43,7 +43,6 @@ def find_nearest(array, value):
 # Test
 def test(input_test, label):
     prediction = ml_lib.predict(network, (c_double * len(input_test))(*list(input_test))).contents[0]
-    print(prediction, label, find_nearest(Y, prediction))
     return 1 if find_nearest(Y, prediction) == label else 0
 
 
@@ -62,6 +61,3 @@ ml_lib.deleteModel(network)
 
 print("Accuracy:", correctPrediction / len(X) * 100, "%")
 
-if correctPrediction is not len(X):
-    print(j)
-    exit(-5)

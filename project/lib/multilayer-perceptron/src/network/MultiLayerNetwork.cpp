@@ -3,6 +3,7 @@
 //
 
 #include "MultiLayerNetwork.h"
+
 using namespace std::chrono;
 
 MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
@@ -32,14 +33,17 @@ void MultiLayerNetwork::initialize() {
 
 
 void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int epochs, double alpha) {
-    cout << "Start training network: inputsSize=" << inputSize << ", outputSize=" << layers[layers.size() - 1]->getSize()
-            << ", samples=" << samples << ", epochs=" << epochs << ", alpha=" << alpha << endl;
+    cout << "Start training network: inputsSize=" << inputSize << ", outputSize="
+         << layers[layers.size() - 1]->getSize()
+         << ", samples=" << samples << ", epochs=" << epochs << ", alpha=" << alpha << endl;
 
     Matrix inputsMatrix(inputs, samples, inputSize);
-    int64_t timestamp = 0, total =0;
+    int64_t timestamp, total, remaining;
 
     for (int _ = 1; _ <= epochs; _++) {
         double error = 0;
+        timestamp = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+
         for (int i = 0; i < samples; i++) {
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
@@ -57,7 +61,12 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
             updateWeights(inputsMatrix[i], alpha);
         }
 
-        cout << "> epochs " << _ << " - error=" << error << endl;
+        if (epochs < 20 || _ % (epochs / 20) == 0) {
+            total = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count() - timestamp;
+            remaining = ((epochs - _)) * total;
+            printf("> epoch %d/%d - %llds - loss: %lf - ETA: %llds\n", _, epochs, total / 1000, error,
+                   remaining / 1000);
+        }
     }
 }
 
@@ -80,10 +89,9 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
 
         if (i != layers.size()) {
             Layer *nextLayer = layers[i];
-            Matrix transposedErrors = nextLayer->getErrors()->T();
-            errors = nextLayer->getWeights()->T().dot(transposedErrors).toVector();
+            errors = nextLayer->getWeights()->T().dot(*nextLayer->getErrors()).toVector();
         } else {
-            errors = vector<double>(layer->getSize());
+            errors.assign(layer->getSize(), 0.0f);
             for (int j = 0; j < layer->getSize(); j++)
                 errors[j] = expectedPredictions[j] - layer->getOutputs()->get(j);
         }
@@ -92,14 +100,18 @@ void MultiLayerNetwork::backPropagation(const vector<double> &expectedPrediction
 }
 
 void MultiLayerNetwork::updateWeights(double *inputs, double alpha) {
-    Matrix currentInputs(inputs, 1, inputSize);
+    vector<double> currentInputs(inputs, inputs + inputSize);
 
     for (int i = 0; i < layers.size(); i++) {
         Layer *layer = layers[i];
         if (i != 0)
-            currentInputs = layers[i - 1]->getOutputs()->T();
+            currentInputs = layers[i - 1]->getOutputs()->toVector();
 
-        layer->updateWeights(layer->getErrors()->T().dot(currentInputs) * alpha);
+
+        Matrix transversedInputs = Matrix(currentInputs).T();
+        Matrix delta = layer->getErrors()->dot(transversedInputs);
+
+        layer->updateWeights(delta * alpha);
     }
 }
 

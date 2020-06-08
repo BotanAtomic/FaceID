@@ -27,8 +27,9 @@ XFlattened = np.reshape(X, len(X) * len(X[0]))
 labels = (c_double * len(Y))(*list(Y))
 inputs = (c_double * len(XFlattened))(*list(XFlattened))
 
-ml_lib.trainModel(network, inputs, labels, len(labels), 4000, 0.01)
+ml_lib.trainModel(network, inputs, labels, len(labels), 3000, 0.01)
 
+ml_lib.summary(network)
 
 # Test
 def test(input_test, label):
