@@ -3,3 +3,7 @@
 - ./gradlew build
 - ./gradlew run
 
+Note:
+
+please remove DATA folder before use
+
