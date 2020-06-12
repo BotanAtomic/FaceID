@@ -5,7 +5,7 @@ package fr.esgi.faceid.configuration;
  **/
 public class Configuration {
 
-    public final static int IMG_SIZE = 96;
+    public final static int IMG_SIZE = 48;
 
     public final static int IMG_CHANNEL = 3;
 

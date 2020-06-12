@@ -69,12 +69,12 @@ public class Controller {
         stream.setImagePreprocessing((matrix, face, coordinates) -> {
             Pair<User, Double> prediction = neuralNetworkManager.predict(face);
             if (prediction == null) return;
-            String text = String.format("%s (%d)", prediction.getKey().getName(), (int) (prediction.getValue() * 100)) + "%";
-            Size textWidth = Imgproc.getTextSize(text, 1, 2, 1, new int[]{1});
+            String text = String.format("%s (%d%%)", prediction.getKey().getName(), (int) (prediction.getValue() * 100));
+            Size textWidth = Imgproc.getTextSize(text, 1, 1, 1, new int[]{1});
             Imgproc.putText(matrix, text, OpenCV.middlePoint(
                     new Point(coordinates.x - textWidth.width / 2, coordinates.y + textWidth.height),
                     new Point((coordinates.x + coordinates.width) - textWidth.width / 2, coordinates.y + textWidth.height)
-            ), 1, 2, new Scalar(255));
+            ), 1, 1, new Scalar(255));
         });
         stream.setMatrixCallback(mat -> webcamView.setImage(matToImage(mat)));
         stream.setFaceCallback(null);

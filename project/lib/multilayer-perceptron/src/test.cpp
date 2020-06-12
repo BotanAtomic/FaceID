@@ -25,7 +25,6 @@ int main(int size, char **args) {
     int inputSize = 2;
     int outputSize = 1;
 
-
     string modelPath = "C:\\Users\\botan\\Work\\FaceID\\project\\lib\\multilayer-perceptron\\model.mlp";
 
     MultiLayerNetwork *network = nullptr;

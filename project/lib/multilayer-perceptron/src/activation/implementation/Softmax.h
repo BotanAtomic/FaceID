@@ -10,6 +10,7 @@
 
 //stable version of softmax
 class Softmax : public ActivationFunction {
+
     string getName() override {
         return "softmax";
     }

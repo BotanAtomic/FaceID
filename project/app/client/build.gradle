@@ -12,13 +12,12 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 11
 targetCompatibility = 11
 
-
 repositories {
     mavenCentral()
 }
 
 javafx {
-    version = "14"
+    version = "11"
     modules = ['javafx.controls', 'javafx.fxml']
 }
 

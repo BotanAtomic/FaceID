@@ -1,5 +1,6 @@
 from ctypes import *
 import os
+import numpy as np
 
 LIB_PATH = os.path.abspath("..\\..\\lib\\linear-model\\cmake-build-debug\\ML-framework.dll")
 LIB_PATH2 = os.path.abspath("..\\..\\lib\\multilayer-perceptron\\cmake-build-release-visual-studio\\ML-framework.dll")
@@ -32,7 +33,7 @@ def load_simple_perceptron_ml_library():
     return library
 
 
-def load_multilayer_perceptron_ml_library(outputSize):
+def load_multilayer_perceptron_ml_library():
     library = CDLL(LIB_PATH2)
 
     library.createModel.argtypes = [c_int]
@@ -45,7 +46,7 @@ def load_multilayer_perceptron_ml_library(outputSize):
     library.summary.restype = None
 
     library.predict.argtypes = [c_void_p, c_void_p]
-    library.predict.restype = POINTER(c_double * outputSize)
+    library.predict.restype = POINTER(c_double * 3)
 
     library.trainModel.restype = None
     library.trainModel.argtypes = [c_void_p, c_void_p, c_void_p, c_int, c_int, c_double]
@@ -55,5 +56,45 @@ def load_multilayer_perceptron_ml_library(outputSize):
     return library
 
 
-def cstring(string):
+def s(string):
     return c_char_p(string.encode())
+
+
+def find_nearest(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return array[idx]
+
+
+def to_native(X, Y):
+    XFlattened = np.reshape(X, len(X) * len(X[0]))
+    labels = (c_double * len(Y))(*list(Y))
+    inputs = (c_double * len(XFlattened))(*list(XFlattened))
+    return inputs, labels
+
+
+def linear_model_accuracy(library, network, X, Y):
+    correct = 0
+    for i, value in enumerate(X):
+        input_test = (c_double * len(value))(*list(value))
+        prediction = library.predictRegressionModel(network, input_test, len(input_test))
+        correct += 1 if np.sign(prediction) == Y[i] else 0
+    return correct / len(X) * 100
+
+
+def mlp_regression_accuracy(library, network, X, Y):
+    correct = 0
+    for i, value in enumerate(X):
+        input_test = (c_double * len(value))(*list(value))
+        prediction = library.predict(network, input_test).contents[0]
+        correct += 1 if find_nearest(Y, prediction) == Y[i] else 0
+    return correct / len(X) * 100
+
+
+def mlp_classification_accuracy(library, network, X, Y, label_count):
+    correct = 0
+    for i, value in enumerate(X):
+        input_test = (c_double * len(value))(*list(value))
+        predictions = [library.predict(network, input_test).contents[p] for p in range(0, label_count)]
+        correct += 1 if np.argmax(predictions) == Y[i] else 0
+    return correct / len(X) * 100

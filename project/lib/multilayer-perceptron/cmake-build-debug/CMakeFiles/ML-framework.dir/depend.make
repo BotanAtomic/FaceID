@@ -28,6 +28,7 @@ CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/file/FileReader.h
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/file/FileWriter.h
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/initializer/Initializer.h
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/initializer/implementation/RandomUniform.h
+CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/initializer/implementation/XavierUniform.h
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/library.cpp
 CMakeFiles/ML-framework.dir/src/library.cpp.o: ../src/matrix/Matrix.h
@@ -48,6 +49,7 @@ CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/file/Fil
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/file/FileWriter.h
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/Initializer.h
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/implementation/RandomUniform.h
+CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/implementation/XavierUniform.h
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.o: ../src/network/MultiLayerNetwork.cpp

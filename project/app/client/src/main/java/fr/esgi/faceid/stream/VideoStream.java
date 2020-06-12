@@ -62,11 +62,15 @@ public class VideoStream extends Thread {
         while (videoCapture.isOpened()) {
             videoCapture.read(matrix);
 
+            Mat gray = new Mat();
+            Imgproc.cvtColor(matrix, gray, Imgproc.COLOR_BGR2GRAY);
+
             if (!matrix.empty()) {
                 MatOfRect faces = new MatOfRect();
 
-                faceCascade.detectMultiScale(matrix, faces, 1.1, 10, Objdetect.CASCADE_SCALE_IMAGE,
+                faceCascade.detectMultiScale(gray, faces, 1.1, 10, Objdetect.CASCADE_SCALE_IMAGE,
                         minFaceSize, new Size());
+
 
                 Rect[] facesArray = Stream.of(faces.toArray())
                         .sorted((a, b) -> (b.width - a.width)).toArray(Rect[]::new);
@@ -92,7 +96,9 @@ public class VideoStream extends Thread {
                 i = 0;
 
                 ArrayList<MatOfPoint2f> landmarks = new ArrayList<>();
-                facemark.fit(matrix, faces, landmarks);
+                facemark.fit(gray, faces, landmarks);
+
+                gray.release();
 
                 for (MatOfPoint2f lm : landmarks) {
                     if (i > 0 && !allowMultipleFace.get())

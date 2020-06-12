@@ -32,6 +32,7 @@ CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/file/FileRead
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/file/FileWriter.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/Initializer.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/implementation/RandomUniform.h
+CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/initializer/implementation/XavierUniform.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/network/MultiLayerNetwork.cpp
@@ -48,6 +49,7 @@ CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/file/FileReader.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/file/FileWriter.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/initializer/Initializer.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/initializer/implementation/RandomUniform.h
+CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/initializer/implementation/XavierUniform.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/network/MultiLayerNetwork.h

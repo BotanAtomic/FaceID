@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static fr.esgi.faceid.configuration.Configuration.*;
 import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
@@ -31,13 +33,13 @@ import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
  **/
 public class NeuralNetworkManager {
 
-    private final List<User> users = new ArrayList<>();
+    private final List<User> users = new CopyOnWriteArrayList<>();
     private final NativeImageLoader nativeImageLoader = new NativeImageLoader(IMG_SIZE, IMG_SIZE, IMG_CHANNEL);
-    private ImageView view;
+    private final ImageView view;
 
-    private ILinearModel nativeInterface;
+    private final ILinearModel nativeInterface;
 
-    private AtomicBoolean training = new AtomicBoolean(false);
+    private final AtomicBoolean training = new AtomicBoolean(false);
 
     public NeuralNetworkManager(ImageView view) {
         this.view = view;
@@ -55,14 +57,14 @@ public class NeuralNetworkManager {
             Pair<User, Double> result = users.stream()
                     .filter(user -> user.getNeuralNetwork() != null)
                     .map(user -> {
-                        double p =   user.getNeuralNetwork().predict(inputs);
+                        double p = user.getNeuralNetwork().predict(inputs);
                         predictions.add(p);
                         return new Pair<>(user, user.getNeuralNetwork().predict(inputs));
                     })
                     .max((a, b) -> (int) (a.getValue() - b.getValue()))
                     .orElse(null);
 
-            if(result != null)
+            if (result != null)
                 result = new Pair<>(result.getKey(),
                         Normalizer.softmax(result.getValue(),
                                 predictions.stream().mapToDouble(e -> e).toArray()));
@@ -90,7 +92,7 @@ public class NeuralNetworkManager {
         int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
 
         INDArray inputs = Nd4j.create(filesSize, IMG_TOTAL_SIZE);
-        INDArray labels = Nd4j.create(1, filesSize);
+        final INDArray labels = Nd4j.create(1, filesSize);
         int index = 0;
         for (User user : users) {
             int userIndex = users.indexOf(user);
@@ -100,19 +102,22 @@ public class NeuralNetworkManager {
                 INDArray imgArray = nativeImageLoader.asMatrix(image).reshape(IMG_TOTAL_SIZE).div(255);
                 inputs.putRow(index, imgArray);
                 labels.put(0, index, userIndex);
+                imgArray.close();
                 index++;
             }
         }
+
+        final INDArray normalizedInputs = inputs.reshape(filesSize * (IMG_TOTAL_SIZE));
 
         for (User user : users) {
             int userIndex = users.indexOf(user);
             NeuralNetwork neuralNetwork = new NeuralNetwork(IMG_TOTAL_SIZE, nativeInterface);
             INDArray normalizedLabels = labels.dup();
 
-            BooleanIndexing.replaceWhere(normalizedLabels, -1, Conditions.epsNotEquals(userIndex));
+            BooleanIndexing.replaceWhere(normalizedLabels, 0, Conditions.epsNotEquals(userIndex));
             BooleanIndexing.replaceWhere(normalizedLabels, 1, Conditions.epsEquals(userIndex));
 
-            neuralNetwork.train(inputs.reshape(filesSize * (IMG_TOTAL_SIZE)), normalizedLabels, (int) normalizedLabels.length(),
+            neuralNetwork.train(normalizedInputs, normalizedLabels, (int) normalizedLabels.length(),
                     IMG_TOTAL_SIZE, 10000, 0.01);
             neuralNetwork.save(new File(user.getDirectory(), "model"));
 
@@ -121,10 +126,8 @@ public class NeuralNetworkManager {
             user.setNeuralNetwork(neuralNetwork);
             normalizedLabels.close();
         }
-
         training.set(false);
         callback.run();
-        inputs.close();
         labels.close();
     }
 

@@ -42,7 +42,7 @@ Parameters parseParameters(char *input) {
 
 extern "C" {
 
-EXPORT void *createModel(int inputSize) {
+EXPORT void * createModel(int inputSize) {
     return new MultiLayerNetwork(inputSize);
 }
 
