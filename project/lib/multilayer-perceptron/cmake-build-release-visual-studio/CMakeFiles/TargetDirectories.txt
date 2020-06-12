@@ -1,0 +1,4 @@
+C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/rebuild_cache.dir
+C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir
+C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir
+C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/edit_cache.dir

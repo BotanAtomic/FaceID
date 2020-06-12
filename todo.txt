@@ -1,0 +1,17 @@
+Librairie:
+	- utiliser les batch size
+	- implementer SVM
+	- rendre les layer interfaçable pour introduire CNN (ou autre)
+	- melanger des data de training a chaque epoch
+	- implementer le multi-thread
+	- utiliser le GPU (?) pour les calculs matriciels
+	- implementer et interfacer les fonctions de pertes
+	- rendre le 'learning rate' modulable
+	- comprendre et implementer plusieurs types de normalisation (L1 / L2 ...)
+
+
+Client:
+	- ajouter le MLP et proposer un modele entrainé par defaut
+	- switcher entre le modele lineaire et MLP et DL4J
+	- proposer une version avec VGG16 (?)
+	- Entrainer un second modele avec les landmarks du visage et faire une double verification

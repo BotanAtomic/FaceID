@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ML-test.dir/src/test.cpp.o CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o CMakeFiles/ML-test.dir/src/utils/utils.cpp.o CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o  -o ML-test 
