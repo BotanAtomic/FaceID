@@ -34,6 +34,12 @@ algorithm
 ../ActivationFunction.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/ActivationFunction.h
 
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h
+../../matrix/Matrix.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
+cuda_runtime.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/cuda_runtime.h
+
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp
 FileReader.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h
@@ -82,13 +88,27 @@ vector
 ../initializer/Initializer.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/Initializer.h
 
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp
+cstring
+-
+network/MultiLayerNetwork.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
+activation/implementation/Softmax.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Softmax.h
+activation/implementation/Hyperbolic.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Hyperbolic.h
+activation/implementation/Relu.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Relu.h
+activation/implementation/Linear.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Linear.h
+
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp
 Matrix.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
 
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
 iostream
-/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/iostream
+-
 string
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/string
 sstream
@@ -101,6 +121,8 @@ vector
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp
 MultiLayerNetwork.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
+utility
+-
 
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
 chrono
@@ -128,6 +150,18 @@ chrono
 ../file/FileReader.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h
 
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp
+SVM.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
+
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
+../matrix/Matrix.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
+algorithm
+-
+unordered_map
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/unordered_map
+
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp
 network/MultiLayerNetwork.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
@@ -141,6 +175,10 @@ initializer/implementation/XavierUniform.h
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/XavierUniform.h
 chrono
 -
+backend/cuda/CudaBackend.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h
+svm/SVM.h
+/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
 
 /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.cpp
 utils.h

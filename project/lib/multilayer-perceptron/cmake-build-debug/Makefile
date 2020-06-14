@@ -233,6 +233,7 @@ src/library.o: src/library.cpp.o
 # target to build an object file
 src/library.cpp.o:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.o
 .PHONY : src/library.cpp.o
 
 src/library.i: src/library.cpp.i
@@ -242,6 +243,7 @@ src/library.i: src/library.cpp.i
 # target to preprocess a source file
 src/library.cpp.i:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.i
 .PHONY : src/library.cpp.i
 
 src/library.s: src/library.cpp.s
@@ -251,6 +253,7 @@ src/library.s: src/library.cpp.s
 # target to generate assembly for a file
 src/library.cpp.s:
 	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/library.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/library.cpp.s
 .PHONY : src/library.cpp.s
 
 src/matrix/Matrix.o: src/matrix/Matrix.cpp.o
@@ -313,12 +316,43 @@ src/network/MultiLayerNetwork.cpp.s:
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.s
 .PHONY : src/network/MultiLayerNetwork.cpp.s
 
+src/svm/SVM.o: src/svm/SVM.cpp.o
+
+.PHONY : src/svm/SVM.o
+
+# target to build an object file
+src/svm/SVM.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.o
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o
+.PHONY : src/svm/SVM.cpp.o
+
+src/svm/SVM.i: src/svm/SVM.cpp.i
+
+.PHONY : src/svm/SVM.i
+
+# target to preprocess a source file
+src/svm/SVM.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.i
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/svm/SVM.cpp.i
+.PHONY : src/svm/SVM.cpp.i
+
+src/svm/SVM.s: src/svm/SVM.cpp.s
+
+.PHONY : src/svm/SVM.s
+
+# target to generate assembly for a file
+src/svm/SVM.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.s
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/svm/SVM.cpp.s
+.PHONY : src/svm/SVM.cpp.s
+
 src/test.o: src/test.cpp.o
 
 .PHONY : src/test.o
 
 # target to build an object file
 src/test.cpp.o:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/test.cpp.o
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.o
 .PHONY : src/test.cpp.o
 
@@ -328,6 +362,7 @@ src/test.i: src/test.cpp.i
 
 # target to preprocess a source file
 src/test.cpp.i:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/test.cpp.i
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.i
 .PHONY : src/test.cpp.i
 
@@ -337,6 +372,7 @@ src/test.s: src/test.cpp.s
 
 # target to generate assembly for a file
 src/test.cpp.s:
+	$(MAKE) -f CMakeFiles/ML-framework.dir/build.make CMakeFiles/ML-framework.dir/src/test.cpp.s
 	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/test.cpp.s
 .PHONY : src/test.cpp.s
 
@@ -398,6 +434,9 @@ help:
 	@echo "... src/network/MultiLayerNetwork.o"
 	@echo "... src/network/MultiLayerNetwork.i"
 	@echo "... src/network/MultiLayerNetwork.s"
+	@echo "... src/svm/SVM.o"
+	@echo "... src/svm/SVM.i"
+	@echo "... src/svm/SVM.s"
 	@echo "... src/test.o"
 	@echo "... src/test.i"
 	@echo "... src/test.s"

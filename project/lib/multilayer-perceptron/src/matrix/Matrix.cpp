@@ -10,11 +10,10 @@ Matrix::Matrix(int size) {
     this->data = vector<double>(size);
 }
 
-
 Matrix::Matrix(int rows, int columns, double defaultValue) {
     this->rows = rows;
     this->columns = columns;
-    if (defaultValue > 0)
+    if (defaultValue >= 0)
         this->data.assign(rows * columns, defaultValue);
     else
         this->data = vector<double>(rows * columns);
@@ -42,9 +41,32 @@ double *Matrix::operator[](int i) {
     return &data[i * columns];
 }
 
+Matrix *Matrix::operator+(double number) {
+    for (int i = 0; i < this->rows; ++i)
+        for (int j = 0; j < this->columns; ++j)
+            set(i, j, get(i, j) + number);
+    return this;
+}
+
+
 Matrix Matrix::T() {
     return Matrix(this, rows, columns);
 }
+
+Matrix Matrix::operator*(Matrix &other) {
+    if (this->columns == other.columns && this->rows == other.rows) {
+        Matrix result(this->rows, this->columns);
+        for (int i = 0; i < this->rows; ++i)
+            for (int j = 0; j < this->columns; ++j) {
+                result.set(i, j, get(i, j) * other[i][j]);
+            }
+        return result;
+    } else {
+        printf("cannot compute (*) matrix (%d, %d) with (%d, %d)\n", rows, columns, other.rows, other.columns);
+        exit(0);
+    }
+}
+
 
 Matrix Matrix::dot(Matrix &other) {
     if (this->columns == other.rows) {
@@ -81,6 +103,11 @@ Matrix Matrix::apply(double transformer(double)) {
     return *this;
 }
 
+Matrix Matrix::sub(int row) {
+    return Matrix(&data[row * columns], 1, this->columns);
+}
+
+
 double Matrix::get(int i, int j) {
     return data[i * columns + j];
 }
@@ -113,6 +140,24 @@ int Matrix::getRows() const { return rows; }
 
 int Matrix::getColumns() const { return columns; }
 
+double Matrix::sum() {
+    double sum = 0.0;
+
+    for (double i: data)
+        sum += i;
+
+    return sum;
+}
+
+double Matrix::vectorNorm() {
+    double sum = 0.0;
+
+    for (double i: data)
+        sum += pow(i, 2);
+    return sqrt(sum);
+}
+
+
 void Matrix::dump(const string &name) {
     cout << "Matrix(" << rows << "," << columns << ") " << name << endl;
     cout << toString() << endl;
@@ -140,3 +185,4 @@ string Matrix::toString() {
 vector<double> &Matrix::toVector() {
     return data;
 }
+

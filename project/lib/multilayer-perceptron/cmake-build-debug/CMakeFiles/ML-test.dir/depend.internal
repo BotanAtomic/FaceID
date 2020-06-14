@@ -18,6 +18,23 @@ CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
+CMakeFiles/ML-test.dir/src/library.cpp.o
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/ActivationFunction.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Hyperbolic.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Linear.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Relu.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Sigmoid.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Softmax.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/Initializer.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/RandomUniform.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/XavierUniform.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
@@ -39,6 +56,11 @@ CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
+CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/test.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/ActivationFunction.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Hyperbolic.h
@@ -46,6 +68,7 @@ CMakeFiles/ML-test.dir/src/test.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Relu.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Sigmoid.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Softmax.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/Initializer.h
@@ -54,6 +77,7 @@ CMakeFiles/ML-test.dir/src/test.cpp.o
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
+ /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp
  /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/utils/utils.cpp.o

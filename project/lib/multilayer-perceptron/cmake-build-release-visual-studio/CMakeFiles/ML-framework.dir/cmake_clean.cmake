@@ -1,10 +1,13 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ML-framework.dir/src/backend/cuda/CudaBackend.cu.obj"
   "CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/library.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.obj"
+  "CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.obj"
+  "CMakeFiles/ML-framework.dir/src/test.cpp.obj"
   "CMakeFiles/ML-framework.dir/src/utils/utils.cpp.obj"
   "ML-framework.dll"
   "ML-framework.dll.manifest"
@@ -13,6 +16,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang CUDA CXX)
   include(CMakeFiles/ML-framework.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

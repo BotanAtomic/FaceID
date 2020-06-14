@@ -2,33 +2,29 @@ cmake_minimum_required(VERSION 3.10.2)
 project(ML-framework)
 project(ML-test)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Oi")
 
-add_library(ML-framework SHARED
-        src/library.cpp
-        src/layer/Layer.cpp src/layer/Layer.h
-        src/network/MultiLayerNetwork.cpp src/network/MultiLayerNetwork.h
-        src/matrix/Matrix.h src/matrix/Matrix.cpp
-        src/utils/utils.h src/utils/utils.cpp
-        src/activation/ActivationFunction.h src/activation/implementation/Hyperbolic.h
-        src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
-        src/activation/implementation/Relu.h src/activation/implementation/Linear.h
-        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h
-        src/initializer/implementation/XavierUniform.h
-        src/file/FileWriter.cpp src/file/FileWriter.h src/file/FileReader.cpp src/file/FileReader.h)
+macro(get_WIN32_WINNT version)
+    if(WIN32)
+        enable_language(CUDA)
+        find_package(CUDA 10.0 REQUIRED)
+        message(STATUS "Found CUDA ${CUDA_VERSION_STRING} at ${CUDA_TOOLKIT_ROOT_DIR}")
+        set(CUDA_LINK_LIBRARIES_KEYWORD PUBLIC)
+        cuda_select_nvcc_arch_flags(ARCH_FLAGS)
+        include_directories("${CUDA_INCLUDE_DIRS}")
+    endif()
+endmacro()
 
-add_executable(ML-test
-        src/test.cpp
-        src/layer/Layer.cpp src/layer/Layer.h
-        src/network/MultiLayerNetwork.cpp src/network/MultiLayerNetwork.h
-        src/matrix/Matrix.h src/matrix/Matrix.cpp
-        src/utils/utils.h src/utils/utils.cpp
-        src/activation/ActivationFunction.h src/activation/implementation/Hyperbolic.h
-        src/activation/implementation/Sigmoid.h src/activation/implementation/Softmax.h
-        src/activation/implementation/Relu.h src/activation/implementation/Linear.h
-        src/initializer/Initializer.h src/initializer/implementation/RandomUniform.h
-        src/initializer/implementation/XavierUniform.h
-        src/file/FileWriter.cpp src/file/FileWriter.h src/file/FileReader.cpp src/file/FileReader.h)
+get_WIN32_WINNT(ver)
+add_definitions(-D_WIN32_WINNT=${ver})
+
+file(GLOB_RECURSE PROJECT_SRC src/*.cpp src/*.h src/*.cpp ./src/*.cu)
+
+add_library(ML-framework SHARED ${PROJECT_SRC})
+add_executable(ML-test ${PROJECT_SRC})
+
+target_link_libraries(ML-framework ${CUDA_LIBRARIES})
+target_link_libraries(ML-test ${CUDA_LIBRARIES})
 

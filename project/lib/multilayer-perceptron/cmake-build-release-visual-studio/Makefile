@@ -137,6 +137,36 @@ ML-test\fast:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\build
 .PHONY : ML-test\fast
 
+src\backend\cuda\CudaBackend.obj: src\backend\cuda\CudaBackend.cu.obj
+
+.PHONY : src\backend\cuda\CudaBackend.obj
+
+# target to build an object file
+src\backend\cuda\CudaBackend.cu.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.obj
+.PHONY : src\backend\cuda\CudaBackend.cu.obj
+
+src\backend\cuda\CudaBackend.i: src\backend\cuda\CudaBackend.cu.i
+
+.PHONY : src\backend\cuda\CudaBackend.i
+
+# target to preprocess a source file
+src\backend\cuda\CudaBackend.cu.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.i
+.PHONY : src\backend\cuda\CudaBackend.cu.i
+
+src\backend\cuda\CudaBackend.s: src\backend\cuda\CudaBackend.cu.s
+
+.PHONY : src\backend\cuda\CudaBackend.s
+
+# target to generate assembly for a file
+src\backend\cuda\CudaBackend.cu.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.s
+.PHONY : src\backend\cuda\CudaBackend.cu.s
+
 src\file\FileReader.obj: src\file\FileReader.cpp.obj
 
 .PHONY : src\file\FileReader.obj
@@ -234,6 +264,7 @@ src\library.obj: src\library.cpp.obj
 # target to build an object file
 src\library.cpp.obj:
 	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\library.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\library.cpp.obj
 .PHONY : src\library.cpp.obj
 
 src\library.i: src\library.cpp.i
@@ -243,6 +274,7 @@ src\library.i: src\library.cpp.i
 # target to preprocess a source file
 src\library.cpp.i:
 	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\library.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\library.cpp.i
 .PHONY : src\library.cpp.i
 
 src\library.s: src\library.cpp.s
@@ -252,6 +284,7 @@ src\library.s: src\library.cpp.s
 # target to generate assembly for a file
 src\library.cpp.s:
 	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\library.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\library.cpp.s
 .PHONY : src\library.cpp.s
 
 src\matrix\Matrix.obj: src\matrix\Matrix.cpp.obj
@@ -314,12 +347,43 @@ src\network\MultiLayerNetwork.cpp.s:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\network\MultiLayerNetwork.cpp.s
 .PHONY : src\network\MultiLayerNetwork.cpp.s
 
+src\svm\SVM.obj: src\svm\SVM.cpp.obj
+
+.PHONY : src\svm\SVM.obj
+
+# target to build an object file
+src\svm\SVM.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj
+.PHONY : src\svm\SVM.cpp.obj
+
+src\svm\SVM.i: src\svm\SVM.cpp.i
+
+.PHONY : src\svm\SVM.i
+
+# target to preprocess a source file
+src\svm\SVM.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\svm\SVM.cpp.i
+.PHONY : src\svm\SVM.cpp.i
+
+src\svm\SVM.s: src\svm\SVM.cpp.s
+
+.PHONY : src\svm\SVM.s
+
+# target to generate assembly for a file
+src\svm\SVM.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\svm\SVM.cpp.s
+.PHONY : src\svm\SVM.cpp.s
+
 src\test.obj: src\test.cpp.obj
 
 .PHONY : src\test.obj
 
 # target to build an object file
 src\test.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\test.cpp.obj
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\test.cpp.obj
 .PHONY : src\test.cpp.obj
 
@@ -329,6 +393,7 @@ src\test.i: src\test.cpp.i
 
 # target to preprocess a source file
 src\test.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\test.cpp.i
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\test.cpp.i
 .PHONY : src\test.cpp.i
 
@@ -338,6 +403,7 @@ src\test.s: src\test.cpp.s
 
 # target to generate assembly for a file
 src\test.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\test.cpp.s
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\test.cpp.s
 .PHONY : src\test.cpp.s
 
@@ -381,6 +447,9 @@ help:
 	@echo ... ML-framework
 	@echo ... ML-test
 	@echo ... edit_cache
+	@echo ... src/backend/cuda/CudaBackend.obj
+	@echo ... src/backend/cuda/CudaBackend.i
+	@echo ... src/backend/cuda/CudaBackend.s
 	@echo ... src/file/FileReader.obj
 	@echo ... src/file/FileReader.i
 	@echo ... src/file/FileReader.s
@@ -399,6 +468,9 @@ help:
 	@echo ... src/network/MultiLayerNetwork.obj
 	@echo ... src/network/MultiLayerNetwork.i
 	@echo ... src/network/MultiLayerNetwork.s
+	@echo ... src/svm/SVM.obj
+	@echo ... src/svm/SVM.i
+	@echo ... src/svm/SVM.s
 	@echo ... src/test.obj
 	@echo ... src/test.i
 	@echo ... src/test.s

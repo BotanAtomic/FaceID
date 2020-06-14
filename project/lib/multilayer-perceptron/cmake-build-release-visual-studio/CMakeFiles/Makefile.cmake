@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "NMake Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/CMakeCInformation.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/CMakeCUDAInformation.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
@@ -21,17 +22,25 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Compiler/MSVC-C.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Compiler/MSVC-CXX.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Compiler/NVIDIA-CUDA.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/FindCUDA.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/FindCUDA/select_compute_arch.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/FindPackageMessage.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/Windows-MSVC-C.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/Windows-MSVC-CXX.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/Windows-MSVC.cmake"
+  "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/Windows-NVIDIA-CUDA.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/Windows.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/Platform/WindowsPaths.cmake"
   "C:/Users/botan/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/win/share/cmake-3.16/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
+  "CMakeFiles/3.16.5/CMakeCUDACompiler.cmake"
   "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeRCCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeSystem.cmake"
+  "detect_cuda_compute_capabilities.cu"
   )
 
 # The corresponding makefile is:

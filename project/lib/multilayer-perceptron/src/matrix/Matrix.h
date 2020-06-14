@@ -5,7 +5,7 @@
 #ifndef ML_TEST_MATRIX_H
 #define ML_TEST_MATRIX_H
 
-#include "iostream"
+#include <iostream>
 #include "string"
 #include <sstream>
 #include <vector>
@@ -24,9 +24,9 @@ public:
 
     explicit Matrix(int size);
 
-    Matrix(int rows, int columns, double defaultValue = 0.0);
+    Matrix(int rows, int columns, double defaultValue = -1.0);
 
-    Matrix(double *inputs, int inputSize, int size);
+    Matrix(double *inputs, int rows, int columns);
 
     Matrix(Matrix * matrix, int inputSize, int size);
 
@@ -34,13 +34,19 @@ public:
 
     double *operator[](int i);
 
+    Matrix operator*(Matrix & other);
+
     Matrix dot(Matrix &other);
 
     Matrix *operator*(double number);
 
+    Matrix *operator+(double number);
+
     Matrix T();
 
     Matrix apply(double transformer(double));
+
+    Matrix sub(int row);
 
     double get(int i, int j);
 
@@ -55,6 +61,10 @@ public:
     int getRows() const;
 
     int getColumns() const;
+
+    double sum();
+
+    double vectorNorm();
 
     void dump(const string &name);
 

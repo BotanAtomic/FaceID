@@ -44,6 +44,7 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D_WIN32_WINNT="/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -67,6 +68,7 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D_WIN32_WINNT="/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -90,6 +92,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D_WIN32_WINNT="/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -113,6 +116,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D_WIN32_WINNT="/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -154,6 +158,14 @@
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.cu">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
@@ -192,6 +204,7 @@
 		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp">
 			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp">
 			<Option target="ML-framework"/>
@@ -209,7 +222,16 @@
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp">
+			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.cpp">

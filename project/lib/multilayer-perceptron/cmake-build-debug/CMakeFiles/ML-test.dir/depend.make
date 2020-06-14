@@ -18,6 +18,23 @@ CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o: ../src/utils/utils.h
 
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/ActivationFunction.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/implementation/Hyperbolic.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/implementation/Linear.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/implementation/Relu.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/implementation/Sigmoid.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/activation/implementation/Softmax.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/file/FileReader.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/file/FileWriter.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/initializer/Initializer.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/initializer/implementation/RandomUniform.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/initializer/implementation/XavierUniform.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/layer/Layer.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/library.cpp
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/matrix/Matrix.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/network/MultiLayerNetwork.h
+CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/utils/utils.h
+
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o: ../src/matrix/Matrix.cpp
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o: ../src/utils/utils.h
@@ -39,12 +56,18 @@ CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/network/Multi
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/network/MultiLayerNetwork.h
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/utils/utils.h
 
+CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: ../src/matrix/Matrix.h
+CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: ../src/svm/SVM.cpp
+CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: ../src/svm/SVM.h
+CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: ../src/utils/utils.h
+
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/ActivationFunction.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/implementation/Hyperbolic.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/implementation/Linear.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/implementation/Relu.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/implementation/Sigmoid.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/activation/implementation/Softmax.h
+CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/backend/cuda/CudaBackend.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/file/FileReader.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/file/FileWriter.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/initializer/Initializer.h
@@ -53,6 +76,7 @@ CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/initializer/implementation/XavierU
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/layer/Layer.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/matrix/Matrix.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/network/MultiLayerNetwork.h
+CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/svm/SVM.h
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/test.cpp
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/utils/utils.h
 
