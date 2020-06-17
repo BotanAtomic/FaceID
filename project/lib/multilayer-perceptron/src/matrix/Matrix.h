@@ -22,9 +22,13 @@ private:
 
 public:
 
+    static Matrix diag(int size, double value = 1.0);
+
     explicit Matrix(int size);
 
-    Matrix(int rows, int columns, double defaultValue = -1.0);
+    Matrix(int rows, int columns, double defaultValue);
+
+    Matrix(int rows, int columns);
 
     Matrix(double *inputs, int rows, int columns);
 
@@ -42,11 +46,15 @@ public:
 
     Matrix *operator+(double number);
 
+    Matrix operator-(Matrix& other);
+
     Matrix T();
 
     Matrix apply(double transformer(double));
 
     Matrix sub(int row);
+
+    Matrix outer(Matrix &other);
 
     double get(int i, int j);
 
@@ -56,7 +64,7 @@ public:
 
     void set(int i, double value);
 
-    void add(Matrix other);
+    void add(Matrix &other);
 
     int getRows() const;
 
@@ -67,6 +75,8 @@ public:
     double vectorNorm();
 
     void dump(const string &name);
+
+    bool isVector() const;
 
     string toString();
 

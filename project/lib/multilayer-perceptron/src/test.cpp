@@ -76,11 +76,15 @@ void testSVM() {
     SVM svm(2);
 
     svm.train(test2, test2_label, 6);
-    double prediction = svm.predict(new double[2]{2.4, 2.8});
 
-    cout << "Prediction:" << prediction << endl;
+    for(int i = 0; i < 12; i+= 2) {
+        double prediction = svm.predict(new double[2]{test2[i], test2[i + 1]});
+
+        cout << "Prediction:" << prediction << " for " << test2[i] << "," << test2[i + 1] << endl;
+    }
+
 }
 
 int main(int argc, char **argv) {
-    testSVM();
+     testSVM();
 }

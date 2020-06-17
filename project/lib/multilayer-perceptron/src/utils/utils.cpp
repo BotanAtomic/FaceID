@@ -32,11 +32,15 @@ vector<string> split(const string& str, const string& delimiter) {
 
     token = strtok(str_c, delimiter.c_str());
     while (token != nullptr) {
-        tokens.emplace_back(token);
+        tokens.push_back(token);
         token = strtok(nullptr, delimiter.c_str());
     }
 
     delete[] str_c;
 
     return tokens;
+}
+
+int imax(int a, int b) {
+    return a > b ? a : b;
 }

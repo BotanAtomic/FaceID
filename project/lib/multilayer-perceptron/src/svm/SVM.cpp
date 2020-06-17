@@ -4,93 +4,87 @@
 
 #include "SVM.h"
 
-SVM::SVM(int inputSize) {
+SVM::SVM(int inputSize, Kernel *kernel) {
     this->weights = Matrix(inputSize, 1, 0.0);
     this->bias = 0;
     this->inputSize = inputSize;
+    this->kernel = kernel;
 }
 
 void SVM::train(double *inputs, double *labels, int samples) {
+    if (this->kernel == nullptr)
+        this->kernel = new RadialBasisFunction(0.01);
+
     Matrix inputMatrix(inputs, samples, inputSize);
+    Matrix labelMatrix(labels, 1, samples);
 
-    //minimiser 1/2 ||w||^2
-    //contraintes: Yk( T(W) * Xk + b ) >= 1
+    Matrix K(samples, samples);
 
-    unordered_map<double, pair<Matrix, double>> supportVectors;
-
-    Matrix transforms(vector<double>{
-            1, 1,
-            -1, 1,
-            -1, -1,
-            1, -1
-    }.data(), 4, 2);
-
-    double maximumValue = *max_element(inputs, inputs + (samples * inputSize));
-
-    vector<double> stepSizes = {maximumValue * 0.1, maximumValue * 0.01, maximumValue * 0.001};
-    double biasRangeMultiple = 5.0;
-    double biasMultiple = 5.0;
-
-    double latestOptimum = maximumValue * 10;
-
-    int X = 0;
-    for (double step: stepSizes) {
-        Matrix currentWeights = Matrix(inputSize, 1, latestOptimum);
-        bool optimized = false;
-
-        while (!optimized) {
-            double biasStep = step * biasMultiple;
-            double currentBias = -1 * (maximumValue * biasRangeMultiple);
-            double maximumBias = (maximumValue * biasRangeMultiple) - biasStep;
-            while (currentBias <= maximumBias + biasStep) {
-                for (int t = 0; t < transforms.getRows(); t++) {
-                    Matrix transformation = transforms.sub(t).T();
-                    Matrix tempWeights = currentWeights * transformation;
-                    bool foundOption = true;
-
-                    for (int i = 0; i < samples; i++) {
-                        Matrix xi = inputMatrix.sub(i).T();
-                        double yi = labels[i];
-                        double r = ((tempWeights.T().dot(xi)).get(0) + currentBias) * yi;
-                        if (r < 1) {
-                            foundOption = false;
-                        }
-                    }
-
-                    if (foundOption) {
-                        supportVectors.insert(
-                                std::make_pair(tempWeights.vectorNorm(), std::make_pair(tempWeights, currentBias)));
-                    }
-                }
-                currentBias += biasStep;
-            }
-
-            if (currentWeights.get(0) < 0)
-                optimized = true;
-            else
-                currentWeights + (-step);
+    for (int i = 0; i < samples; i++) {
+        for (int j = 0; j < samples; j++) {
+            double result = labels[i] * labels[j];
+            Matrix xi = inputMatrix.sub(i);
+            Matrix xn = inputMatrix.sub(j).T();
+            K.set(i, j, xi.dot(xn).sum() * result);
         }
-
-        double lowestNorm = numeric_limits<double>::max();
-        pair<Matrix, double> bestSupport = supportVectors.end()->second;
-
-        for (const auto &support : supportVectors) {
-            if (support.first < lowestNorm) {
-                lowestNorm = support.first;
-                bestSupport = support.second;
-            }
-        }
-
-        this->weights = bestSupport.first;
-        this->bias = bestSupport.second;
-        latestOptimum = this->weights.get(0) + (step * 2);
     }
 
-    supportVectors.clear();
+    Matrix Q(samples, 1, -1);
+
+    real_2d_array q;
+    q.setcontent(K.getRows(), K.getColumns(), K.toVector().data());
+
+    real_1d_array a;
+
+    real_2d_array c;
+    real_1d_array lbnd;
+    real_1d_array ubnd;
+    c.setlength(2, samples + 1);
+    lbnd.setlength(samples);
+    ubnd.setlength(samples);
+
+    for (int i = 0; i < samples; i++) {
+        lbnd[i] = 0;
+        ubnd[i] = MAXFLOAT;
+        c[0][i] = labels[i]; // Y
+        c[1][i] = 1;// a
+    }
+    c[1][samples] = 1;// >=
+    c[0][samples] = 0; // 0
+
+    minqpstate state;
+    minqpreport rep;
+
+    minqpcreate(samples, state);
+    minqpsetquadraticterm(state, q);
+    minqpsetbc(state, lbnd, ubnd);
+    minqpsetlc(state, c, "[0, 0]");
+
+
+    minqpsetalgobleic(state, 0, 0, 0, 0);
+    minqpoptimize(state);
+    minqpresults(state, a, rep);
+
+    vector<double> supportVector;
+    for (int i = 0; i < samples; i++) {
+        Matrix result = (inputMatrix.sub(i) * (a[i] * labels[i]))->T();
+
+        weights.add(result);
+        if (a[i] > 0)
+            supportVector.push_back(a[i]);
+    }
+
+    int n = 0;
+    for (int i = 0; i < samples; i++) if (a[i] > 0) n = i;
+
+    bias = (1 / labels[n]);
+
+    for (int i = 0; i < supportVector.size(); i++) {
+        bias -= weights.toVector()[i] * inputMatrix[n][i];
+    }
 }
 
 double SVM::predict(double *inputs) {
     Matrix inputMatrix(inputs, inputSize, 1);
-    double res = inputMatrix.T().dot(this->weights).get(0) + bias;
-    return res < 0 ? -1 : 1;
+    return this->weights.T().dot(inputMatrix).sum() + bias < 0 ? -1 : 1;
 }
