@@ -11,7 +11,7 @@
 
 using namespace alglib;
 
-vector<double> resolve(Matrix &kernel, int samples, const double *labels) {
+vector<double> solveQP(Matrix &kernel, int samples, const double *labels) {
     Matrix L(samples, 1, -1); //terme lineaire
 
     real_2d_array q;

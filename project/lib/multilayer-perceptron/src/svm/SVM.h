@@ -7,12 +7,7 @@
 
 
 #include "../matrix/Matrix.h"
-#include "kernel/implementation/RBFKernel.h"
-#include "../alglib/stdafx.h"
-#include <cstdlib>
-#include <cstdio>
-#include <cmath>
-
+#include "kernel/implementation/LinearKernel.h"
 
 class SVM {
 

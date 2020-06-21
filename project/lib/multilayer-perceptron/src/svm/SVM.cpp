@@ -14,31 +14,28 @@ SVM::SVM(int inputSize, Kernel *kernel) {
 
 void SVM::train(double *inputs, double *labels, int samples) {
     if (this->kernel == nullptr)
-        this->kernel = new RBFKernel(0.01);
+        this->kernel = new LinearKernel();
 
     this->trainLabels = vector<double>(labels, labels + samples);
     this->trainInputs = new Matrix(inputs, samples, inputSize);
 
 
     Matrix kernelMatrix = kernel->build(*trainInputs);
-    this->solution = resolve(kernelMatrix, samples, labels);
+    this->solution = solveQP(kernelMatrix, samples, labels);
 
     for (int i = 0; i < solution.size(); i++) {
         if (solution[i] > 0)
             supportVectors.push_back(i);
     }
 
-    for (int i: supportVectors) {
-        for (int j:supportVectors) {
+    for (int i: supportVectors)
+        for (int j:supportVectors)
             lambda += labels[i] * labels[j] * solution[i] * solution[j] * kernelMatrix[i][j];
-        }
-    }
 
     int n = supportVectors.front();
     bias = labels[n] * lambda;
-    for (int i: supportVectors) {
+    for (int i: supportVectors)
         bias -= solution[i] * labels[i] * kernelMatrix[n][i];
-    }
 }
 
 double SVM::predict(double *inputs) {

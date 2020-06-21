@@ -8610,7 +8610,7 @@ REQUIREMENTS:
 * user must provide function value and gradient for F(), H(), G()  at  all
   points where function/gradient can be calculated. If optimizer  requires
   value exactly at the boundary between "patches" (say, at x=0 for f=abs(x)),
-  where gradient is not defined, user may resolve tie arbitrarily (in  our
+  where gradient is not defined, user may solve tie arbitrarily (in  our
   case - return +1 or -1 at its discretion).
 * NS solver supports numerical differentiation, i.e. it may  differentiate
   your function for you,  but  it  results  in  2N  increase  of  function

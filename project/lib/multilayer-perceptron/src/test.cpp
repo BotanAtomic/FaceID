@@ -11,6 +11,7 @@
 #include <chrono>
 #include "backend/cuda/CudaBackend.h"
 #include "svm/SVM.h"
+#include "svm/kernel/implementation/RBFKernel.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -79,7 +80,7 @@ void testSVM() {
     vector<double> labels = vector<double>({-1, -1, -1, -1, 1, 1, 1, 1});
 
 
-    SVM svm(2, new RBFKernel(0.01));
+    SVM svm(2, new RBFKernel(0.1));
 
     svm.train(test.data(), labels.data(), labels.size());
 
