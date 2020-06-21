@@ -65,26 +65,27 @@ void testMLP() {
 }
 
 void testSVM() {
-    double test2[] = {1, 7,
-                      2, 8,
-                      3, 8,
-                      5, 1,
-                      6, -1.0,
-                      7, 3,};
-    double test2_label[] = {-1, -1, -1, 1, 1, 1};
+    vector<double> test = vector<double>({
+                                                 1, 7,
+                                                 2, 8,
+                                                 3, 8,
+                                                 5, 1,
+                                                 6, -1.0,
+                                                 7, 3,});
+    vector<double> labels = vector<double>({-1, -1, -1, 1, 1, 1});
 
-    SVM svm(2);
 
-    svm.train(test2, test2_label, 6);
+    SVM svm(2, new RBFKernel(0.01));
 
-    for(int i = 0; i < 12; i+= 2) {
-        double prediction = svm.predict(new double[2]{test2[i], test2[i + 1]});
+    svm.train(test.data(), labels.data(), labels.size());
 
-        cout << "Prediction:" << prediction << " for " << test2[i] << "," << test2[i + 1] << endl;
+    for (int i = 0; i < test.size(); i += 2) {
+        double prediction = svm.predict(new double[2]{test[i], test[i + 1]});
+        cout << "Prediction:" << prediction << " for " << test[i] << "," << test[i + 1] << endl;
     }
 
 }
 
 int main(int argc, char **argv) {
-     testSVM();
+    testSVM();
 }

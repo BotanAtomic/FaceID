@@ -10,7 +10,9 @@
 class Kernel {
 
 public:
-    virtual double get(Matrix &x1, Matrix &x2) = 0;
+    virtual Matrix build(Matrix &inputs) = 0;
+
+    virtual double compute(Matrix &x1, Matrix &x2) = 0;
 
 };
 

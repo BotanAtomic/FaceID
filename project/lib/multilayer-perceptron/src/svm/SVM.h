@@ -9,7 +9,7 @@
 #include "../matrix/Matrix.h"
 #include <algorithm>
 #include "unordered_map"
-#include "kernel/implementation/RadialBasisFunction.h"
+#include "kernel/implementation/RBFKernel.h"
 #include "../alglib/stdafx.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -21,13 +21,17 @@ using namespace alglib;
 class SVM {
 
 private:
-    Matrix weights{0};
     double bias;
+    vector<double> supportVectors;
     int inputSize;
     Kernel *kernel;
+    double lambda = 0;
+    Matrix * trainInputs;
+    double * trainLabels = nullptr;
+    double * lagrangians = nullptr;
 
 public:
-    SVM(int inputSize, Kernel *kernel = nullptr);
+    explicit SVM(int inputSize, Kernel *kernel = nullptr);
 
     void train(double *inputs, double *labels, int samples);
 

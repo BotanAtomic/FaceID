@@ -5,34 +5,36 @@
 #include "SVM.h"
 
 SVM::SVM(int inputSize, Kernel *kernel) {
-    this->weights = Matrix(inputSize, 1, 0.0);
     this->bias = 0;
     this->inputSize = inputSize;
     this->kernel = kernel;
+    this->trainInputs = new Matrix(0, 0);
 }
 
 void SVM::train(double *inputs, double *labels, int samples) {
     if (this->kernel == nullptr)
-        this->kernel = new RadialBasisFunction(0.01);
+        this->kernel = new RBFKernel(0.01);
 
-    Matrix inputMatrix(inputs, samples, inputSize);
-    Matrix labelMatrix(labels, 1, samples);
+    this->trainLabels = labels;
 
-    Matrix K(samples, samples);
+    auto *inputMatrix = new Matrix(inputs, samples, inputSize);
+    this->trainInputs = inputMatrix;
 
-    for (int i = 0; i < samples; i++) {
-        for (int j = 0; j < samples; j++) {
-            double result = labels[i] * labels[j];
-            Matrix xi = inputMatrix.sub(i);
-            Matrix xn = inputMatrix.sub(j).T();
-            K.set(i, j, xi.dot(xn).sum() * result);
-        }
-    }
+    Matrix K = kernel->build(*inputMatrix);
 
-    Matrix Q(samples, 1, -1);
+    Matrix L(samples, 1, 0);
 
     real_2d_array q;
     q.setcontent(K.getRows(), K.getColumns(), K.toVector().data());
+
+    for (int i = 0; i < samples; i++) {
+        for (int j = 0; j < samples; j++) {
+            q[i][j] = labels[i] * labels[j] * K.get(i, j);
+        }
+    }
+
+    real_1d_array l;
+    l.setcontent(L.getRows(), L.toVector().data());
 
     real_1d_array a;
 
@@ -43,9 +45,10 @@ void SVM::train(double *inputs, double *labels, int samples) {
     lbnd.setlength(samples);
     ubnd.setlength(samples);
 
+    double maxValue = numeric_limits<float>::max();
     for (int i = 0; i < samples; i++) {
         lbnd[i] = 0;
-        ubnd[i] = MAXFLOAT;
+        ubnd[i] = maxValue;
         c[0][i] = labels[i]; // Y
         c[1][i] = 1;// a
     }
@@ -57,6 +60,7 @@ void SVM::train(double *inputs, double *labels, int samples) {
 
     minqpcreate(samples, state);
     minqpsetquadraticterm(state, q);
+    minqpsetlinearterm(state, l);
     minqpsetbc(state, lbnd, ubnd);
     minqpsetlc(state, c, "[0, 0]");
 
@@ -65,26 +69,33 @@ void SVM::train(double *inputs, double *labels, int samples) {
     minqpoptimize(state);
     minqpresults(state, a, rep);
 
-    vector<double> supportVector;
-    for (int i = 0; i < samples; i++) {
-        Matrix result = (inputMatrix.sub(i) * (a[i] * labels[i]))->T();
+    this->lagrangians = a.getcontent();
 
-        weights.add(result);
+    for (int i = 0; i < a.length(); i++) {
         if (a[i] > 0)
-            supportVector.push_back(a[i]);
+            supportVectors.push_back(i);
     }
 
-    int n = 0;
-    for (int i = 0; i < samples; i++) if (a[i] > 0) n = i;
+    for (int i: supportVectors) {
+        for (int j:supportVectors) {
+            lambda += labels[i] * labels[j] * a[i] * a[j] * K.get(i, j);
+        }
+    }
 
-    bias = (1 / labels[n]);
-
-    for (int i = 0; i < supportVector.size(); i++) {
-        bias -= weights.toVector()[i] * inputMatrix[n][i];
+    int n = supportVectors.front();
+    bias = labels[n] * lambda;
+    for (int i: supportVectors) {
+        bias -= a[i] * labels[i] * K.get(n, i);
     }
 }
 
 double SVM::predict(double *inputs) {
-    Matrix inputMatrix(inputs, inputSize, 1);
-    return this->weights.T().dot(inputMatrix).sum() + bias < 0 ? -1 : 1;
+    double result = 0;
+    Matrix inputMatrix(inputs, 1, this->inputSize);
+    for (int i: supportVectors) {
+        Matrix sub = trainInputs->sub(i);
+        result += lagrangians[i] * trainLabels[i] * kernel->compute(sub, inputMatrix);
+    }
+    result += bias;
+    return result > 0 ? 1 : -1;
 }
