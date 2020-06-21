@@ -7,28 +7,27 @@
 
 
 #include "../matrix/Matrix.h"
-#include <algorithm>
-#include "unordered_map"
 #include "kernel/implementation/RBFKernel.h"
 #include "../alglib/stdafx.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include "../alglib/optimization.h"
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
 
-using namespace alglib;
 
 class SVM {
 
 private:
-    double bias;
-    vector<double> supportVectors;
     int inputSize;
-    Kernel *kernel;
+
+    double bias = 0;
     double lambda = 0;
-    Matrix * trainInputs;
-    double * trainLabels = nullptr;
-    double * lagrangians = nullptr;
+
+    Matrix *trainInputs;
+    vector<double> supportVectors;
+    vector<double> trainLabels;
+    vector<double> solution;
+
+    Kernel *kernel;
 
 public:
     explicit SVM(int inputSize, Kernel *kernel = nullptr);
