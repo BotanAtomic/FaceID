@@ -50,8 +50,8 @@ public class MLPNetwork implements NeuralNetwork {
 
         if (!savedNeuralNetwork.exists() || !load) {
             this.model = nativeInterface.createModel(IMG_TOTAL_SIZE);
-            nativeInterface.addLayer(model, 512, "activation=relu");
-            nativeInterface.addLayer(model, 512, "activation=sigmoid");
+            nativeInterface.addLayer(model, 128, "activation=relu");
+            nativeInterface.addLayer(model, 128, "activation=sigmoid");
             nativeInterface.addLayer(model, users.size(), "activation=sigmoid");
         } else {
             this.model = nativeInterface.loadModel(savedNeuralNetwork.getAbsolutePath());
@@ -91,7 +91,7 @@ public class MLPNetwork implements NeuralNetwork {
         final INDArray normalizedInputs = inputs.reshape(filesSize * (IMG_TOTAL_SIZE));
         final INDArray normalizedLabels = labels.reshape(filesSize);
 
-        train(normalizedInputs, normalizedLabels, 50, 0.1);
+        train(normalizedInputs, normalizedLabels, 100, 0.1);
 
         save();
     }

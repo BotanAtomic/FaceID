@@ -56,7 +56,7 @@ public class Controller {
 
     @FXML
     private void initialize() {
-        aiChoice.getItems().addAll("Linear", "MLP", "Keras");
+        aiChoice.getItems().addAll("Linear", "MLP", "DL4J");
         aiChoice.setValue("Linear");
         neuralNetworkManager = new NeuralNetworkManager(webcamView);
 

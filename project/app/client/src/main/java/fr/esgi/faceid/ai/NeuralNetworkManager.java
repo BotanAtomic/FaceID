@@ -6,7 +6,6 @@ import javafx.application.Platform;
 import javafx.scene.image.ImageView;
 import org.opencv.core.Mat;
 
-import java.io.IOException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +27,7 @@ public class NeuralNetworkManager {
     private final Map<String, Class<? extends NeuralNetwork>> availableNeuralNetwork = new HashMap<>() {{
         put("linear", LinearNeuralNetwork.class);
         put("mlp", MLPNetwork.class);
+        put("dl4j", DL4JNetwork.class);
     }};
     private NeuralNetwork neuralNetwork;
 
