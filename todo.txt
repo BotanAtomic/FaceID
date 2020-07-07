@@ -11,7 +11,4 @@ Librairie:
 
 
 Client:
-	- ajouter le MLP et proposer un modele entrainé par defaut
-	- switcher entre le modele lineaire et MLP et DL4J
-	- proposer une version avec VGG16 (?)
 	- Entrainer un second modele avec les landmarks du visage et faire une double verification
