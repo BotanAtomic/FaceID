@@ -1,6 +1,5 @@
 Librairie:
 	- utiliser les batch size
-	- implementer SVM
 	- rendre les layer interfaçable pour introduire CNN (ou autre)
 	- melanger des data de training a chaque epoch
 	- implementer le multi-thread
@@ -8,6 +7,7 @@ Librairie:
 	- implementer et interfacer les fonctions de pertes
 	- rendre le 'learning rate' modulable
 	- comprendre et implementer plusieurs types de normalisation (L1 / L2 ...)
+	- K-MEANS
 
 
 Client:
