@@ -20,20 +20,20 @@ ml_lib = load_ml_library(len(labels))
 
 network = ml_lib.createModel(len(X[0]))
 
+ml_lib.addLayer(network, 512, cstring("activation=relu"))  # hidden layer
 ml_lib.addLayer(network, 512, cstring("activation=sigmoid"))  # hidden layer
-ml_lib.addLayer(network, 512, cstring("activation=sigmoid"))  # hidden layer
-ml_lib.addLayer(network, 3, cstring("activation=sigmoid"))  # output layer
+ml_lib.addLayer(network, len(labels), cstring("activation=sigmoid"))  # output layer
 
 inputs = (c_double * len(XFlattened))(*list(XFlattened))
-ml_lib.trainModel(network, inputs, (c_double * len(Y))(*list(Y)), len(Y), 60, 0.1)
+ml_lib.trainModel(network, inputs, (c_double * len(Y))(*list(Y)), len(Y), 50, 0.1)
 
 if test_dataset:
     accuracy = analyse_dataset(ml_lib, network, X_test, Y_test)
     print('Neural network accuracy:', accuracy)
 
-#Dernier test 100% (possible que le model ne generalise pas)
-
 if live_test:
-    start_camera_stream(ml_lib)
+    start_camera_stream(ml_lib, network)
+
+ml_lib.saveModel(network, cstring("network.model"))
 
 ml_lib.deleteModel(network)

@@ -9,10 +9,11 @@ import matplotlib.pyplot as plt
 
 from face_id import predict_face
 
+base_path = "..\\..\\app\\client\\data\\"
 
 def load_dataset(train_percent):
     labels = [os.path.basename(x) for x in filter(
-        os.path.isdir, glob.glob(os.path.join("..\\..\\dataset\\train", '*')))]
+        os.path.isdir, glob.glob(os.path.join(base_path, '*')))]
 
     X = []
     Y = []
@@ -21,11 +22,12 @@ def load_dataset(train_percent):
 
     for label in labels:
         files = [os.path.abspath(x) for x in filter(
-            os.path.isfile, glob.glob(os.path.join("..\\..\\dataset\\train\\" + label, '*')))]
+            os.path.isfile, glob.glob(os.path.join(base_path + label, '*')))]
         total = len(files)
         index = 0
         for imageFile in files:
             img = Image.open(imageFile).convert('L')
+            img = img.resize((img_size, img_size), Image.ANTIALIAS)
             img.thumbnail((img_size, img_size), Image.ANTIALIAS)
 
             if index == 1:
@@ -49,12 +51,10 @@ def load_dataset(train_percent):
 
 def analyse_dataset(ml_lib, network, X_test, Y_test):
     correct = 0
-    labels = np.array([0, 1, 2])
     for i in range(0, len(X_test)):
         data = X_test[i]
         must_predict = Y_test[i]
         (prediction, index) = predict_face(ml_lib, network, data)
-        print(must_predict, ' / ', prediction)
         if must_predict == index:
             correct += 1
 

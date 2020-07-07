@@ -35,10 +35,10 @@ NULL=nul
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -71,9 +71,256 @@ CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/ML-framework.dir/src/backend/cuda/CudaBackend.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
+CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj: ..\src\alglib\alglibinternal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/alglibinternal.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibinternal.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/alglibinternal.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibinternal.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/alglibinternal.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibinternal.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\alglibmisc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/alglibmisc.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibmisc.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/alglibmisc.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibmisc.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/alglibmisc.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\alglibmisc.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj: ..\src\alglib\ap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/ap.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\ap.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/ap.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\ap.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/ap.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\ap.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\ap.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\dataanalysis.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/dataanalysis.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\dataanalysis.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/dataanalysis.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\dataanalysis.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/dataanalysis.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\dataanalysis.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\diffequations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/diffequations.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\diffequations.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/diffequations.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\diffequations.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/diffequations.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\diffequations.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\fasttransforms.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/fasttransforms.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\fasttransforms.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/fasttransforms.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\fasttransforms.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/fasttransforms.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\fasttransforms.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj: ..\src\alglib\integration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/integration.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\integration.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/integration.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\integration.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/integration.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\integration.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\integration.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\interpolation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/interpolation.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\interpolation.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/interpolation.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\interpolation.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/interpolation.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\interpolation.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\linalg.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/linalg.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\linalg.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/linalg.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\linalg.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/linalg.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\linalg.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\optimization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/optimization.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\optimization.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/optimization.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\optimization.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/optimization.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\optimization.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\solvers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/solvers.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\solvers.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/solvers.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\solvers.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/solvers.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\solvers.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\specialfunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/specialfunctions.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\specialfunctions.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/specialfunctions.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\specialfunctions.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/specialfunctions.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\specialfunctions.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
+CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\statistics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ML-framework.dir/src/alglib/statistics.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\statistics.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-framework.dir/src/alglib/statistics.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe > CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\statistics.cpp
+<<
+
+CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-framework.dir/src/alglib/statistics.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.s /c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\alglib\statistics.cpp
+<<
+
 CMakeFiles\ML-framework.dir\src\file\FileReader.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\file\FileReader.cpp.obj: ..\src\file\FileReader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileReader.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\file\FileReader.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\file\FileReader.cpp
 <<
@@ -92,7 +339,7 @@ CMakeFiles\ML-framework.dir\src\file\FileReader.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.obj: ..\src\file\FileWriter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ML-framework.dir/src/file/FileWriter.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\file\FileWriter.cpp
 <<
@@ -111,7 +358,7 @@ CMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\layer\Layer.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\layer\Layer.cpp.obj: ..\src\layer\Layer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ML-framework.dir/src/layer/Layer.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\layer\Layer.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\layer\Layer.cpp
 <<
@@ -130,7 +377,7 @@ CMakeFiles\ML-framework.dir\src\layer\Layer.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\library.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\library.cpp.obj: ..\src\library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ML-framework.dir/src/library.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ML-framework.dir/src/library.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\library.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\library.cpp
 <<
@@ -149,7 +396,7 @@ CMakeFiles\ML-framework.dir\src\library.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\matrix\Matrix.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\matrix\Matrix.cpp.obj: ..\src\matrix\Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ML-framework.dir/src/matrix/Matrix.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\matrix\Matrix.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\matrix\Matrix.cpp
 <<
@@ -168,7 +415,7 @@ CMakeFiles\ML-framework.dir\src\matrix\Matrix.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\network\MultiLayerNetwork.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\network\MultiLayerNetwork.cpp.obj: ..\src\network\MultiLayerNetwork.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\network\MultiLayerNetwork.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\network\MultiLayerNetwork.cpp
 <<
@@ -187,7 +434,7 @@ CMakeFiles\ML-framework.dir\src\network\MultiLayerNetwork.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.obj: ..\src\svm\SVM.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ML-framework.dir/src/svm/SVM.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\svm\SVM.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\svm\SVM.cpp
 <<
@@ -206,7 +453,7 @@ CMakeFiles\ML-framework.dir\src\svm\SVM.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\test.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\test.cpp.obj: ..\src\test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ML-framework.dir/src/test.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ML-framework.dir/src/test.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\test.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\test.cpp
 <<
@@ -225,7 +472,7 @@ CMakeFiles\ML-framework.dir\src\test.cpp.s: cmake_force
 
 CMakeFiles\ML-framework.dir\src\utils\utils.cpp.obj: CMakeFiles\ML-framework.dir\flags.make
 CMakeFiles\ML-framework.dir\src\utils\utils.cpp.obj: ..\src\utils\utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ML-framework.dir/src/utils/utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ML-framework.dir/src/utils/utils.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ML-framework.dir\src\utils\utils.cpp.obj /FdCMakeFiles\ML-framework.dir\ /FS -c C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\src\utils\utils.cpp
 <<
@@ -245,6 +492,19 @@ CMakeFiles\ML-framework.dir\src\utils\utils.cpp.s: cmake_force
 # Object files for target ML-framework
 ML__framework_OBJECTS = \
 "CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj" \
+"CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj" \
 "CMakeFiles\ML-framework.dir\src\file\FileReader.cpp.obj" \
 "CMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.obj" \
 "CMakeFiles\ML-framework.dir\src\layer\Layer.cpp.obj" \
@@ -259,6 +519,19 @@ ML__framework_OBJECTS = \
 ML__framework_EXTERNAL_OBJECTS =
 
 ML-framework.dll: CMakeFiles\ML-framework.dir\src\backend\cuda\CudaBackend.cu.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj
+ML-framework.dll: CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj
 ML-framework.dll: CMakeFiles\ML-framework.dir\src\file\FileReader.cpp.obj
 ML-framework.dll: CMakeFiles\ML-framework.dir\src\file\FileWriter.cpp.obj
 ML-framework.dll: CMakeFiles\ML-framework.dir\src\layer\Layer.cpp.obj
@@ -271,8 +544,8 @@ ML-framework.dll: CMakeFiles\ML-framework.dir\src\utils\utils.cpp.obj
 ML-framework.dll: CMakeFiles\ML-framework.dir\build.make
 ML-framework.dll: "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64\cudart_static.lib"
 ML-framework.dll: CMakeFiles\ML-framework.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ML-framework.dll"
-	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe -E vs_link_dll --intdir=CMakeFiles\ML-framework.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\ML-framework.dir\objects1.rsp @<<
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX shared library ML-framework.dll"
+	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe -E vs_link_dll --intdir=CMakeFiles\ML-framework.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\PROFES~1\VC\Tools\MSVC\1426~1.288\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\ML-framework.dir\objects1.rsp @<<
  /out:ML-framework.dll /implib:ML-framework.lib /pdb:C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\cmake-build-release-visual-studio\ML-framework.pdb /dll /version:0.0 /machine:x64 /INCREMENTAL:NO   -LIBPATH:C:\PROGRA~1\NVIDIA~2\CUDA\v10.2\lib\x64  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64\cudart_static.lib" cudadevrt.lib cudart_static.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  
 <<
 

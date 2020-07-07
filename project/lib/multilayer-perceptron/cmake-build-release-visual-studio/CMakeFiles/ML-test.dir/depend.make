@@ -58,6 +58,106 @@ CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.obj: ..\src\backend\cuda\
 CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.obj: ..\src\matrix\Matrix.h
 CMakeFiles\ML-test.dir\src\backend\cuda\CudaBackend.cu.obj: ..\src\utils\utils.h
 
+CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.obj: ..\src\alglib\alglibinternal.cpp
+CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\alglibmisc.cpp
+CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\ap.cpp.obj: ..\src\alglib\ap.cpp
+CMakeFiles\ML-test.dir\src\alglib\ap.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\ap.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\dataanalysis.cpp
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\dataanalysis.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\optimization.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\solvers.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\specialfunctions.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\statistics.h
+CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\diffequations.cpp
+CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\diffequations.h
+CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\fasttransforms.cpp
+CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\fasttransforms.h
+CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\integration.cpp
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\integration.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\specialfunctions.h
+CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\integration.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\interpolation.cpp
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\interpolation.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\optimization.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\solvers.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\specialfunctions.h
+CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\linalg.cpp
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\optimization.cpp
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\optimization.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\solvers.h
+CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\solvers.cpp
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\solvers.h
+CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\specialfunctions.cpp
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\specialfunctions.h
+CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj: ..\src\alglib\stdafx.h
+
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\specialfunctions.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\statistics.cpp
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\statistics.h
+CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj: ..\src\alglib\stdafx.h
+
 CMakeFiles\ML-test.dir\src\file\FileReader.cpp.obj: ..\src\file\FileReader.cpp
 CMakeFiles\ML-test.dir\src\file\FileReader.cpp.obj: ..\src\file\FileReader.h
 CMakeFiles\ML-test.dir\src\file\FileReader.cpp.obj: ..\src\matrix\Matrix.h
@@ -113,9 +213,19 @@ CMakeFiles\ML-test.dir\src\network\MultiLayerNetwork.cpp.obj: ..\src\network\Mul
 CMakeFiles\ML-test.dir\src\network\MultiLayerNetwork.cpp.obj: ..\src\network\MultiLayerNetwork.h
 CMakeFiles\ML-test.dir\src\network\MultiLayerNetwork.cpp.obj: ..\src\utils\utils.h
 
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\alglibinternal.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\alglibmisc.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\ap.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\linalg.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\optimization.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\solvers.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\alglib\stdafx.h
 CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\matrix\Matrix.h
 CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\svm\SVM.cpp
 CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\svm\SVM.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\svm\kernel\Kernel.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\svm\kernel\implementation\LinearKernel.h
+CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\svm\solver\QuadraticSolver.h
 CMakeFiles\ML-test.dir\src\svm\SVM.cpp.obj: ..\src\utils\utils.h
 
 CMakeFiles\ML-test.dir\src\test.cpp.obj: "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include\builtin_types.h"
@@ -186,6 +296,9 @@ CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\layer\Layer.h
 CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\matrix\Matrix.h
 CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\network\MultiLayerNetwork.h
 CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\svm\SVM.h
+CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\svm\kernel\Kernel.h
+CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\svm\kernel\implementation\LinearKernel.h
+CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\svm\kernel\implementation\RBFKernel.h
 CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\test.cpp
 CMakeFiles\ML-test.dir\src\test.cpp.obj: ..\src\utils\utils.h
 

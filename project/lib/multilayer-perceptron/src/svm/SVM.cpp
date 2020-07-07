@@ -21,7 +21,12 @@ void SVM::train(double *inputs, double *labels, int samples) {
 
 
     Matrix kernelMatrix = kernel->build(*trainInputs);
+
+    kernelMatrix.dump("K");
+
     this->solution = solveQP(kernelMatrix, samples, labels);
+
+    cout << "solution: " << vectorToString(solution) << endl;
 
     for (int i = 0; i < solution.size(); i++) {
         if (solution[i] > 0)
@@ -32,10 +37,14 @@ void SVM::train(double *inputs, double *labels, int samples) {
         for (int j:supportVectors)
             lambda += labels[i] * labels[j] * solution[i] * solution[j] * kernelMatrix[i][j];
 
+    cout << "Lambda = " << lambda << endl;
+
     int n = supportVectors.front();
     bias = labels[n] * lambda;
     for (int i: supportVectors)
         bias -= solution[i] * labels[i] * kernelMatrix[n][i];
+
+    cout << "Bias = " << bias << endl;
 }
 
 double SVM::predict(double *inputs) {

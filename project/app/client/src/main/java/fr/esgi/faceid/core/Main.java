@@ -14,10 +14,12 @@ import java.io.File;
 public class Main extends Application {
 
     public static final String LIB_PATH = new File("..\\..\\lib\\linear-model\\cmake-build-debug\\ML-framework.dll").getAbsolutePath();
+    public static final String MLP_LIB_PATH = new File("..\\..\\lib\\multilayer-perceptron\\cmake-build-release-visual-studio\\ML-framework.dll").getAbsolutePath();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         new File("data").mkdir();
+        new File("models").mkdir();
         System.load(new File("libs/opencv_java430.dll").getAbsolutePath());
         Parent root = FXMLLoader.load(getClass().getResource("/root.fxml"));
         primaryStage.setScene(new Scene(root));

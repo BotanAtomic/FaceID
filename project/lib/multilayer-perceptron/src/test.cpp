@@ -66,18 +66,29 @@ void testMLP() {
 }
 
 void testSVM() {
-    vector<double> test = vector<double>({
-                                                 4, 2,
-                                                 3, 3,
-                                                 4, 4,
-                                                 5, 3,
+//    vector<double> test = vector<double>({
+//                                                 4, 2,
+//                                                 3, 3,
+//                                                 4, 4,
+//                                                 5, 3,
+//
+//                                                 3.5, 3,
+//                                                 4.5, 3,
+//                                                 4, 3,
+//                                                 4, 3.5
+//                                         });
+//    vector<double> labels = vector<double>({-1, -1, -1, -1, 1, 1, 1, 1});
 
-                                                 3.5, 3,
-                                                 4.5, 3,
+    vector<double> test = vector<double>({
+                                                 1,2,
+                                                 1, 3,
+                                                 1, 4,
+
+                                                 4,2,
                                                  4, 3,
-                                                 4, 3.5
+                                                 4, 4,
                                          });
-    vector<double> labels = vector<double>({-1, -1, -1, -1, 1, 1, 1, 1});
+    vector<double> labels = vector<double>({-1, -1, -1, 1, 1, 1});
 
 
     SVM svm(2, new RBFKernel(0.1));

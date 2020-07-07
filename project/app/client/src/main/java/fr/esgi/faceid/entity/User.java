@@ -1,6 +1,6 @@
 package fr.esgi.faceid.entity;
 
-import fr.esgi.faceid.ai.NeuralNetwork;
+import com.sun.jna.Pointer;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -16,7 +16,7 @@ public class User {
 
     private File directory;
 
-    private NeuralNetwork neuralNetwork;
+    private Pointer neuralNetwork;
 
     public User(File directory) {
         this.name = directory.getName();
@@ -39,11 +39,11 @@ public class User {
         this.directory = directory;
     }
 
-    public NeuralNetwork getNeuralNetwork() {
+    public Pointer getNeuralNetwork() {
         return this.neuralNetwork;
     }
 
-    public void setNeuralNetwork(NeuralNetwork neuralNetwork) {
+    public void setNeuralNetwork(Pointer neuralNetwork) {
         this.neuralNetwork = neuralNetwork;
     }
 

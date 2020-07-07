@@ -58,6 +58,106 @@ CMakeFiles/ML-test.dir/src/backend/cuda/CudaBackend.cu.obj
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
 CMakeFiles/ML-test.dir/src/file/FileReader.cpp.obj
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h
@@ -114,9 +214,19 @@ CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.obj
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/svm/SVM.cpp.obj
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/Kernel.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/LinearKernel.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/solver/QuadraticSolver.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/test.cpp.obj
  C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.2/include/builtin_types.h
@@ -187,6 +297,9 @@ CMakeFiles/ML-test.dir/src/test.cpp.obj
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/Kernel.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/LinearKernel.h
+ C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/RBFKernel.h
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp
  C:/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h
 CMakeFiles/ML-test.dir/src/utils/utils.cpp.obj

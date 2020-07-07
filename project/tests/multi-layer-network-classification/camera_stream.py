@@ -6,7 +6,7 @@ from const import img_total_size
 from face_id import predict_face
 
 
-def start_camera_stream(ml_lib):
+def start_camera_stream(ml_lib, network):
     face_cascade = cv2.CascadeClassifier(
         os.path.abspath("..\\..\\models\\face-detector\\haarcascade_frontalface_default.xml"))
     cap = cv2.VideoCapture(0)
@@ -21,7 +21,7 @@ def start_camera_stream(ml_lib):
             face = cv2.resize(face, dsize=(48, 48))
             matrix = np.array(face) / 255.0
             matrix = np.reshape(matrix, img_total_size)
-            cv2.putText(img, predict_face(ml_lib, matrix)[1], (x, y), 0, 1, 255)
+            cv2.putText(img, predict_face(ml_lib, network, matrix)[1], (x, y), 0, 1, 255)
 
         cv2.imshow('img', img)
 

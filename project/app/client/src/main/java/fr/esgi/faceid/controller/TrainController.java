@@ -17,7 +17,6 @@ import java.io.File;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static fr.esgi.faceid.configuration.Configuration.IMG_SIZE;
 import static fr.esgi.faceid.utils.OpenCV.cropCenter;
 import static fr.esgi.faceid.utils.OpenCV.matToImage;
 
@@ -67,7 +66,6 @@ public class TrainController {
                 return;
             }
 
-            Imgproc.resize(mat, mat, new Size(IMG_SIZE, IMG_SIZE));
             Imgcodecs.imwrite(new File(mainPath, current + ".jpg").getAbsolutePath(), mat);
 
             Platform.runLater(() -> {

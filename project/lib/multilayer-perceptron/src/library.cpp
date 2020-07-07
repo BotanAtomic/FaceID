@@ -42,7 +42,7 @@ Parameters parseParameters(char *input) {
 
 extern "C" {
 
-EXPORT void * createModel(int inputSize) {
+EXPORT void *createModel(int inputSize) {
     return new MultiLayerNetwork(inputSize);
 }
 
@@ -67,5 +67,13 @@ EXPORT double *predict(MultiLayerNetwork *network, double *inputs) {
 
 EXPORT void deleteModel(MultiLayerNetwork *network) {
     delete network;
+}
+
+EXPORT void saveModel(MultiLayerNetwork *network, char *path) {
+    network->save(path);
+}
+
+EXPORT void *loadModel(char *path) {
+    return MultiLayerNetwork::load(path);
 }
 }

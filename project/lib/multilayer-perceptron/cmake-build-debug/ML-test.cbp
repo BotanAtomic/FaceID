@@ -158,6 +158,114 @@
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.cu">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
@@ -227,6 +335,22 @@
 			<Option target="ML-test"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/Kernel.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/LinearKernel.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/RBFKernel.h">
+			<Option target="ML-framework"/>
+			<Option target="ML-test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/solver/QuadraticSolver.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>

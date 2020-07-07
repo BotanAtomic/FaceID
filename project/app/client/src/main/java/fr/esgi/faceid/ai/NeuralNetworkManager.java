@@ -1,31 +1,19 @@
 package fr.esgi.faceid.ai;
 
-import com.sun.jna.Native;
-import fr.esgi.faceid.api.ILinearModel;
-import fr.esgi.faceid.core.Main;
 import fr.esgi.faceid.entity.User;
-import fr.esgi.faceid.math.Normalizer;
 import fr.esgi.faceid.stream.VideoStream;
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
-import javafx.util.Pair;
-import org.datavec.image.loader.NativeImageLoader;
-import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.factory.Nd4j;
-import org.nd4j.linalg.indexing.BooleanIndexing;
-import org.nd4j.linalg.indexing.conditions.Conditions;
 import org.opencv.core.Mat;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
-import static fr.esgi.faceid.configuration.Configuration.*;
 import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
 
 /**
@@ -33,43 +21,37 @@ import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
  **/
 public class NeuralNetworkManager {
 
+
     private final List<User> users = new CopyOnWriteArrayList<>();
-    private final NativeImageLoader nativeImageLoader = new NativeImageLoader(IMG_SIZE, IMG_SIZE, IMG_CHANNEL);
     private final ImageView view;
-
-    private final ILinearModel nativeInterface;
-
     private final AtomicBoolean training = new AtomicBoolean(false);
+    private final Map<String, Class<? extends NeuralNetwork>> availableNeuralNetwork = new HashMap<>() {{
+        put("linear", LinearNeuralNetwork.class);
+        put("mlp", MLPNetwork.class);
+    }};
+    private NeuralNetwork neuralNetwork;
+
 
     public NeuralNetworkManager(ImageView view) {
         this.view = view;
-        this.nativeInterface = Native.load(Main.LIB_PATH, ILinearModel.class);
     }
 
-    public synchronized Pair<User, Double> predict(Mat input) {
+    public void setNeuralNetwork(String neuralNetwork) {
+        try {
+            this.neuralNetwork = (NeuralNetwork) availableNeuralNetwork.getOrDefault(neuralNetwork, availableNeuralNetwork.get("linear"))
+                    .getConstructors()[0].newInstance(users);
+            System.out.println("Set neural network: " + neuralNetwork);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized User predict(Mat input) {
         if (training.get())
             return null;
 
         try {
-            double[] inputs = nativeImageLoader.asMatrix(input).reshape(IMG_TOTAL_SIZE).div(255).toDoubleVector();
-            List<Double> predictions = new ArrayList<>();
-
-            Pair<User, Double> result = users.stream()
-                    .filter(user -> user.getNeuralNetwork() != null)
-                    .map(user -> {
-                        double p = user.getNeuralNetwork().predict(inputs);
-                        predictions.add(p);
-                        return new Pair<>(user, user.getNeuralNetwork().predict(inputs));
-                    })
-                    .max((a, b) -> (int) (a.getValue() - b.getValue()))
-                    .orElse(null);
-
-            if (result != null)
-                result = new Pair<>(result.getKey(),
-                        Normalizer.softmax(result.getValue(),
-                                predictions.stream().mapToDouble(e -> e).toArray()));
-
-            return result;
+            return neuralNetwork.predict(input);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -86,49 +68,12 @@ public class NeuralNetworkManager {
         stream.setFaceCallback(null);
         stream.setMatrixCallback(null);
         stream.setRepresentation3DCallback(null);
+        Thread.sleep(500);
         Platform.runLater(() -> view.setImage(LOADING_IMAGE));
         System.out.println("Start new training...");
-
-        int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
-
-        INDArray inputs = Nd4j.create(filesSize, IMG_TOTAL_SIZE);
-        final INDArray labels = Nd4j.create(1, filesSize);
-        int index = 0;
-        for (User user : users) {
-            int userIndex = users.indexOf(user);
-
-            for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
-                if (image.getName().equals("model")) continue;
-                INDArray imgArray = nativeImageLoader.asMatrix(image).reshape(IMG_TOTAL_SIZE).div(255);
-                inputs.putRow(index, imgArray);
-                labels.put(0, index, userIndex);
-                imgArray.close();
-                index++;
-            }
-        }
-
-        final INDArray normalizedInputs = inputs.reshape(filesSize * (IMG_TOTAL_SIZE));
-
-        for (User user : users) {
-            int userIndex = users.indexOf(user);
-            NeuralNetwork neuralNetwork = new NeuralNetwork(IMG_TOTAL_SIZE, nativeInterface);
-            INDArray normalizedLabels = labels.dup();
-
-            BooleanIndexing.replaceWhere(normalizedLabels, 0, Conditions.epsNotEquals(userIndex));
-            BooleanIndexing.replaceWhere(normalizedLabels, 1, Conditions.epsEquals(userIndex));
-
-            neuralNetwork.train(normalizedInputs, normalizedLabels, (int) normalizedLabels.length(),
-                    IMG_TOTAL_SIZE, 10000, 0.01);
-            neuralNetwork.save(new File(user.getDirectory(), "model"));
-
-            System.out.println("Training done for " + user.getName());
-
-            user.setNeuralNetwork(neuralNetwork);
-            normalizedLabels.close();
-        }
+        neuralNetwork.train();
         training.set(false);
         callback.run();
-        labels.close();
     }
 
     public List<User> getUsers() {
@@ -136,13 +81,9 @@ public class NeuralNetworkManager {
     }
 
     public void addUser(User user) {
-        File modelFile = new File(user.getDirectory(), "model");
-
-        if (modelFile.exists()) {
-            user.setNeuralNetwork(NeuralNetwork.from(modelFile, nativeInterface));
-        }
-
         this.users.add(user);
+        if (neuralNetwork != null)
+            neuralNetwork.addUser(user);
     }
 
     public boolean isTraining() {

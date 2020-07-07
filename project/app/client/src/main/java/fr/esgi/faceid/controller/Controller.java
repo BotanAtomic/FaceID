@@ -7,6 +7,7 @@ import fr.esgi.faceid.utils.OpenCV;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,7 +18,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Pair;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
@@ -46,16 +46,28 @@ public class Controller {
     private VBox datasetView;
     @FXML
     private ImageView webcamView;
+
+    @FXML
+    private ChoiceBox<String> aiChoice;
+
     private boolean trainOpened = false;
     private NeuralNetworkManager neuralNetworkManager;
 
 
     @FXML
     private void initialize() {
+        aiChoice.getItems().addAll("Linear", "MLP", "Keras");
+        aiChoice.setValue("Linear");
         neuralNetworkManager = new NeuralNetworkManager(webcamView);
 
         initCamera();
         loadUsers();
+
+        neuralNetworkManager.setNeuralNetwork("linear");
+
+        aiChoice.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
+            neuralNetworkManager.setNeuralNetwork(c.toLowerCase());
+        });
 
         webcamView.fitWidthProperty().bind(root.widthProperty());
         webcamView.fitHeightProperty().bind(root.heightProperty());
@@ -67,9 +79,9 @@ public class Controller {
         VideoStream stream = VideoStream.getInstance();
         stream.allowMultipleFace(true);
         stream.setImagePreprocessing((matrix, face, coordinates) -> {
-            Pair<User, Double> prediction = neuralNetworkManager.predict(face);
+            User prediction = neuralNetworkManager.predict(face);
             if (prediction == null) return;
-            String text = String.format("%s (%d%%)", prediction.getKey().getName(), (int) (prediction.getValue() * 100));
+            String text = String.format("%s", prediction.getName());
             Size textWidth = Imgproc.getTextSize(text, 1, 1, 1, new int[]{1});
             Imgproc.putText(matrix, text, OpenCV.middlePoint(
                     new Point(coordinates.x - textWidth.width / 2, coordinates.y + textWidth.height),
@@ -95,8 +107,13 @@ public class Controller {
                 .ifPresent(node -> node.setAccessibleRoleDescription(newName));
         File newDirectory = new File("data/" + newName);
         user.getDirectory().renameTo(newDirectory);
+
+        new File("models/linear", user.getName() + ".model")
+                .renameTo(new File("models/linear", newName + ".model"));
+
         user.setName(newName);
         user.setDirectory(newDirectory);
+
     }
 
     private void removeUser(User user) {
@@ -107,9 +124,8 @@ public class Controller {
                 file.delete();
 
             user.getDirectory().delete();
-            if (neuralNetworkManager.getUsers().size() > 1) {
-                train();
-            }
+
+            new File("models/linear", user.getName() + ".model").delete();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -171,10 +187,6 @@ public class Controller {
             ((TrainController) root.getController()).setCallback(() -> {
                 callback.run();
                 stage.close();
-
-                if (neuralNetworkManager.getUsers().size() > 1) {
-                    train();
-                }
             });
             stage.initStyle(StageStyle.UNDECORATED);
             stage.show();

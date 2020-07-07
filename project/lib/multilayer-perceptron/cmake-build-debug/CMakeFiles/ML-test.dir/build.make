@@ -57,9 +57,321 @@ include CMakeFiles/ML-test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ML-test.dir/flags.make
 
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o: ../src/alglib/alglibinternal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp > CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp -o CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o: ../src/alglib/alglibmisc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp > CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp -o CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o: ../src/alglib/ap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/ap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp > CMakeFiles/ML-test.dir/src/alglib/ap.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/ap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp -o CMakeFiles/ML-test.dir/src/alglib/ap.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o: ../src/alglib/dataanalysis.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp > CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp -o CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o: ../src/alglib/diffequations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp > CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp -o CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o: ../src/alglib/fasttransforms.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp > CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp -o CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o: ../src/alglib/integration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/integration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp > CMakeFiles/ML-test.dir/src/alglib/integration.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/integration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp -o CMakeFiles/ML-test.dir/src/alglib/integration.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o: ../src/alglib/interpolation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp > CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp -o CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o: ../src/alglib/linalg.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp > CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp -o CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o: ../src/alglib/optimization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp > CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp -o CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o: ../src/alglib/solvers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp > CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp -o CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o: ../src/alglib/specialfunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp > CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp -o CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o
+
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o: CMakeFiles/ML-test.dir/flags.make
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o: ../src/alglib/statistics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp > CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.i
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp -o CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.s
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.requires:
+
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.requires
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.provides: CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ML-test.dir/build.make CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.provides.build
+.PHONY : CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.provides
+
+CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.provides.build: CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o
+
+
 CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o: ../src/file/FileReader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp
 
 CMakeFiles/ML-test.dir/src/file/FileReader.cpp.i: cmake_force
@@ -83,7 +395,7 @@ CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o.provides.build: CMakeFiles/ML-t
 
 CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o: ../src/file/FileWriter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp
 
 CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.i: cmake_force
@@ -107,7 +419,7 @@ CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o.provides.build: CMakeFiles/ML-t
 
 CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o: ../src/layer/Layer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.cpp
 
 CMakeFiles/ML-test.dir/src/layer/Layer.cpp.i: cmake_force
@@ -131,7 +443,7 @@ CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o.provides.build: CMakeFiles/ML-test.
 
 CMakeFiles/ML-test.dir/src/library.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/library.cpp.o: ../src/library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ML-test.dir/src/library.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ML-test.dir/src/library.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/library.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp
 
 CMakeFiles/ML-test.dir/src/library.cpp.i: cmake_force
@@ -155,7 +467,7 @@ CMakeFiles/ML-test.dir/src/library.cpp.o.provides.build: CMakeFiles/ML-test.dir/
 
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o: ../src/matrix/Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp
 
 CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.i: cmake_force
@@ -179,7 +491,7 @@ CMakeFiles/ML-test.dir/src/matrix/Matrix.cpp.o.provides.build: CMakeFiles/ML-tes
 
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o: ../src/network/MultiLayerNetwork.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp
 
 CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.i: cmake_force
@@ -203,7 +515,7 @@ CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.o.provides.build: CMake
 
 CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o: ../src/svm/SVM.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp
 
 CMakeFiles/ML-test.dir/src/svm/SVM.cpp.i: cmake_force
@@ -227,7 +539,7 @@ CMakeFiles/ML-test.dir/src/svm/SVM.cpp.o.provides.build: CMakeFiles/ML-test.dir/
 
 CMakeFiles/ML-test.dir/src/test.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/test.cpp.o: ../src/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ML-test.dir/src/test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ML-test.dir/src/test.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/test.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp
 
 CMakeFiles/ML-test.dir/src/test.cpp.i: cmake_force
@@ -251,7 +563,7 @@ CMakeFiles/ML-test.dir/src/test.cpp.o.provides.build: CMakeFiles/ML-test.dir/src
 
 CMakeFiles/ML-test.dir/src/utils/utils.cpp.o: CMakeFiles/ML-test.dir/flags.make
 CMakeFiles/ML-test.dir/src/utils/utils.cpp.o: ../src/utils/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ML-test.dir/src/utils/utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ML-test.dir/src/utils/utils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ML-test.dir/src/utils/utils.cpp.o -c /mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.cpp
 
 CMakeFiles/ML-test.dir/src/utils/utils.cpp.i: cmake_force
@@ -275,6 +587,19 @@ CMakeFiles/ML-test.dir/src/utils/utils.cpp.o.provides.build: CMakeFiles/ML-test.
 
 # Object files for target ML-test
 ML__test_OBJECTS = \
+"CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o" \
+"CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o" \
 "CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o" \
 "CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o" \
 "CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o" \
@@ -288,6 +613,19 @@ ML__test_OBJECTS = \
 # External object files for target ML-test
 ML__test_EXTERNAL_OBJECTS =
 
+ML-test: CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o
+ML-test: CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o
 ML-test: CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o
 ML-test: CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o
 ML-test: CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o
@@ -299,7 +637,7 @@ ML-test: CMakeFiles/ML-test.dir/src/test.cpp.o
 ML-test: CMakeFiles/ML-test.dir/src/utils/utils.cpp.o
 ML-test: CMakeFiles/ML-test.dir/build.make
 ML-test: CMakeFiles/ML-test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ML-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable ML-test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ML-test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -307,6 +645,19 @@ CMakeFiles/ML-test.dir/build: ML-test
 
 .PHONY : CMakeFiles/ML-test.dir/build
 
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/alglibinternal.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/alglibmisc.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/ap.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/dataanalysis.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/diffequations.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/fasttransforms.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/integration.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/interpolation.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/linalg.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/optimization.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/solvers.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/specialfunctions.cpp.o.requires
+CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/alglib/statistics.cpp.o.requires
 CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/file/FileReader.cpp.o.requires
 CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/file/FileWriter.cpp.o.requires
 CMakeFiles/ML-test.dir/requires: CMakeFiles/ML-test.dir/src/layer/Layer.cpp.o.requires

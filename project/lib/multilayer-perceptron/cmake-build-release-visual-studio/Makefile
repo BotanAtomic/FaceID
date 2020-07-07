@@ -40,10 +40,10 @@ NULL=nul
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -60,7 +60,7 @@ CMAKE_BINARY_DIR = C:\Users\botan\Work\FaceID\project\lib\multilayer-perceptron\
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -71,7 +71,7 @@ rebuild_cache\fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\201.7223.86\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	C:\Users\botan\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.5428.21\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -136,6 +136,396 @@ ML-test: cmake_check_build_system
 ML-test\fast:
 	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\build
 .PHONY : ML-test\fast
+
+src\alglib\alglibinternal.obj: src\alglib\alglibinternal.cpp.obj
+
+.PHONY : src\alglib\alglibinternal.obj
+
+# target to build an object file
+src\alglib\alglibinternal.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.obj
+.PHONY : src\alglib\alglibinternal.cpp.obj
+
+src\alglib\alglibinternal.i: src\alglib\alglibinternal.cpp.i
+
+.PHONY : src\alglib\alglibinternal.i
+
+# target to preprocess a source file
+src\alglib\alglibinternal.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.i
+.PHONY : src\alglib\alglibinternal.cpp.i
+
+src\alglib\alglibinternal.s: src\alglib\alglibinternal.cpp.s
+
+.PHONY : src\alglib\alglibinternal.s
+
+# target to generate assembly for a file
+src\alglib\alglibinternal.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibinternal.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibinternal.cpp.s
+.PHONY : src\alglib\alglibinternal.cpp.s
+
+src\alglib\alglibmisc.obj: src\alglib\alglibmisc.cpp.obj
+
+.PHONY : src\alglib\alglibmisc.obj
+
+# target to build an object file
+src\alglib\alglibmisc.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.obj
+.PHONY : src\alglib\alglibmisc.cpp.obj
+
+src\alglib\alglibmisc.i: src\alglib\alglibmisc.cpp.i
+
+.PHONY : src\alglib\alglibmisc.i
+
+# target to preprocess a source file
+src\alglib\alglibmisc.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.i
+.PHONY : src\alglib\alglibmisc.cpp.i
+
+src\alglib\alglibmisc.s: src\alglib\alglibmisc.cpp.s
+
+.PHONY : src\alglib\alglibmisc.s
+
+# target to generate assembly for a file
+src\alglib\alglibmisc.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\alglibmisc.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\alglibmisc.cpp.s
+.PHONY : src\alglib\alglibmisc.cpp.s
+
+src\alglib\ap.obj: src\alglib\ap.cpp.obj
+
+.PHONY : src\alglib\ap.obj
+
+# target to build an object file
+src\alglib\ap.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\ap.cpp.obj
+.PHONY : src\alglib\ap.cpp.obj
+
+src\alglib\ap.i: src\alglib\ap.cpp.i
+
+.PHONY : src\alglib\ap.i
+
+# target to preprocess a source file
+src\alglib\ap.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\ap.cpp.i
+.PHONY : src\alglib\ap.cpp.i
+
+src\alglib\ap.s: src\alglib\ap.cpp.s
+
+.PHONY : src\alglib\ap.s
+
+# target to generate assembly for a file
+src\alglib\ap.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\ap.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\ap.cpp.s
+.PHONY : src\alglib\ap.cpp.s
+
+src\alglib\dataanalysis.obj: src\alglib\dataanalysis.cpp.obj
+
+.PHONY : src\alglib\dataanalysis.obj
+
+# target to build an object file
+src\alglib\dataanalysis.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.obj
+.PHONY : src\alglib\dataanalysis.cpp.obj
+
+src\alglib\dataanalysis.i: src\alglib\dataanalysis.cpp.i
+
+.PHONY : src\alglib\dataanalysis.i
+
+# target to preprocess a source file
+src\alglib\dataanalysis.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.i
+.PHONY : src\alglib\dataanalysis.cpp.i
+
+src\alglib\dataanalysis.s: src\alglib\dataanalysis.cpp.s
+
+.PHONY : src\alglib\dataanalysis.s
+
+# target to generate assembly for a file
+src\alglib\dataanalysis.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\dataanalysis.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\dataanalysis.cpp.s
+.PHONY : src\alglib\dataanalysis.cpp.s
+
+src\alglib\diffequations.obj: src\alglib\diffequations.cpp.obj
+
+.PHONY : src\alglib\diffequations.obj
+
+# target to build an object file
+src\alglib\diffequations.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.obj
+.PHONY : src\alglib\diffequations.cpp.obj
+
+src\alglib\diffequations.i: src\alglib\diffequations.cpp.i
+
+.PHONY : src\alglib\diffequations.i
+
+# target to preprocess a source file
+src\alglib\diffequations.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.i
+.PHONY : src\alglib\diffequations.cpp.i
+
+src\alglib\diffequations.s: src\alglib\diffequations.cpp.s
+
+.PHONY : src\alglib\diffequations.s
+
+# target to generate assembly for a file
+src\alglib\diffequations.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\diffequations.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\diffequations.cpp.s
+.PHONY : src\alglib\diffequations.cpp.s
+
+src\alglib\fasttransforms.obj: src\alglib\fasttransforms.cpp.obj
+
+.PHONY : src\alglib\fasttransforms.obj
+
+# target to build an object file
+src\alglib\fasttransforms.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.obj
+.PHONY : src\alglib\fasttransforms.cpp.obj
+
+src\alglib\fasttransforms.i: src\alglib\fasttransforms.cpp.i
+
+.PHONY : src\alglib\fasttransforms.i
+
+# target to preprocess a source file
+src\alglib\fasttransforms.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.i
+.PHONY : src\alglib\fasttransforms.cpp.i
+
+src\alglib\fasttransforms.s: src\alglib\fasttransforms.cpp.s
+
+.PHONY : src\alglib\fasttransforms.s
+
+# target to generate assembly for a file
+src\alglib\fasttransforms.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\fasttransforms.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\fasttransforms.cpp.s
+.PHONY : src\alglib\fasttransforms.cpp.s
+
+src\alglib\integration.obj: src\alglib\integration.cpp.obj
+
+.PHONY : src\alglib\integration.obj
+
+# target to build an object file
+src\alglib\integration.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\integration.cpp.obj
+.PHONY : src\alglib\integration.cpp.obj
+
+src\alglib\integration.i: src\alglib\integration.cpp.i
+
+.PHONY : src\alglib\integration.i
+
+# target to preprocess a source file
+src\alglib\integration.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\integration.cpp.i
+.PHONY : src\alglib\integration.cpp.i
+
+src\alglib\integration.s: src\alglib\integration.cpp.s
+
+.PHONY : src\alglib\integration.s
+
+# target to generate assembly for a file
+src\alglib\integration.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\integration.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\integration.cpp.s
+.PHONY : src\alglib\integration.cpp.s
+
+src\alglib\interpolation.obj: src\alglib\interpolation.cpp.obj
+
+.PHONY : src\alglib\interpolation.obj
+
+# target to build an object file
+src\alglib\interpolation.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.obj
+.PHONY : src\alglib\interpolation.cpp.obj
+
+src\alglib\interpolation.i: src\alglib\interpolation.cpp.i
+
+.PHONY : src\alglib\interpolation.i
+
+# target to preprocess a source file
+src\alglib\interpolation.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.i
+.PHONY : src\alglib\interpolation.cpp.i
+
+src\alglib\interpolation.s: src\alglib\interpolation.cpp.s
+
+.PHONY : src\alglib\interpolation.s
+
+# target to generate assembly for a file
+src\alglib\interpolation.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\interpolation.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\interpolation.cpp.s
+.PHONY : src\alglib\interpolation.cpp.s
+
+src\alglib\linalg.obj: src\alglib\linalg.cpp.obj
+
+.PHONY : src\alglib\linalg.obj
+
+# target to build an object file
+src\alglib\linalg.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.obj
+.PHONY : src\alglib\linalg.cpp.obj
+
+src\alglib\linalg.i: src\alglib\linalg.cpp.i
+
+.PHONY : src\alglib\linalg.i
+
+# target to preprocess a source file
+src\alglib\linalg.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.i
+.PHONY : src\alglib\linalg.cpp.i
+
+src\alglib\linalg.s: src\alglib\linalg.cpp.s
+
+.PHONY : src\alglib\linalg.s
+
+# target to generate assembly for a file
+src\alglib\linalg.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\linalg.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\linalg.cpp.s
+.PHONY : src\alglib\linalg.cpp.s
+
+src\alglib\optimization.obj: src\alglib\optimization.cpp.obj
+
+.PHONY : src\alglib\optimization.obj
+
+# target to build an object file
+src\alglib\optimization.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.obj
+.PHONY : src\alglib\optimization.cpp.obj
+
+src\alglib\optimization.i: src\alglib\optimization.cpp.i
+
+.PHONY : src\alglib\optimization.i
+
+# target to preprocess a source file
+src\alglib\optimization.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.i
+.PHONY : src\alglib\optimization.cpp.i
+
+src\alglib\optimization.s: src\alglib\optimization.cpp.s
+
+.PHONY : src\alglib\optimization.s
+
+# target to generate assembly for a file
+src\alglib\optimization.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\optimization.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\optimization.cpp.s
+.PHONY : src\alglib\optimization.cpp.s
+
+src\alglib\solvers.obj: src\alglib\solvers.cpp.obj
+
+.PHONY : src\alglib\solvers.obj
+
+# target to build an object file
+src\alglib\solvers.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.obj
+.PHONY : src\alglib\solvers.cpp.obj
+
+src\alglib\solvers.i: src\alglib\solvers.cpp.i
+
+.PHONY : src\alglib\solvers.i
+
+# target to preprocess a source file
+src\alglib\solvers.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.i
+.PHONY : src\alglib\solvers.cpp.i
+
+src\alglib\solvers.s: src\alglib\solvers.cpp.s
+
+.PHONY : src\alglib\solvers.s
+
+# target to generate assembly for a file
+src\alglib\solvers.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\solvers.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\solvers.cpp.s
+.PHONY : src\alglib\solvers.cpp.s
+
+src\alglib\specialfunctions.obj: src\alglib\specialfunctions.cpp.obj
+
+.PHONY : src\alglib\specialfunctions.obj
+
+# target to build an object file
+src\alglib\specialfunctions.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.obj
+.PHONY : src\alglib\specialfunctions.cpp.obj
+
+src\alglib\specialfunctions.i: src\alglib\specialfunctions.cpp.i
+
+.PHONY : src\alglib\specialfunctions.i
+
+# target to preprocess a source file
+src\alglib\specialfunctions.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.i
+.PHONY : src\alglib\specialfunctions.cpp.i
+
+src\alglib\specialfunctions.s: src\alglib\specialfunctions.cpp.s
+
+.PHONY : src\alglib\specialfunctions.s
+
+# target to generate assembly for a file
+src\alglib\specialfunctions.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\specialfunctions.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\specialfunctions.cpp.s
+.PHONY : src\alglib\specialfunctions.cpp.s
+
+src\alglib\statistics.obj: src\alglib\statistics.cpp.obj
+
+.PHONY : src\alglib\statistics.obj
+
+# target to build an object file
+src\alglib\statistics.cpp.obj:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.obj
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.obj
+.PHONY : src\alglib\statistics.cpp.obj
+
+src\alglib\statistics.i: src\alglib\statistics.cpp.i
+
+.PHONY : src\alglib\statistics.i
+
+# target to preprocess a source file
+src\alglib\statistics.cpp.i:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.i
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.i
+.PHONY : src\alglib\statistics.cpp.i
+
+src\alglib\statistics.s: src\alglib\statistics.cpp.s
+
+.PHONY : src\alglib\statistics.s
+
+# target to generate assembly for a file
+src\alglib\statistics.cpp.s:
+	$(MAKE) -f CMakeFiles\ML-framework.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-framework.dir\src\alglib\statistics.cpp.s
+	$(MAKE) -f CMakeFiles\ML-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ML-test.dir\src\alglib\statistics.cpp.s
+.PHONY : src\alglib\statistics.cpp.s
 
 src\backend\cuda\CudaBackend.obj: src\backend\cuda\CudaBackend.cu.obj
 
@@ -447,6 +837,45 @@ help:
 	@echo ... ML-framework
 	@echo ... ML-test
 	@echo ... edit_cache
+	@echo ... src/alglib/alglibinternal.obj
+	@echo ... src/alglib/alglibinternal.i
+	@echo ... src/alglib/alglibinternal.s
+	@echo ... src/alglib/alglibmisc.obj
+	@echo ... src/alglib/alglibmisc.i
+	@echo ... src/alglib/alglibmisc.s
+	@echo ... src/alglib/ap.obj
+	@echo ... src/alglib/ap.i
+	@echo ... src/alglib/ap.s
+	@echo ... src/alglib/dataanalysis.obj
+	@echo ... src/alglib/dataanalysis.i
+	@echo ... src/alglib/dataanalysis.s
+	@echo ... src/alglib/diffequations.obj
+	@echo ... src/alglib/diffequations.i
+	@echo ... src/alglib/diffequations.s
+	@echo ... src/alglib/fasttransforms.obj
+	@echo ... src/alglib/fasttransforms.i
+	@echo ... src/alglib/fasttransforms.s
+	@echo ... src/alglib/integration.obj
+	@echo ... src/alglib/integration.i
+	@echo ... src/alglib/integration.s
+	@echo ... src/alglib/interpolation.obj
+	@echo ... src/alglib/interpolation.i
+	@echo ... src/alglib/interpolation.s
+	@echo ... src/alglib/linalg.obj
+	@echo ... src/alglib/linalg.i
+	@echo ... src/alglib/linalg.s
+	@echo ... src/alglib/optimization.obj
+	@echo ... src/alglib/optimization.i
+	@echo ... src/alglib/optimization.s
+	@echo ... src/alglib/solvers.obj
+	@echo ... src/alglib/solvers.i
+	@echo ... src/alglib/solvers.s
+	@echo ... src/alglib/specialfunctions.obj
+	@echo ... src/alglib/specialfunctions.i
+	@echo ... src/alglib/specialfunctions.s
+	@echo ... src/alglib/statistics.obj
+	@echo ... src/alglib/statistics.i
+	@echo ... src/alglib/statistics.s
 	@echo ... src/backend/cuda/CudaBackend.obj
 	@echo ... src/backend/cuda/CudaBackend.i
 	@echo ... src/backend/cuda/CudaBackend.s

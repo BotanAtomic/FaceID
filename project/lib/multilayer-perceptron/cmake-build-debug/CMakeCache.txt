@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//The directory containing a CMake configuration file for ALGLIB.
+ALGLIB_DIR:PATH=ALGLIB_DIR-NOTFOUND
+
+//Dependencies for target
+ALGLIB_LIB_DEPENDS:STATIC=
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 

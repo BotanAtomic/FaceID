@@ -65,4 +65,5 @@ public class OpenCV {
 
         return new Mat(src, new Rect(width / 4, 0, width / 2, height));
     }
+
 }

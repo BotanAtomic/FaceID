@@ -26,6 +26,12 @@ def load_ml_library(outputSize):
 
     library.deleteModel.argtypes = [c_void_p]
     library.deleteModel.restype = None
+
+    library.saveModel.argtypes = [c_void_p, c_char_p]
+    library.saveModel.restype = c_bool
+
+    library.loadModel.argtypes = [c_char_p]
+    library.loadModel.restype = c_void_p
     return library
 
 def cstring(string):
