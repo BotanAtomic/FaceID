@@ -43,6 +43,8 @@ public class LinearNeuralNetwork implements NeuralNetwork {
     }
 
     public User predict(Mat input) throws Exception {
+        if (users.isEmpty()) return null;
+
         double[] data = NATIVE_IMAGE_LOADER.asMatrix(input).reshape(IMG_TOTAL_SIZE).div(255).toDoubleVector();
 
         try {
@@ -60,7 +62,6 @@ public class LinearNeuralNetwork implements NeuralNetwork {
 
             return null;
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -73,7 +74,7 @@ public class LinearNeuralNetwork implements NeuralNetwork {
         final INDArray labels = Nd4j.create(1, filesSize);
         int index = 0;
         for (User user : users) {
-            if(user.getNeuralNetwork() != null) {
+            if (user.getNeuralNetwork() != null) {
                 nativeInterface.deleteModel(user.getNeuralNetwork());
             }
             user.setNeuralNetwork(nativeInterface.createModel(IMG_TOTAL_SIZE));
@@ -119,6 +120,10 @@ public class LinearNeuralNetwork implements NeuralNetwork {
         } else {
             u.setNeuralNetwork(nativeInterface.createModel(modelSize));
         }
+    }
+
+    @Override
+    public void invalidate() {
     }
 
     public void train(User user, INDArray inputs, INDArray labels, int length, int dataSize, int epoch, double alpha) {

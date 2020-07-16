@@ -66,38 +66,26 @@ void testMLP() {
 }
 
 void testSVM() {
-//    vector<double> test = vector<double>({
-//                                                 4, 2,
-//                                                 3, 3,
-//                                                 4, 4,
-//                                                 5, 3,
-//
-//                                                 3.5, 3,
-//                                                 4.5, 3,
-//                                                 4, 3,
-//                                                 4, 3.5
-//                                         });
-//    vector<double> labels = vector<double>({-1, -1, -1, -1, 1, 1, 1, 1});
-
-    vector<double> test = vector<double>({
-                                                 1,2,
-                                                 1, 3,
-                                                 1, 4,
-
-                                                 4,2,
-                                                 4, 3,
+    vector<double> nonLinear = vector<double>({
+                                                 4, 2,
+                                                 3, 3,
                                                  4, 4,
-                                         });
-    vector<double> labels = vector<double>({-1, -1, -1, 1, 1, 1});
+                                                 5, 3,
 
+                                                 3.5, 3,
+                                                 4.5, 3,
+                                                 4, 3,
+                                                 4, 3.5
+                                         });
+    vector<double> nonLinearLabels = vector<double>({-1, -1, -1, -1, 1, 1, 1, 1});
 
     SVM svm(2, new RBFKernel(0.1));
 
-    svm.train(test.data(), labels.data(), labels.size());
+    svm.train(nonLinear.data(), nonLinearLabels.data(), nonLinearLabels.size());
 
-    for (int i = 0; i < test.size(); i += 2) {
-        double prediction = svm.predict(new double[2]{test[i], test[i + 1]});
-        cout << "Prediction:" << prediction << " for " << test[i] << "," << test[i + 1] << endl;
+    for (int i = 0; i < nonLinear.size(); i += 2) {
+        double prediction = svm.predict(new double[2]{nonLinear[i], nonLinear[i + 1]});
+        cout << "Prediction:" << prediction << " for " << nonLinear[i] << "," << nonLinear[i + 1] << endl;
     }
 
 }

@@ -1,7 +1,6 @@
 package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
-import org.datavec.image.loader.NativeImageLoader;
 import org.opencv.core.Mat;
 
 public interface NeuralNetwork {
@@ -11,4 +10,6 @@ public interface NeuralNetwork {
     void train() throws Exception;
 
     void addUser(User user);
+
+    void invalidate();
 }

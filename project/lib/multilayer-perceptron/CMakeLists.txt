@@ -20,7 +20,7 @@ endmacro()
 get_WIN32_WINNT(ver)
 add_definitions(-D_WIN32_WINNT=${ver})
 
-file(GLOB_RECURSE PROJECT_SRC src/*.Macpp src/*.h src/*.cpp ./src/*.cu)
+file(GLOB_RECURSE PROJECT_SRC src/*.cpp src/*.h src/*.cpp ./src/*.cu)
 
 add_library(ML-framework SHARED ${PROJECT_SRC})
 add_executable(ML-test ${PROJECT_SRC})

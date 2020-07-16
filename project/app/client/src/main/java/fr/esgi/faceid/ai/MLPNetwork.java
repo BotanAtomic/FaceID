@@ -41,7 +41,6 @@ public class MLPNetwork implements NeuralNetwork {
     }
 
     private void createOrLoadModel(boolean load) {
-
         File savedNeuralNetwork = new File("models/mlp/neuralNetwork.model");
 
         if (!load && model != null) {
@@ -60,6 +59,8 @@ public class MLPNetwork implements NeuralNetwork {
     }
 
     public User predict(Mat input) throws Exception {
+        if(model == null) return null;
+
         double[] inputs = NATIVE_IMAGE_LOADER.asMatrix(input).reshape(IMG_TOTAL_SIZE).div(255).toDoubleVector();
         double[] result = nativeInterface.predict(model, inputs).getDoubleArray(0, users.size());
 
@@ -99,6 +100,12 @@ public class MLPNetwork implements NeuralNetwork {
     @Override
     public void addUser(User user) {
 
+    }
+
+    @Override
+    public void invalidate() {
+        nativeInterface.deleteModel(model);
+        this.model = null;
     }
 
     public void train(INDArray inputs, INDArray labels, int epoch, double alpha) {

@@ -56,7 +56,7 @@ public class Controller {
 
     @FXML
     private void initialize() {
-        aiChoice.getItems().addAll("Linear", "MLP", "DL4J");
+        aiChoice.getItems().addAll("Linear", "MLP", "DL4J", "DL4J_CNN");
         aiChoice.setValue("Linear");
         neuralNetworkManager = new NeuralNetworkManager(webcamView);
 
@@ -126,6 +126,7 @@ public class Controller {
             user.getDirectory().delete();
 
             new File("models/linear", user.getName() + ".model").delete();
+            neuralNetworkManager.invalidateNetwork();
         } catch (Exception e) {
             e.printStackTrace();
         }

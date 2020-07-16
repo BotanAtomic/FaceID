@@ -7,7 +7,6 @@ import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
-import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -27,9 +26,9 @@ import java.util.Objects;
  **/
 public class DL4JNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 28;
+    private final static int IMG_SIZE = 32;
 
-    private final static int IMG_CHANNEL = 1;
+    private final static int IMG_CHANNEL = 3;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 
@@ -46,21 +45,26 @@ public class DL4JNetwork implements NeuralNetwork {
             this.multiLayerNetwork = ModelSerializer.restoreMultiLayerNetwork(new File("models/dl4j/model.dl4j"));
             System.out.println("Restore DL4J model");
         } catch (IOException e) {
+            buildNetwork();
+        }
+        multiLayerNetwork.init();
+    }
+
+    private void buildNetwork() {
+        if (users.size() > 1)
             this.multiLayerNetwork = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
                     .weightInit(WeightInit.XAVIER)
-                    .updater(new Adam(0.01))
+                    .updater(new Adam())
                     .list()
-                    .layer(0, new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(128).activation(Activation.RELU).build())
-                    .layer(1, new DenseLayer.Builder().nIn(128).nOut(128).activation(Activation.SIGMOID).build())
-                    .layer(2, new OutputLayer.Builder().nIn(128).nOut(users.size()).activation(Activation.SIGMOID).build())
+                    .layer(0, new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(512).activation(Activation.RELU).build())
+                    .layer(1, new DenseLayer.Builder().nIn(512).nOut(512).activation(Activation.RELU).build())
+                    .layer(2, new OutputLayer.Builder().nIn(512).nOut(users.size()).activation(Activation.SOFTMAX).build())
                     .build());
-        }
-
-        multiLayerNetwork.init();
-        multiLayerNetwork.setListeners(new ScoreIterationListener(10));
     }
 
     public User predict(Mat input) throws Exception {
+        if (multiLayerNetwork == null) return null;
+
         int[] result = multiLayerNetwork.predict(NATIVE_IMAGE_LOADER.asMatrix(input).div(255).reshape(new int[]{1, IMG_TOTAL_SIZE}));
         return users.get(result[0]);
     }
@@ -75,6 +79,11 @@ public class DL4JNetwork implements NeuralNetwork {
     @Override
     public void train() throws Exception {
         System.out.println("Train DL4J");
+
+        if (users.size() < 2) return;
+
+        buildNetwork();
+        multiLayerNetwork.init();
 
         int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
 
@@ -92,7 +101,7 @@ public class DL4JNetwork implements NeuralNetwork {
             }
         }
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 300; i++)
             multiLayerNetwork.fit(inputs, labels);
 
         save();
@@ -103,6 +112,10 @@ public class DL4JNetwork implements NeuralNetwork {
 
     }
 
+    @Override
+    public void invalidate() {
+        this.multiLayerNetwork = null;
+    }
 
     public void save() throws IOException {
         multiLayerNetwork.save(new File("models/dl4j/model.dl4j"));

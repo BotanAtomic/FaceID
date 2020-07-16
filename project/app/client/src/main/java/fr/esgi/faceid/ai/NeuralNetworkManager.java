@@ -28,6 +28,7 @@ public class NeuralNetworkManager {
         put("linear", LinearNeuralNetwork.class);
         put("mlp", MLPNetwork.class);
         put("dl4j", DL4JNetwork.class);
+        put("dl4j_cnn", DL4JCNNNetwork.class);
     }};
     private NeuralNetwork neuralNetwork;
 
@@ -88,5 +89,10 @@ public class NeuralNetworkManager {
 
     public boolean isTraining() {
         return training.get();
+    }
+
+    public void invalidateNetwork() {
+        if (neuralNetwork != null)
+            this.neuralNetwork.invalidate();
     }
 }
