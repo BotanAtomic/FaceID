@@ -2,11 +2,14 @@ package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
 import org.datavec.image.loader.NativeImageLoader;
+import org.deeplearning4j.core.storage.StatsStorage;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
+import org.deeplearning4j.ui.model.stats.StatsListener;
+import org.deeplearning4j.ui.model.storage.InMemoryStatsStorage;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -20,15 +23,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
+
 
 /**
  * Created by Botan on 5/28/2020. 10:43 PM
  **/
 public class DL4JNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 32;
+    private final static int IMG_SIZE = 96;
 
-    private final static int IMG_CHANNEL = 3;
+    private final static int IMG_CHANNEL = 1;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 
@@ -51,15 +56,21 @@ public class DL4JNetwork implements NeuralNetwork {
     }
 
     private void buildNetwork() {
-        if (users.size() > 1)
+        if (users.size() > 1) {
             this.multiLayerNetwork = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
                     .weightInit(WeightInit.XAVIER)
                     .updater(new Adam())
                     .list()
-                    .layer(0, new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(512).activation(Activation.RELU).build())
-                    .layer(1, new DenseLayer.Builder().nIn(512).nOut(512).activation(Activation.RELU).build())
-                    .layer(2, new OutputLayer.Builder().nIn(512).nOut(users.size()).activation(Activation.SOFTMAX).build())
+                    .layer(new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(512).activation(Activation.LEAKYRELU).build())
+                    .layer(new DenseLayer.Builder().nIn(512).nOut(256).activation(Activation.LEAKYRELU).build())
+                    .layer(new DenseLayer.Builder().nIn(256).nOut(128).activation(Activation.LEAKYRELU).build())
+                    .layer(new DenseLayer.Builder().nIn(128).nOut(64).activation(Activation.SIGMOID).build())
+                    .layer(new OutputLayer.Builder().nIn(64).nOut(users.size()).activation(Activation.SOFTMAX).build())
                     .build());
+            StatsStorage statsStorage = new InMemoryStatsStorage();
+            uiServer.attach(statsStorage);
+            multiLayerNetwork.setListeners(new StatsListener(statsStorage));
+        }
     }
 
     public User predict(Mat input) throws Exception {
@@ -101,7 +112,7 @@ public class DL4JNetwork implements NeuralNetwork {
             }
         }
 
-        for (int i = 0; i < 300; i++)
+        for (int i = 0; i < 200; i++)
             multiLayerNetwork.fit(inputs, labels);
 
         save();

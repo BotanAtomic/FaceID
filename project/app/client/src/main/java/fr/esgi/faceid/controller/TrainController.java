@@ -4,6 +4,8 @@ import fr.esgi.faceid.stream.VideoStream;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -25,7 +27,7 @@ import static fr.esgi.faceid.utils.OpenCV.matToImage;
  **/
 public class TrainController {
 
-    private final static int N_COLLECT_IMAGE = 200;
+    private final static int N_COLLECT_IMAGE = 500;
     private final AtomicInteger imageCollected = new AtomicInteger(0);
     private final Rectangle[] rectangles = new Rectangle[60];
     private final String name = UUID.randomUUID().toString().substring(0, 4);
@@ -44,9 +46,50 @@ public class TrainController {
 
     @FXML
     private void initialize() {
+
+        faceView.setOnDragOver(event -> {
+            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            event.consume();
+        });
+
+        faceView.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            if (db.hasFiles()) {
+                if (VideoStream.getInstance().isAlive())
+                    VideoStream.getInstance().close();
+                new VideoStream(db.getFiles().get(0))
+                        .allowMultipleFace(false);
+                initStream();
+            }
+            event.setDropCompleted(true);
+            event.consume();
+        });
+
+        if(VideoStream.getInstance() == null)
+            new VideoStream();
+
+        initStream();
+
+        for (int i = 0; i < 60; i++) {
+            int degree = i * 6;
+            double x = 165.2 + (120 * (Math.cos((degree) * (Math.PI / 180.0f))));
+            double y = 143 + (120 * (Math.sin((degree) * (Math.PI / 180.0f))));
+            Rectangle rectangle = new Rectangle() {{
+                setX(x);
+                setY(y);
+                setHeight(10);
+                setWidth(5);
+                setRotate(degree - 90);
+                setFill(Color.GREY);
+            }};
+            rectangles[i] = rectangle;
+            container.getChildren().add(rectangle);
+        }
+    }
+
+    private void initStream() {
         File mainPath = new File("data/" + name);
         mainPath.mkdirs();
-
         VideoStream videoStream = VideoStream.getInstance();
 
         videoStream.showLandmark(false);
@@ -54,6 +97,8 @@ public class TrainController {
         videoStream.setImagePreprocessing(null);
 
         videoStream.setMatrixCallback(mat -> faceView.setFill(new ImagePattern(matToImage(cropCenter(mat)))));
+
+
 
         videoStream.setRepresentation3DCallback(mat -> representation3D.setImage(matToImage(mat)));
 
@@ -76,20 +121,5 @@ public class TrainController {
             });
         });
 
-        for (int i = 0; i < 60; i++) {
-            int degree = i * 6;
-            double x = 165.2 + (120 * (Math.cos((degree) * (Math.PI / 180.0f))));
-            double y = 143 + (120 * (Math.sin((degree) * (Math.PI / 180.0f))));
-            Rectangle rectangle = new Rectangle() {{
-                setX(x);
-                setY(y);
-                setHeight(10);
-                setWidth(5);
-                setRotate(degree - 90);
-                setFill(Color.GREY);
-            }};
-            rectangles[i] = rectangle;
-            container.getChildren().add(rectangle);
-        }
     }
 }

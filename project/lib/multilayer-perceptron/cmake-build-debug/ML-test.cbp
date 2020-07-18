@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ML-framework">
-				<Option output="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/libML-framework.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option output="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/libML-framework.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -55,15 +55,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-framework"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-framework"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ML-framework/fast">
-				<Option output="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/libML-framework.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option output="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/libML-framework.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -79,15 +79,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-framework/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-framework/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ML-test">
-				<Option output="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/ML-test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option output="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/ML-test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -103,15 +103,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-test"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ML-test/fast">
-				<Option output="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/ML-test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
+				<Option output="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/ML-test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -127,246 +127,246 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-test/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 ML-test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/ActivationFunction.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/ActivationFunction.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Hyperbolic.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Hyperbolic.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Linear.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Linear.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Relu.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Relu.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Sigmoid.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Sigmoid.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Softmax.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/activation/implementation/Softmax.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibinternal.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/alglibmisc.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/ap.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/dataanalysis.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/diffequations.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/fasttransforms.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/integration.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/interpolation.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/linalg.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/optimization.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/solvers.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/specialfunctions.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/statistics.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/alglib/stdafx.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.cu">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.cu">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/backend/cuda/CudaBackend.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileReader.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/file/FileWriter.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/Initializer.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/Initializer.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/RandomUniform.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/RandomUniform.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/XavierUniform.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/initializer/implementation/XavierUniform.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/layer/Layer.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/library.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/matrix/Matrix.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/network/MultiLayerNetwork.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/SVM.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/Kernel.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/Kernel.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/LinearKernel.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/LinearKernel.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/RBFKernel.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/kernel/implementation/RBFKernel.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/solver/QuadraticSolver.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/svm/solver/QuadraticSolver.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/test.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.cpp">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.cpp">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/src/utils/utils.h">
 			<Option target="ML-framework"/>
 			<Option target="ML-test"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/CMakeLists.txt">
+		<Unit filename="/c/Users/botan/Work/FaceID/project/lib/multilayer-perceptron/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

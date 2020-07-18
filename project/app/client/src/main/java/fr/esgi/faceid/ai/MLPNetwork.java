@@ -19,7 +19,7 @@ import java.util.Objects;
  **/
 public class MLPNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 28;
+    private final static int IMG_SIZE = 48;
 
     private final static int IMG_CHANNEL = 1;
 
@@ -50,6 +50,8 @@ public class MLPNetwork implements NeuralNetwork {
         if (!savedNeuralNetwork.exists() || !load) {
             this.model = nativeInterface.createModel(IMG_TOTAL_SIZE);
             nativeInterface.addLayer(model, 128, "activation=relu");
+            nativeInterface.addLayer(model, 128, "activation=sigmoid");
+            nativeInterface.addLayer(model, 128, "activation=sigmoid");
             nativeInterface.addLayer(model, 128, "activation=sigmoid");
             nativeInterface.addLayer(model, users.size(), "activation=sigmoid");
         } else {

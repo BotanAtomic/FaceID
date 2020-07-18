@@ -13,8 +13,10 @@ import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.objdetect.Objdetect;
 import org.opencv.videoio.VideoCapture;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import static fr.esgi.faceid.utils.OpenCV.FACIAL_LINE;
@@ -23,9 +25,9 @@ import static org.opencv.core.CvType.CV_8UC3;
 
 public class VideoStream extends Thread {
 
-    private static final VideoStream instance = new VideoStream();
+    private static VideoStream instance;
 
-    private final static Size minFaceSize = new Size(96, 96);
+    private final static Size minFaceSize = new Size(80, 80);
 
     private final VideoCapture videoCapture;
     private final CascadeClassifier faceCascade = new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_default.xml");
@@ -37,12 +39,24 @@ public class VideoStream extends Thread {
     private OnReceiveFace matrixCallback, faceCallback, representation3DCallback;
     private ImagePreprocessing imagePreprocessing;
 
-    public VideoStream() {
+    private final AtomicBoolean running = new AtomicBoolean(true);
+    private final File videoFile;
+
+
+    public VideoStream(File file) {
         this.videoCapture = new VideoCapture();
         this.facemark = Face.createFacemarkLBF();
         this.facemark.loadModel("../../models/landmark/lbfmodel.yaml");
+        this.videoFile = file;
+        instance = this;
+        System.out.println("Set video stream with videoFile: " + (videoFile != null ? videoFile.getAbsolutePath() : "null"));
         start();
     }
+
+    public VideoStream() {
+        this(null);
+    }
+
 
     public static VideoStream getInstance() {
         return instance;
@@ -56,24 +70,26 @@ public class VideoStream extends Thread {
 
     @Override
     public void run() {
-        videoCapture.open(0);
+        boolean opened = false;
+        if(videoFile != null)
+            opened = videoCapture.open(videoFile.getAbsolutePath());
+        else
+            opened = videoCapture.open(0);
+
+        System.out.println("Opened : " + opened);
 
         Mat matrix = new Mat();
-        while (videoCapture.isOpened()) {
+        while (videoCapture.isOpened() && running.get()) {
             videoCapture.read(matrix);
-
-            Mat gray = new Mat();
-            Imgproc.cvtColor(matrix, gray, Imgproc.COLOR_BGR2GRAY);
 
             if (!matrix.empty()) {
                 MatOfRect faces = new MatOfRect();
 
-                faceCascade.detectMultiScale(gray, faces, 1.1, 10, Objdetect.CASCADE_SCALE_IMAGE,
+                faceCascade.detectMultiScale(matrix, faces, 1.1, 10, Objdetect.CASCADE_FIND_BIGGEST_OBJECT,
                         minFaceSize, new Size());
 
 
-                Rect[] facesArray = Stream.of(faces.toArray())
-                        .sorted((a, b) -> (b.width - a.width)).toArray(Rect[]::new);
+                Rect[] facesArray = faces.toArray();
 
                 int i = 0;
 
@@ -96,9 +112,7 @@ public class VideoStream extends Thread {
                 i = 0;
 
                 ArrayList<MatOfPoint2f> landmarks = new ArrayList<>();
-                facemark.fit(gray, faces, landmarks);
-
-                gray.release();
+                facemark.fit(matrix, faces, landmarks);
 
                 for (MatOfPoint2f lm : landmarks) {
                     if (i > 0 && !allowMultipleFace.get())
@@ -152,6 +166,8 @@ public class VideoStream extends Thread {
                 matrix.release();
             }
         }
+
+        videoCapture.release();
     }
 
     public void setMatrixCallback(OnReceiveFace onReceiveFace) {
@@ -176,6 +192,10 @@ public class VideoStream extends Thread {
 
     public void setImagePreprocessing(ImagePreprocessing preprocessing) {
         this.imagePreprocessing = preprocessing;
+    }
+
+    public void close() {
+        this.running.set(false);
     }
 
     public interface OnReceiveFace {

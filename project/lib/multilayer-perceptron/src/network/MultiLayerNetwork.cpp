@@ -38,6 +38,7 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
     cout << "Start training network: inputsSize=" << inputSize << ", outputSize="
          << layers[layers.size() - 1]->getSize()
          << ", samples=" << samples << ", epochs=" << epochs << ", alpha=" << alpha << endl;
+    srand (time(NULL));
 
     Matrix inputsMatrix(inputs, samples, inputSize);
     int64_t timestamp, total, remaining;
@@ -46,7 +47,8 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
         double error = 0;
         timestamp = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 
-        for (int i = 0; i < samples; i++) {
+        for (int __ = 0; __ < samples; __++) {
+            int i = rand() % samples;
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 

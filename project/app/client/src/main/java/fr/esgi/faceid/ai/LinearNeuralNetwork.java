@@ -22,9 +22,9 @@ import java.util.Objects;
  **/
 public class LinearNeuralNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 48;
+    private final static int IMG_SIZE = 28;
 
-    private final static int IMG_CHANNEL = 3;
+    private final static int IMG_CHANNEL = 1;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -20,6 +21,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
+                  <ChoiceBox fx:id="aiChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
                   <StackPane minHeight="34.0" minWidth="148.0" onMouseClicked="#train" prefHeight="34.0" prefWidth="148.0" style="-fx-border-color: #23a400; -fx-background-radius: 5; -fx-border-radius: 5;">
                      <children>
                         <Label text="MANUAL TRAIN" textFill="#23a400">

@@ -2,6 +2,7 @@ package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
 import org.datavec.image.loader.NativeImageLoader;
+import org.deeplearning4j.core.storage.StatsStorage;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.inputs.InputType;
@@ -10,6 +11,8 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.conf.layers.SubsamplingLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
+import org.deeplearning4j.ui.model.stats.StatsListener;
+import org.deeplearning4j.ui.model.storage.InMemoryStatsStorage;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -23,6 +26,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+
+import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
 
 
 /**
@@ -39,22 +44,18 @@ public class DL4JCNNNetwork implements NeuralNetwork {
     public final NativeImageLoader NATIVE_IMAGE_LOADER = new NativeImageLoader(IMG_SIZE, IMG_SIZE, IMG_CHANNEL);
 
     private final List<User> users;
-
-    private MultiLayerNetwork multiLayerNetwork;
-
     boolean trained = false;
+    private MultiLayerNetwork multiLayerNetwork;
 
     public DL4JCNNNetwork(List<User> users) {
         this.users = users;
 
         try {
             this.multiLayerNetwork = ModelSerializer.restoreMultiLayerNetwork(new File("models/dl4j/model_cnn.dl4j"));
-            if(((OutputLayer)multiLayerNetwork.getOutputLayer()).getNOut() != users.size()) {
-                throw new Exception("invalid configuration");
-            }
             System.out.println("Restore DL4J model");
             trained = true;
         } catch (Exception e) {
+            e.printStackTrace();
             buildNetwork();
         }
 
@@ -62,7 +63,7 @@ public class DL4JCNNNetwork implements NeuralNetwork {
 
     private void buildNetwork() {
         if (users.size() > 1) {
-            ConvolutionLayer layer0 = new ConvolutionLayer.Builder(5, 5)
+            ConvolutionLayer layer0 = new ConvolutionLayer.Builder(3, 3)
                     .nIn(3)
                     .nOut(16)
                     .stride(1, 1)
@@ -76,7 +77,7 @@ public class DL4JCNNNetwork implements NeuralNetwork {
                     .stride(2, 2)
                     .build();
 
-            ConvolutionLayer layer2 = new ConvolutionLayer.Builder(5, 5)
+            ConvolutionLayer layer2 = new ConvolutionLayer.Builder(3, 3)
                     .nOut(20)
                     .stride(1, 1)
                     .padding(2, 2)
@@ -89,7 +90,7 @@ public class DL4JCNNNetwork implements NeuralNetwork {
                     .stride(2, 2)
                     .build();
 
-            ConvolutionLayer layer4 = new ConvolutionLayer.Builder(5, 5)
+            ConvolutionLayer layer4 = new ConvolutionLayer.Builder(3, 3)
                     .nOut(20)
                     .stride(1, 1)
                     .padding(2, 2)
@@ -124,6 +125,9 @@ public class DL4JCNNNetwork implements NeuralNetwork {
                     .setInputType(InputType.convolutional(IMG_SIZE, IMG_SIZE, IMG_CHANNEL))
                     .build()
             );
+            StatsStorage statsStorage = new InMemoryStatsStorage();
+            uiServer.attach(statsStorage);
+            multiLayerNetwork.setListeners(new StatsListener(statsStorage));
             trained = false;
         }
     }
@@ -153,23 +157,31 @@ public class DL4JCNNNetwork implements NeuralNetwork {
 
         int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
 
+        System.out.println("Loading dataset...");
+
         INDArray inputs = Nd4j.create(filesSize, IMG_CHANNEL, IMG_SIZE, IMG_SIZE);
         final INDArray labels = Nd4j.create(filesSize, users.size());
         int index = 0;
         for (User user : users) {
             int userIndex = users.indexOf(user);
 
+            int i = 0;
             for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
+                if (i > 200) break;
                 INDArray imgArray = NATIVE_IMAGE_LOADER.asMatrix(image).div(255);
                 inputs.putRow(index, imgArray);
                 labels.putRow(index, generateLabels(userIndex));
                 index++;
+                i++;
             }
         }
 
-        for (int i = 0; i < 300; i++)
-            multiLayerNetwork.fit(inputs, labels);
+        System.out.println("Dataset loaded");
 
+        for (int i = 0; i < 40; i++) {
+            multiLayerNetwork.fit(inputs, labels);
+            System.out.println("Epohs " + i + ": done.");
+        }
         save();
     }
 

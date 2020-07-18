@@ -11,6 +11,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -53,6 +55,8 @@ public class Controller {
     private boolean trainOpened = false;
     private NeuralNetworkManager neuralNetworkManager;
 
+    private boolean fileMode = false;
+
 
     @FXML
     private void initialize() {
@@ -60,7 +64,6 @@ public class Controller {
         aiChoice.setValue("Linear");
         neuralNetworkManager = new NeuralNetworkManager(webcamView);
 
-        initCamera();
         loadUsers();
 
         neuralNetworkManager.setNeuralNetwork("linear");
@@ -71,13 +74,41 @@ public class Controller {
 
         webcamView.fitWidthProperty().bind(root.widthProperty());
         webcamView.fitHeightProperty().bind(root.heightProperty());
+
+        root.setOnMouseClicked(e -> {
+            if (e.getClickCount() >= 3) {
+                if (VideoStream.getInstance() != null)
+                    VideoStream.getInstance().close();
+                new VideoStream();
+                initCamera(true);
+            }
+        });
+
+        root.setOnDragOver(event -> {
+            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            event.consume();
+        });
+
+        root.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            if (db.hasFiles()) {
+                if (VideoStream.getInstance() != null)
+                    VideoStream.getInstance().close();
+                fileMode = true;
+                new VideoStream(db.getFiles().get(0))
+                        .allowMultipleFace(false);
+                initCamera(true);
+            }
+            event.setDropCompleted(true);
+            event.consume();
+        });
     }
 
-    private void initCamera() {
+    private void initCamera(boolean multipleFace) {
         webcamView.setImage(LOADING_IMAGE);
 
         VideoStream stream = VideoStream.getInstance();
-        stream.allowMultipleFace(true);
+        stream.allowMultipleFace(multipleFace);
         stream.setImagePreprocessing((matrix, face, coordinates) -> {
             User prediction = neuralNetworkManager.predict(face);
             if (prediction == null) return;
@@ -161,7 +192,7 @@ public class Controller {
 
         executor.execute(() -> {
             try {
-                neuralNetworkManager.train(this::initCamera);
+                neuralNetworkManager.train();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -175,7 +206,6 @@ public class Controller {
             return;
 
         Runnable callback = () -> {
-            initCamera();
             loadUsers();
             trainOpened = false;
         };

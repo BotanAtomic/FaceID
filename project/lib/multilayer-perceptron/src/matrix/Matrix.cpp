@@ -227,7 +227,7 @@ vector<double> &Matrix::toVector() {
 Matrix Matrix::diag(int size, double value) {
     Matrix m(size, size, 0);
 
-    for(int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         m[i][i] = value;
     }
     return m;

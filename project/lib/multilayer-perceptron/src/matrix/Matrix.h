@@ -32,13 +32,13 @@ public:
 
     Matrix(double *inputs, int rows, int columns);
 
-    Matrix(Matrix * matrix, int inputSize, int size);
+    Matrix(Matrix *matrix, int inputSize, int size);
 
     explicit Matrix(const vector<double> &inputs);
 
     double *operator[](int i);
 
-    Matrix operator*(Matrix & other);
+    Matrix operator*(Matrix &other);
 
     Matrix dot(Matrix &other);
 
@@ -46,7 +46,7 @@ public:
 
     Matrix *operator+(double number);
 
-    Matrix operator-(Matrix& other);
+    Matrix operator-(Matrix &other);
 
     Matrix T();
 

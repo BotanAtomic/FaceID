@@ -4,6 +4,7 @@ import fr.esgi.faceid.entity.User;
 import fr.esgi.faceid.stream.VideoStream;
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
+import org.deeplearning4j.ui.api.UIServer;
 import org.opencv.core.Mat;
 
 import java.util.Comparator;
@@ -19,6 +20,8 @@ import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
  * Created by Botan on 5/28/2020. 11:23 PM
  **/
 public class NeuralNetworkManager {
+
+    public static UIServer uiServer = UIServer.getInstance();
 
 
     private final List<User> users = new CopyOnWriteArrayList<>();
@@ -48,7 +51,7 @@ public class NeuralNetworkManager {
     }
 
     public synchronized User predict(Mat input) {
-        if (training.get())
+        if (training.get() || neuralNetwork == null)
             return null;
 
         try {
@@ -59,22 +62,25 @@ public class NeuralNetworkManager {
         }
     }
 
-    public void train(Runnable callback) throws Exception {
+    public void train() throws Exception {
         if (training.get())
             return;
 
         training.set(true);
         users.sort(Comparator.comparing(User::getName));
         VideoStream stream = VideoStream.getInstance();
-        stream.setFaceCallback(null);
-        stream.setMatrixCallback(null);
-        stream.setRepresentation3DCallback(null);
+        if (stream != null) {
+            stream.setFaceCallback(null);
+            stream.setMatrixCallback(null);
+            stream.setRepresentation3DCallback(null);
+        }
         Thread.sleep(500);
         Platform.runLater(() -> view.setImage(LOADING_IMAGE));
         System.out.println("Start new training...");
         neuralNetwork.train();
         training.set(false);
-        callback.run();
+        System.out.println("Training done");
+        Platform.runLater(() -> view.setImage(null));
     }
 
     public List<User> getUsers() {
