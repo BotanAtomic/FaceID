@@ -1,12 +1,14 @@
 package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
+import javafx.util.Pair;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.core.storage.StatsStorage;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.inputs.InputType;
 import org.deeplearning4j.nn.conf.layers.ConvolutionLayer;
+import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.conf.layers.SubsamplingLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
@@ -35,9 +37,9 @@ import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
  **/
 public class DL4JCNNNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 32;
+    private final static int IMG_SIZE = 28;
 
-    private final static int IMG_CHANNEL = 3;
+    private final static int IMG_CHANNEL = 1;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 
@@ -63,49 +65,36 @@ public class DL4JCNNNetwork implements NeuralNetwork {
 
     private void buildNetwork() {
         if (users.size() > 1) {
-            ConvolutionLayer layer0 = new ConvolutionLayer.Builder(3, 3)
+            ConvolutionLayer layer0 = new ConvolutionLayer.Builder(5, 5)
                     .nIn(3)
                     .nOut(16)
-                    .stride(1, 1)
-                    .padding(2, 2)
-                    .weightInit(WeightInit.XAVIER)
                     .activation(Activation.RELU)
                     .build();
 
             SubsamplingLayer layer1 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                     .kernelSize(2, 2)
-                    .stride(2, 2)
                     .build();
 
-            ConvolutionLayer layer2 = new ConvolutionLayer.Builder(3, 3)
+            ConvolutionLayer layer2 = new ConvolutionLayer.Builder(5, 5)
                     .nOut(20)
-                    .stride(1, 1)
-                    .padding(2, 2)
-                    .weightInit(WeightInit.XAVIER)
                     .activation(Activation.RELU)
                     .build();
 
             SubsamplingLayer layer3 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                     .kernelSize(2, 2)
-                    .stride(2, 2)
                     .build();
 
-            ConvolutionLayer layer4 = new ConvolutionLayer.Builder(3, 3)
+            ConvolutionLayer layer4 = new ConvolutionLayer.Builder(5, 5)
                     .nOut(20)
-                    .stride(1, 1)
-                    .padding(2, 2)
-                    .weightInit(WeightInit.XAVIER)
                     .activation(Activation.RELU)
                     .build();
 
             SubsamplingLayer layer5 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                     .kernelSize(2, 2)
-                    .stride(2, 2)
                     .build();
 
-            OutputLayer layer6 = new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
+            OutputLayer layer6 = new OutputLayer.Builder(LossFunctions.LossFunction.RECONSTRUCTION_CROSSENTROPY)
                     .activation(Activation.SOFTMAX)
-                    .weightInit(WeightInit.XAVIER)
                     .nOut(users.size())
                     .build();
 
@@ -113,15 +102,20 @@ public class DL4JCNNNetwork implements NeuralNetwork {
                     .weightInit(WeightInit.XAVIER)
                     .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                     .l2(0.0004)
+                    .activation(Activation.RELU)
                     .updater(new Adam())
                     .list()
-                    .layer(0, layer0)
-                    .layer(1, layer1)
-                    .layer(2, layer2)
-                    .layer(3, layer3)
-                    .layer(4, layer4)
-                    .layer(5, layer5)
-                    .layer(6, layer6)
+                    .layer(0, convInit("cnn1", IMG_CHANNEL, 32, new int[]{5, 5}, new int[]{1, 1}, new int[]{0, 0}, 0))
+                    .layer(1, maxPool("maxpool1", new int[]{2, 2}))
+                    .layer(2, conv3x3("cnn2", 64, 0))
+                    .layer(3, conv3x3("cnn3", 64, 1))
+                    .layer(4, maxPool("maxpool2", new int[]{2, 2}))
+                    .layer(5, new DenseLayer.Builder().activation(Activation.RELU)
+                            .nOut(512).dropOut(0.5).build())
+                    .layer(6, new OutputLayer.Builder(LossFunctions.LossFunction.RECONSTRUCTION_CROSSENTROPY)
+                            .nOut(users.size())
+                            .activation(Activation.SOFTMAX)
+                            .build())
                     .setInputType(InputType.convolutional(IMG_SIZE, IMG_SIZE, IMG_CHANNEL))
                     .build()
             );
@@ -132,11 +126,16 @@ public class DL4JCNNNetwork implements NeuralNetwork {
         }
     }
 
-    public User predict(Mat input) throws Exception {
+    public Pair<User, Integer> predict(Mat input) throws Exception {
         if (multiLayerNetwork == null || !trained) return null;
 
-        int[] result = multiLayerNetwork.predict(NATIVE_IMAGE_LOADER.asMatrix(input).div(255));
-        return users.get(result[0]);
+        INDArray result = multiLayerNetwork.output(NATIVE_IMAGE_LOADER.asMatrix(input).div(255));
+        int index = (int) result.argMax(1).toDoubleVector()[0];
+        double probability = result.toDoubleVector()[index] * 100;
+
+        if(probability < 80) return null;
+
+        return new Pair<>(users.get(index), (int) probability);
     }
 
     private INDArray generateLabels(int pos) {
@@ -178,7 +177,7 @@ public class DL4JCNNNetwork implements NeuralNetwork {
 
         System.out.println("Dataset loaded");
 
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 150; i++) {
             multiLayerNetwork.fit(inputs, labels);
             System.out.println("Epohs " + i + ": done.");
         }
@@ -198,5 +197,18 @@ public class DL4JCNNNetwork implements NeuralNetwork {
     public void save() throws IOException {
         multiLayerNetwork.save(new File("models/dl4j/model_cnn.dl4j"));
         trained = true;
+    }
+
+    private ConvolutionLayer convInit(String name, int in, int out, int[] kernel, int[] stride, int[] pad, double bias) {
+        return new ConvolutionLayer.Builder(kernel, stride, pad).name(name).nIn(in).nOut(out).biasInit(bias).build();
+    }
+
+    private ConvolutionLayer conv3x3(String name, int out, double bias) {
+        return new ConvolutionLayer.Builder(new int[]{3, 3}, new int[]{1, 1}, new int[]{1, 1}).name(name).nOut(out).biasInit(bias).build();
+    }
+
+
+    private SubsamplingLayer maxPool(String name, int[] kernel) {
+        return new SubsamplingLayer.Builder(kernel, new int[]{2, 2}).name(name).build();
     }
 }

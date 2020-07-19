@@ -1,11 +1,12 @@
 package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
+import javafx.util.Pair;
 import org.opencv.core.Mat;
 
 public interface NeuralNetwork {
 
-    User predict(Mat input) throws Exception;
+    Pair<User, Integer> predict(Mat input) throws Exception;
 
     void train() throws Exception;
 

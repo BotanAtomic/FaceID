@@ -42,7 +42,7 @@ public class LinearNeuralNetwork implements NeuralNetwork {
         users.forEach(this::addUser);
     }
 
-    public User predict(Mat input) throws Exception {
+    public Pair<User, Integer> predict(Mat input) throws Exception {
         if (users.isEmpty()) return null;
 
         double[] data = NATIVE_IMAGE_LOADER.asMatrix(input).reshape(IMG_TOTAL_SIZE).div(255).toDoubleVector();
@@ -58,7 +58,7 @@ public class LinearNeuralNetwork implements NeuralNetwork {
                     .orElse(null);
 
             if (result != null)
-                return result.getKey();
+                return new Pair<>(result.getKey(), 0);
 
             return null;
         } catch (Exception e) {

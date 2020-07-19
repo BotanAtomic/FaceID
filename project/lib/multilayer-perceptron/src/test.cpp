@@ -28,14 +28,16 @@ void testMLP() {
     int inputSize = 2;
     int outputSize = 1;
 
-    string modelPath = "C:\\Users\\botan\\Work\\FaceID\\project\\lib\\multilayer-perceptron\\model.mlp";
+    bool useModel = false;
+
+    string modelPath = "model.mlp";
 
     MultiLayerNetwork *network = nullptr;
 
     bool loaded = false;
 
 
-    if (ifstream(modelPath).good()) {
+    if (ifstream(modelPath).good() && useModel) {
         network = MultiLayerNetwork::load(modelPath);
         loaded = true;
     } else {
@@ -91,5 +93,5 @@ void testSVM() {
 }
 
 int main(int argc, char **argv) {
-    testSVM();
+    testMLP();
 }

@@ -4,8 +4,10 @@ import fr.esgi.faceid.ai.NeuralNetworkManager;
 import fr.esgi.faceid.entity.User;
 import fr.esgi.faceid.stream.VideoStream;
 import fr.esgi.faceid.utils.OpenCV;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -13,13 +15,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Pair;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
@@ -32,20 +34,24 @@ import java.util.concurrent.Executors;
 
 import static fr.esgi.faceid.utils.OpenCV.matToImage;
 import static fr.esgi.faceid.utils.UI.implementAvatarContextMenu;
+import static fr.esgi.faceid.utils.UI.implementImageContextMenu;
 
 /**
  * Created by Botan on 5/22/2020. 6:50 PM
  **/
 public class Controller {
 
-    public static final Image LOADING_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/loading.gif"));
+    private static final Image LOADING_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/loading.gif"));
+    private static final Image DONE_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/done.gif"));
 
     private final Executor executor = Executors.newSingleThreadExecutor();
 
     @FXML
     private AnchorPane root;
     @FXML
-    private VBox datasetView;
+    private StackPane rootImg;
+    @FXML
+    private VBox datasetView, dragAndDropRoot;
     @FXML
     private ImageView webcamView;
 
@@ -55,73 +61,122 @@ public class Controller {
     private boolean trainOpened = false;
     private NeuralNetworkManager neuralNetworkManager;
 
-    private boolean fileMode = false;
+    private boolean enableDragAndDrop = true;
 
 
     @FXML
     private void initialize() {
         aiChoice.getItems().addAll("Linear", "MLP", "DL4J", "DL4J_CNN");
         aiChoice.setValue("Linear");
-        neuralNetworkManager = new NeuralNetworkManager(webcamView);
+        neuralNetworkManager = new NeuralNetworkManager(this);
 
+        dragAndDrop(true);
         loadUsers();
+
+        implementImageContextMenu(webcamView, () -> {
+            if (VideoStream.getInstance() != null)
+                VideoStream.getInstance().close();
+            dragAndDrop(true);
+        });
 
         neuralNetworkManager.setNeuralNetwork("linear");
 
         aiChoice.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
-            neuralNetworkManager.setNeuralNetwork(c.toLowerCase());
-        });
-
-        webcamView.fitWidthProperty().bind(root.widthProperty());
-        webcamView.fitHeightProperty().bind(root.heightProperty());
-
-        root.setOnMouseClicked(e -> {
-            if (e.getClickCount() >= 3) {
-                if (VideoStream.getInstance() != null)
-                    VideoStream.getInstance().close();
-                new VideoStream();
-                initCamera(true);
-            }
+            dragAndDrop(false);
+            setLoadingImage();
+            executor.execute(() -> {
+                neuralNetworkManager.setNeuralNetwork(c.toLowerCase());
+                Platform.runLater(this::setDoneImage);
+                dragAndDrop(true);
+            });
         });
 
         root.setOnDragOver(event -> {
-            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            if (enableDragAndDrop) {
+                rootImg.setBorder(new Border(new BorderStroke(Color.GREEN, BorderStrokeStyle.DASHED, new CornerRadii(5), new BorderWidths(3),
+                        new Insets(10, 10, 10, 10))));
+                event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            }
             event.consume();
         });
 
         root.setOnDragDropped(event -> {
-            Dragboard db = event.getDragboard();
-            if (db.hasFiles()) {
-                if (VideoStream.getInstance() != null)
-                    VideoStream.getInstance().close();
-                fileMode = true;
-                new VideoStream(db.getFiles().get(0))
-                        .allowMultipleFace(false);
-                initCamera(true);
+            if (enableDragAndDrop) {
+                Dragboard db = event.getDragboard();
+                if (db.hasFiles()) {
+                    dragAndDrop(false);
+                    if (VideoStream.getInstance() != null)
+                        VideoStream.getInstance().close();
+                    new VideoStream(db.getFiles().get(0))
+                            .allowMultipleFace(false);
+                    initCamera();
+                }
             }
-            event.setDropCompleted(true);
+            event.setDropCompleted(enableDragAndDrop);
             event.consume();
         });
+
+        root.setOnDragExited(e -> {
+            if (enableDragAndDrop) {
+                rootImg.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.DASHED, new CornerRadii(5), new BorderWidths(3),
+                        new Insets(10, 10, 10, 10))));
+            }
+        });
+        setDoneImage();
     }
 
-    private void initCamera(boolean multipleFace) {
-        webcamView.setImage(LOADING_IMAGE);
+    private void initCamera() {
+        setLoadingImage();
 
         VideoStream stream = VideoStream.getInstance();
-        stream.allowMultipleFace(multipleFace);
+        stream.allowMultipleFace(true);
         stream.setImagePreprocessing((matrix, face, coordinates) -> {
-            User prediction = neuralNetworkManager.predict(face);
+            Pair<User, Integer> prediction = neuralNetworkManager.predict(face);
             if (prediction == null) return;
-            String text = String.format("%s", prediction.getName());
+            String text;
+            if (prediction.getValue() > 0) {
+                text = String.format("%s (%s)", prediction.getKey().getName(), prediction.getValue() + "%");
+            } else {
+                text = String.format("%s", prediction.getKey().getName());
+            }
             Size textWidth = Imgproc.getTextSize(text, 1, 1, 1, new int[]{1});
             Imgproc.putText(matrix, text, OpenCV.middlePoint(
                     new Point(coordinates.x - textWidth.width / 2, coordinates.y + textWidth.height),
                     new Point((coordinates.x + coordinates.width) - textWidth.width / 2, coordinates.y + textWidth.height)
             ), 1, 1, new Scalar(255));
         });
+        webcamView.fitWidthProperty().bind(rootImg.widthProperty());
+        webcamView.fitHeightProperty().bind(rootImg.heightProperty());
         stream.setMatrixCallback(mat -> webcamView.setImage(matToImage(mat)));
         stream.setFaceCallback(null);
         stream.showLandmark(true);
+        stream.setOnEndStream(() -> dragAndDrop(true));
+    }
+
+    public void setLoadingImage() {
+        webcamView.setVisible(true);
+        webcamView.fitWidthProperty().bind(rootImg.widthProperty());
+        webcamView.fitHeightProperty().bind(rootImg.heightProperty());
+        webcamView.setImage(LOADING_IMAGE);
+    }
+
+    public void setDoneImage() {
+        webcamView.fitWidthProperty().unbind();
+        webcamView.fitHeightProperty().unbind();
+    }
+
+    private void dragAndDrop(boolean enable) {
+        if(!enable) {
+            rootImg.setBorder(Border.EMPTY);
+            webcamView.setVisible(true);
+            dragAndDropRoot.setVisible(false);
+        } else {
+            webcamView.setVisible(false);
+            dragAndDropRoot.setVisible(true);
+            rootImg.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.DASHED, new CornerRadii(5), new BorderWidths(3),
+                    new Insets(10, 10, 10, 10))));
+        }
+        enableDragAndDrop = enable;
     }
 
     private void loadUsers() {
@@ -205,6 +260,9 @@ public class Controller {
         if (trainOpened)
             return;
 
+        if(VideoStream.getInstance() != null)
+            VideoStream.getInstance().close();
+
         Runnable callback = () -> {
             loadUsers();
             trainOpened = false;
@@ -226,5 +284,14 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void enableWebcam() {
+        dragAndDrop(false);
+        if (VideoStream.getInstance() != null)
+            VideoStream.getInstance().close();
+        new VideoStream();
+        initCamera();
     }
 }

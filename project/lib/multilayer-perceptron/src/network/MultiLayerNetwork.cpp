@@ -4,8 +4,6 @@
 
 #include "MultiLayerNetwork.h"
 
-#include <utility>
-
 using namespace std::chrono;
 
 MultiLayerNetwork::MultiLayerNetwork(int inputSize) {
@@ -38,17 +36,21 @@ void MultiLayerNetwork::train(double *inputs, double *labels, int samples, int e
     cout << "Start training network: inputsSize=" << inputSize << ", outputSize="
          << layers[layers.size() - 1]->getSize()
          << ", samples=" << samples << ", epochs=" << epochs << ", alpha=" << alpha << endl;
-    srand (time(NULL));
 
     Matrix inputsMatrix(inputs, samples, inputSize);
     int64_t timestamp, total, remaining;
 
+    vector<int> samplesIndex = vector<int>(samples);
+    for_each(samplesIndex.begin(), samplesIndex.end(), [i = 0](int &x) mutable {
+        x = i++;
+    });
+
+
     for (int _ = 1; _ <= epochs; _++) {
         double error = 0;
         timestamp = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-
-        for (int __ = 0; __ < samples; __++) {
-            int i = rand() % samples;
+        std::shuffle(std::begin(samplesIndex), std::end(samplesIndex), std::random_device());
+        for (int i : samplesIndex) {
             vector<double> networkPredictions = predict(inputsMatrix[i]);
             vector<double> expectedPredictions(networkPredictions.size(), 0.0f);
 

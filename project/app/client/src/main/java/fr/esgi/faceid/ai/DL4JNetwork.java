@@ -1,6 +1,7 @@
 package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
+import javafx.util.Pair;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.core.storage.StatsStorage;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -73,11 +74,16 @@ public class DL4JNetwork implements NeuralNetwork {
         }
     }
 
-    public User predict(Mat input) throws Exception {
+    public Pair<User, Integer> predict(Mat input) throws Exception {
         if (multiLayerNetwork == null) return null;
 
-        int[] result = multiLayerNetwork.predict(NATIVE_IMAGE_LOADER.asMatrix(input).div(255).reshape(new int[]{1, IMG_TOTAL_SIZE}));
-        return users.get(result[0]);
+        INDArray result = multiLayerNetwork.output(NATIVE_IMAGE_LOADER.asMatrix(input).div(255).reshape(new int[]{1, IMG_TOTAL_SIZE}));
+        int index = (int) result.argMax(1).toDoubleVector()[0];
+        double probability = result.toDoubleVector()[index] * 100;
+
+        if(probability < 90) return null;
+
+        return new Pair<>(users.get(index), (int) probability);
     }
 
     private INDArray generateLabels(int pos) {

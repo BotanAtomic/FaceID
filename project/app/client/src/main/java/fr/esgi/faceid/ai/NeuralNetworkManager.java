@@ -1,9 +1,11 @@
 package fr.esgi.faceid.ai;
 
+import fr.esgi.faceid.controller.Controller;
 import fr.esgi.faceid.entity.User;
 import fr.esgi.faceid.stream.VideoStream;
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
+import javafx.util.Pair;
 import org.deeplearning4j.ui.api.UIServer;
 import org.opencv.core.Mat;
 
@@ -14,8 +16,6 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static fr.esgi.faceid.controller.Controller.LOADING_IMAGE;
-
 /**
  * Created by Botan on 5/28/2020. 11:23 PM
  **/
@@ -25,7 +25,7 @@ public class NeuralNetworkManager {
 
 
     private final List<User> users = new CopyOnWriteArrayList<>();
-    private final ImageView view;
+    private final Controller controller;
     private final AtomicBoolean training = new AtomicBoolean(false);
     private final Map<String, Class<? extends NeuralNetwork>> availableNeuralNetwork = new HashMap<>() {{
         put("linear", LinearNeuralNetwork.class);
@@ -36,8 +36,8 @@ public class NeuralNetworkManager {
     private NeuralNetwork neuralNetwork;
 
 
-    public NeuralNetworkManager(ImageView view) {
-        this.view = view;
+    public NeuralNetworkManager(Controller controller) {
+        this.controller = controller;
     }
 
     public void setNeuralNetwork(String neuralNetwork) {
@@ -50,7 +50,7 @@ public class NeuralNetworkManager {
         }
     }
 
-    public synchronized User predict(Mat input) {
+    public synchronized Pair<User, Integer> predict(Mat input) {
         if (training.get() || neuralNetwork == null)
             return null;
 
@@ -75,12 +75,12 @@ public class NeuralNetworkManager {
             stream.setRepresentation3DCallback(null);
         }
         Thread.sleep(500);
-        Platform.runLater(() -> view.setImage(LOADING_IMAGE));
+        Platform.runLater(controller::setLoadingImage);
         System.out.println("Start new training...");
         neuralNetwork.train();
         training.set(false);
         System.out.println("Training done");
-        Platform.runLater(() -> view.setImage(null));
+        Platform.runLater(controller::setDoneImage);
     }
 
     public List<User> getUsers() {

@@ -19,7 +19,6 @@
 
 #include "../file/FileWriter.h"
 #include "../file/FileReader.h"
-
 using namespace std;
 
 class MultiLayerNetwork {

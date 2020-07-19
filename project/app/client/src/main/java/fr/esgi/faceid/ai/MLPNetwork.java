@@ -5,6 +5,7 @@ import com.sun.jna.Pointer;
 import fr.esgi.faceid.api.IMultiLayerNetwork;
 import fr.esgi.faceid.core.Main;
 import fr.esgi.faceid.entity.User;
+import javafx.util.Pair;
 import org.datavec.image.loader.NativeImageLoader;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
@@ -60,13 +61,15 @@ public class MLPNetwork implements NeuralNetwork {
         }
     }
 
-    public User predict(Mat input) throws Exception {
-        if(model == null) return null;
+    public Pair<User, Integer> predict(Mat input) throws Exception {
+        if (model == null) return null;
 
         double[] inputs = NATIVE_IMAGE_LOADER.asMatrix(input).reshape(IMG_TOTAL_SIZE).div(255).toDoubleVector();
         double[] result = nativeInterface.predict(model, inputs).getDoubleArray(0, users.size());
-
-        return users.get((int) Nd4j.argMax(Nd4j.create(result), 0).toDoubleVector()[0]);
+        int index = (int) Nd4j.argMax(Nd4j.create(result), 0).toDoubleVector()[0];
+        double probability = result[index] * 100;
+        if (probability < 80) return null;
+        return new Pair<>(users.get(index), (int) probability);
     }
 
     @Override
