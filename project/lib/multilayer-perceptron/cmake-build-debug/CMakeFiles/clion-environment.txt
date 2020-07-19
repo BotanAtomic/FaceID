@@ -1,4 +1,4 @@
-ToolSet: Ubuntu 18.04.4 LTS (local)@C:\Users\botan\AppData\Local\Microsoft\WindowsApps\ubuntu.exe
-Options: 
+ToolSet: 16.0 (local)@C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+Options: msvc.arch=amd64
 
 Options:

@@ -22,11 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1942ce78-6327-4af1-a95f-4e34feb85725" name="Default Changelist" comment="add models">
-      <change afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+    <list default="true" id="1942ce78-6327-4af1-a95f-4e34feb85725" name="Default Changelist" comment="some change on UI">
+      <change afterPath="$PROJECT_DIR$/models/linear/B. Hamon.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/E. Macron.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/F. Asselineau.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/F. Fillion.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/J. Cheminade.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/J. Lassalle.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/J. Melenchon.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/M. Lepen.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/N. Arthaud.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/N. Dupont-Aignant.model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/linear/P. Poutou.model" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
@@ -39,38 +48,76 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/ai/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/ai/NeuralNetwork.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/ai/NeuralNetworkManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/ai/NeuralNetworkManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/controller/TrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/controller/TrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/core/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/core/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/stream/VideoStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/stream/VideoStream.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/dl4j/model_cnn.dl4j" beforeDir="false" afterPath="$PROJECT_DIR$/models/dl4j/model_cnn.dl4j" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/mlp/neuralNetwork.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/mlp/neuralNetwork.model" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/DL4JCNNNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/DL4JCNNNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/DL4JNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/DL4JNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/utils/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/esgi/faceid/utils/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/LinearNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/LinearNeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/MLPNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/MLPNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/NeuralNetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/ai/NeuralNetworkManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/controller/TrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/controller/TrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/math/Normalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/math/Normalizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/stream/VideoStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/stream/VideoStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/utils/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/utils/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/loading.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/root.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/root.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/faceid/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/ML-test.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/ML-test.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/linear-model/library.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/linear-model/library.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/3.10.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-framework.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/ML-test.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/ML-test.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/ML-test.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/src/library.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/src/library.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-framework.dir/src/network/MultiLayerNetwork.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/src/network/MultiLayerNetwork.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/src/test.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/ML-test.dir/src/test.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/ML-framework.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/ML-framework.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/ML-test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/cmake-build-release-visual-studio/ML-test.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/network/MultiLayerNetwork.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/network/MultiLayerNetwork.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/network/MultiLayerNetwork.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/multilayer-perceptron/src/test.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tests/multi-layer-network-classification/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../tests/multi-layer-network-classification/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../models/face-classification/alexandre.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../models/face-classification/botan.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../models/face-classification/paul.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../tests/multi-layer-network-classification/const.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../tests/multi-layer-network-classification/const.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../todo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +281,8 @@
       <workItem from="1595081979808" duration="3295000" />
       <workItem from="1595089615701" duration="228000" />
       <workItem from="1595089932189" duration="1846000" />
-      <workItem from="1595145209818" duration="8045000" />
+      <workItem from="1595145209818" duration="9475000" />
+      <workItem from="1595186281551" duration="7392000" />
     </task>
     <task id="LOCAL-00001" summary="Interface different AI, add some pre-trained models">
       <created>1594124894261</created>
@@ -278,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1595064487370</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add models">
+      <created>1595153656634</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595153656634</updated>
+    </task>
+    <task id="LOCAL-00008" summary="some change on UI">
+      <created>1595153767494</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1595153767494</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +364,8 @@
     <MESSAGE value="Add DL4J implementation" />
     <MESSAGE value="Train models and build new dataset" />
     <MESSAGE value="add models" />
-    <option name="LAST_COMMIT_MESSAGE" value="add models" />
+    <MESSAGE value="some change on UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="some change on UI" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595064948917">
@@ -329,26 +392,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="505" y="8" key="CommitChangelistDialog2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595064056229" />
-    <state width="1877" height="327" key="GridCell.Tab.0.bottom" timestamp="1595153055523">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1595193490880">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="333" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1595017850195" />
-    <state width="1877" height="327" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595153055523" />
-    <state width="1877" height="327" key="GridCell.Tab.0.center" timestamp="1595153055523">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595193490880" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1595193490880">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="333" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1595017850195" />
-    <state width="1877" height="327" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595153055523" />
-    <state width="1877" height="327" key="GridCell.Tab.0.left" timestamp="1595153055523">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595193490880" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1595193490880">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="333" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1595017850195" />
-    <state width="1877" height="327" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595153055523" />
-    <state width="1877" height="327" key="GridCell.Tab.0.right" timestamp="1595153055523">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595193490880" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1595193490880">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="333" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1595017850195" />
-    <state width="1877" height="327" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595153055523" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595193490880" />
     <state x="184" y="87" key="MergeDialog" timestamp="1595085281784">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -369,10 +432,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595152255121" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1595064488698">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1595153770215">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595064488698" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1595153770215" />
     <state x="746" y="177" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1595064105072">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

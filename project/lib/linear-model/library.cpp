@@ -47,13 +47,22 @@ __declspec(dllexport) double predictClassificationModel(const double *model, con
 
 __declspec(dllexport) void trainModel(double *model, double *X, const double *Y, int exampleCount,
                                       int inputSize, int iteration, double alpha) {
-    for (int i = 0; i < iteration; i++) {
-        int k = rand() % exampleCount;
-        double gxk = predictClassificationModel(model, X + (k * inputSize), inputSize);
-        for (int j = 0; j < inputSize; j++) {
-            model[j + 1] += alpha * (Y[k] - gxk) * (X[(inputSize * k) + j]);
+
+    cout << "Start training linear model: " << exampleCount << " samples" << endl;
+    vector<int> samplesIndex = vector<int>(exampleCount);
+    for_each(samplesIndex.begin(), samplesIndex.end(), [i = 0](int &x) mutable {
+        x = i++;
+    });
+
+    for (int _ = 0; _ < iteration; _++) {
+        std::shuffle(std::begin(samplesIndex), std::end(samplesIndex), std::random_device());
+        for (int k : samplesIndex) {
+            double gxk = predictClassificationModel(model, X + (k * inputSize), inputSize);
+            for (int j = 0; j < inputSize; j++) {
+                model[j + 1] += alpha * (Y[k] - gxk) * (X[(inputSize * k) + j]);
+            }
+            model[0] += alpha * (Y[k] - gxk);
         }
-        model[0] += alpha * (Y[k] - gxk);
     }
 }
 

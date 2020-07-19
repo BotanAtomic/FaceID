@@ -42,7 +42,6 @@ import static fr.esgi.faceid.utils.UI.implementImageContextMenu;
 public class Controller {
 
     private static final Image LOADING_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/loading.gif"));
-    private static final Image DONE_IMAGE = new Image(NeuralNetworkManager.class.getResourceAsStream("/done.gif"));
 
     private final Executor executor = Executors.newSingleThreadExecutor();
 
@@ -103,6 +102,7 @@ public class Controller {
         root.setOnDragDropped(event -> {
             if (enableDragAndDrop) {
                 Dragboard db = event.getDragboard();
+
                 if (db.hasFiles()) {
                     dragAndDrop(false);
                     if (VideoStream.getInstance() != null)
@@ -166,7 +166,7 @@ public class Controller {
     }
 
     private void dragAndDrop(boolean enable) {
-        if(!enable) {
+        if (!enable) {
             rootImg.setBorder(Border.EMPTY);
             webcamView.setVisible(true);
             dragAndDropRoot.setVisible(false);
@@ -245,9 +245,12 @@ public class Controller {
         if (neuralNetworkManager.isTraining())
             return;
 
+        dragAndDrop(false);
+
         executor.execute(() -> {
             try {
                 neuralNetworkManager.train();
+                Platform.runLater(() ->         dragAndDrop(true));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -260,7 +263,7 @@ public class Controller {
         if (trainOpened)
             return;
 
-        if(VideoStream.getInstance() != null)
+        if (VideoStream.getInstance() != null)
             VideoStream.getInstance().close();
 
         Runnable callback = () -> {

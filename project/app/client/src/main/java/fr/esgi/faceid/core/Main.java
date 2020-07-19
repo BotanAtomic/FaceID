@@ -16,7 +16,7 @@ import java.io.File;
  **/
 public class Main extends Application {
 
-    public static final String LIB_PATH = new File("..\\..\\lib\\linear-model\\cmake-build-debug\\ML-framework.dll").getAbsolutePath();
+    public static final String LIB_PATH = new File("..\\..\\lib\\linear-model\\cmake-build-release\\ML-framework.dll").getAbsolutePath();
     public static final String MLP_LIB_PATH = new File("..\\..\\lib\\multilayer-perceptron\\cmake-build-release-visual-studio\\ML-framework.dll").getAbsolutePath();
 
     @Override

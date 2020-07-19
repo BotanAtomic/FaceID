@@ -1,7 +1,6 @@
 - Open projet on Intellij IDEA
-- Set your gradle JVM to Java 11
-- ./gradlew build
-- ./gradlew run
+- Set your gradle JVM to Java 11 or above in start.sh (or in Intellij directly)
+- run start.sh
 
 Note:
 

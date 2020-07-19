@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10.2)
 project(ML-framework)
 project(ML-test)
 

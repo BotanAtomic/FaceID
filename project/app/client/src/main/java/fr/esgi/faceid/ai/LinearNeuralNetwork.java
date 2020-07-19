@@ -13,8 +13,11 @@ import org.nd4j.linalg.indexing.conditions.Conditions;
 import org.opencv.core.Mat;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -22,7 +25,7 @@ import java.util.Objects;
  **/
 public class LinearNeuralNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 28;
+    private final static int IMG_SIZE = 48;
 
     private final static int IMG_CHANNEL = 1;
 
@@ -35,6 +38,9 @@ public class LinearNeuralNetwork implements NeuralNetwork {
     private final ILinearModel nativeInterface;
 
     private final List<User> users;
+
+    private INDArray normalizedInputs, labels;
+
 
     public LinearNeuralNetwork(List<User> users) {
         this.nativeInterface = Native.load(Main.LIB_PATH, ILinearModel.class);
@@ -71,44 +77,59 @@ public class LinearNeuralNetwork implements NeuralNetwork {
         int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
 
         INDArray inputs = Nd4j.create(filesSize, IMG_TOTAL_SIZE);
-        final INDArray labels = Nd4j.create(1, filesSize);
-        int index = 0;
-        for (User user : users) {
-            if (user.getNeuralNetwork() != null) {
-                nativeInterface.deleteModel(user.getNeuralNetwork());
-            }
-            user.setNeuralNetwork(nativeInterface.createModel(IMG_TOTAL_SIZE));
+        if (normalizedInputs == null) {
+            labels = Nd4j.create(1, filesSize);
+            int index = 0;
+            for (User user : users) {
+                if (user.getNeuralNetwork() != null) {
+                    nativeInterface.deleteModel(user.getNeuralNetwork());
+                }
+                user.setNeuralNetwork(nativeInterface.createModel(IMG_TOTAL_SIZE));
 
-            int userIndex = users.indexOf(user);
+                int userIndex = users.indexOf(user);
 
-            for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
-                if (image.getName().equals("model")) continue;
-                INDArray imgArray = NATIVE_IMAGE_LOADER.asMatrix(image).reshape(IMG_TOTAL_SIZE).div(255);
-                inputs.putRow(index, imgArray);
-                labels.put(0, index, userIndex);
-                imgArray.close();
-                index++;
+                for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
+                    if (image.getName().equals("model")) continue;
+                    INDArray imgArray = NATIVE_IMAGE_LOADER.asMatrix(image).reshape(IMG_TOTAL_SIZE).div(255);
+                    inputs.putRow(index, imgArray);
+                    labels.put(0, index, userIndex);
+                    imgArray.close();
+                    index++;
+                }
             }
+
+            normalizedInputs = inputs.reshape(filesSize * (IMG_TOTAL_SIZE));
         }
 
-        final INDArray normalizedInputs = inputs.reshape(filesSize * (IMG_TOTAL_SIZE));
+        List<Thread> threads = new ArrayList<>();
 
         for (User user : users) {
-            int userIndex = users.indexOf(user);
-            INDArray normalizedLabels = labels.dup();
+            Thread t = new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + " started");
+                int userIndex = users.indexOf(user);
+                INDArray normalizedLabels = labels.dup();
 
-            BooleanIndexing.replaceWhere(normalizedLabels, 0, Conditions.epsNotEquals(userIndex));
-            BooleanIndexing.replaceWhere(normalizedLabels, 1, Conditions.epsEquals(userIndex));
+                BooleanIndexing.replaceWhere(normalizedLabels, -1, Conditions.epsNotEquals(userIndex));
+                BooleanIndexing.replaceWhere(normalizedLabels, 1, Conditions.epsEquals(userIndex));
 
-            train(user, normalizedInputs, normalizedLabels, (int) normalizedLabels.length(),
-                    IMG_TOTAL_SIZE, 20000, 0.1);
-            save(user, new File("models/linear/", user.getName() + ".model"));
+                train(user, normalizedInputs, normalizedLabels, (int) normalizedLabels.length(),
+                        IMG_TOTAL_SIZE, 1000, 0.01);
+                save(user, new File("models/linear/", user.getName() + ".model"));
 
-            System.out.println("Training done for " + user.getName());
+                System.out.println("Training done for " + user.getName());
 
-            normalizedLabels.close();
+                normalizedLabels.close();
+            });
+            t.start();
+            threads.add(t);
         }
-        labels.close();
+        threads.forEach(t -> {
+            try {
+                t.join();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override

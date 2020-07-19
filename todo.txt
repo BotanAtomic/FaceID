@@ -1,7 +1,6 @@
 Librairie:
 	- utiliser les batch size
 	- rendre les layer interfaçable pour introduire CNN (ou autre)
-	- melanger des data de training a chaque epoch
 	- implementer le multi-thread
 	- utiliser le GPU (?) pour les calculs matriciels
 	- implementer et interfacer les fonctions de pertes
