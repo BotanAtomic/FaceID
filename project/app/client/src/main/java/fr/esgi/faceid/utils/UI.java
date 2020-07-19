@@ -3,6 +3,7 @@ package fr.esgi.faceid.utils;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 import java.util.function.Consumer;
@@ -26,6 +27,18 @@ public class UI {
         item2.setOnAction(event -> onRemove.run());
 
         contextMenu.getItems().addAll(item1, item2);
+
+        root.setOnContextMenuRequested(e -> contextMenu.show(root, e.getScreenX(), e.getScreenY()));
+    }
+
+    public static void implementImageContextMenu(ImageView root, Runnable onStop) {
+        ContextMenu contextMenu = new ContextMenu();
+
+        MenuItem item1 = new MenuItem("Stop stream");
+        item1.setOnAction(event -> {
+            onStop.run();
+        });
+        contextMenu.getItems().addAll(item1);
 
         root.setOnContextMenuRequested(e -> contextMenu.show(root, e.getScreenX(), e.getScreenY()));
     }

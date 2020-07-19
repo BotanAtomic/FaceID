@@ -6,13 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.esgi.faceid.controller.Controller">
+<AnchorPane fx:id="root" prefHeight="720.0" prefWidth="1261.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.esgi.faceid.controller.Controller">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="43.0" layoutY="91.0" maxHeight="495.0" prefHeight="495.0" prefWidth="249.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -34,9 +35,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </StackPane>
-                  <StackPane minHeight="34.0" minWidth="148.0" onMouseClicked="#addFace" prefHeight="34.0" prefWidth="148.0" style="-fx-border-color: #3f51b5; -fx-background-radius: 5; -fx-border-radius: 5;">
+                  <StackPane minHeight="34.0" minWidth="148.0" onMouseClicked="#addFace" prefHeight="34.0" prefWidth="148.0" style="-fx-border-color: #0277bd; -fx-background-radius: 5; -fx-border-radius: 5;">
                      <children>
-                        <Label text="+ NEW FACE" textFill="#3f51b5">
+                        <Label text="+ NEW FACE" textFill="#0277bd">
                            <font>
                               <Font name="Arial Bold" size="12.0" />
                            </font>
@@ -55,6 +56,41 @@
             </VBox>
          </content>
       </ScrollPane>
-      <ImageView fx:id="webcamView" fitHeight="720.0" fitWidth="1031.0" layoutX="249.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <StackPane fx:id="rootImg" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="webcamView" fitHeight="50.0" fitWidth="50.0" preserveRatio="true" StackPane.alignment="CENTER" />
+            <VBox fx:id="dragAndDropRoot" alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="297.0" prefWidth="476.0" spacing="10.0" StackPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Drag &amp; Drop A File" textFill="#909090">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label text="or" textFill="#171717">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <StackPane onMouseClicked="#enableWebcam" prefHeight="34.0" prefWidth="148.0" style="-fx-border-color: #0277bd; -fx-background-radius: 5; -fx-border-radius: 5;">
+                     <children>
+                        <Label text="ENABLE WEBCAM" textFill="#0277bd">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

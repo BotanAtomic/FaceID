@@ -15,8 +15,10 @@ import org.opencv.videoio.VideoCapture;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static fr.esgi.faceid.utils.OpenCV.FACIAL_LINE;
@@ -25,22 +27,19 @@ import static org.opencv.core.CvType.CV_8UC3;
 
 public class VideoStream extends Thread {
 
+    private final static Size minFaceSize = new Size(200, 200);
     private static VideoStream instance;
-
-    private final static Size minFaceSize = new Size(80, 80);
-
     private final VideoCapture videoCapture;
     private final CascadeClassifier faceCascade = new CascadeClassifier("../../models/face-detector/haarcascade_frontalface_default.xml");
     private final Facemark facemark;
 
     private final AtomicBoolean allowMultipleFace = new AtomicBoolean(true);
     private final AtomicBoolean showLandmark = new AtomicBoolean(true);
-
-    private OnReceiveFace matrixCallback, faceCallback, representation3DCallback;
-    private ImagePreprocessing imagePreprocessing;
-
     private final AtomicBoolean running = new AtomicBoolean(true);
     private final File videoFile;
+    private OnReceiveFace matrixCallback, faceCallback, representation3DCallback;
+    private ImagePreprocessing imagePreprocessing;
+    private Runnable onEndStream;
 
 
     public VideoStream(File file) {
@@ -71,7 +70,7 @@ public class VideoStream extends Thread {
     @Override
     public void run() {
         boolean opened = false;
-        if(videoFile != null)
+        if (videoFile != null)
             opened = videoCapture.open(videoFile.getAbsolutePath());
         else
             opened = videoCapture.open(0);
@@ -80,7 +79,7 @@ public class VideoStream extends Thread {
 
         Mat matrix = new Mat();
         while (videoCapture.isOpened() && running.get()) {
-            videoCapture.read(matrix);
+            if (!videoCapture.read(matrix)) break;
 
             if (!matrix.empty()) {
                 MatOfRect faces = new MatOfRect();
@@ -89,7 +88,9 @@ public class VideoStream extends Thread {
                         minFaceSize, new Size());
 
 
-                Rect[] facesArray = faces.toArray();
+                List<Rect> facesArray = Stream.of(faces.toArray())
+                        .sorted(Comparator.comparingDouble(e -> e.size().area()))
+                        .collect(Collectors.toList());
 
                 int i = 0;
 
@@ -115,6 +116,7 @@ public class VideoStream extends Thread {
                 facemark.fit(matrix, faces, landmarks);
 
                 for (MatOfPoint2f lm : landmarks) {
+                    Rect firstFace = facesArray.get(0);
                     if (i > 0 && !allowMultipleFace.get())
                         break;
 
@@ -123,8 +125,8 @@ public class VideoStream extends Thread {
                     double xOffset = points[0].x - 10;
                     double yOffset = Math.max(points[19].y, points[24].y) - 10;
 
-                    Mat representation3D = new Mat((facesArray[0].height) + 10,
-                            (facesArray[0].width * 2) + 10, CV_8UC3, new Scalar(0));
+                    Mat representation3D = new Mat((firstFace.height) + 10,
+                            (firstFace.width * 2) + 10, CV_8UC3, new Scalar(0));
 
                     if (showLandmark.get()) {
                         for (int facialPointIndex : FACIAL_POINTS)
@@ -140,8 +142,8 @@ public class VideoStream extends Thread {
                             Imgproc.line(matrix, a, b, new Scalar(255, 255, 255), 1);
                         else
                             Imgproc.line(representation3D,
-                                    new Point((a.x - xOffset) + facesArray[0].width + 20, (a.y - yOffset)),
-                                    new Point((b.x - xOffset) + facesArray[0].width + 20, b.y - yOffset),
+                                    new Point((a.x - xOffset) + firstFace.width + 20, (a.y - yOffset)),
+                                    new Point((b.x - xOffset) + firstFace.width + 20, b.y - yOffset),
                                     new Scalar(255, 255, 255), 2);
                     }
 
@@ -166,8 +168,11 @@ public class VideoStream extends Thread {
                 matrix.release();
             }
         }
-
+        System.out.println("End stream");
         videoCapture.release();
+
+        if (onEndStream != null)
+            onEndStream.run();
     }
 
     public void setMatrixCallback(OnReceiveFace onReceiveFace) {
@@ -194,8 +199,13 @@ public class VideoStream extends Thread {
         this.imagePreprocessing = preprocessing;
     }
 
+    public void setOnEndStream(Runnable runnable) {
+        this.onEndStream = runnable;
+    }
+
     public void close() {
         this.running.set(false);
+        instance = null;
     }
 
     public interface OnReceiveFace {

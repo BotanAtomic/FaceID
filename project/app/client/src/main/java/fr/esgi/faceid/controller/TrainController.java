@@ -98,8 +98,6 @@ public class TrainController {
 
         videoStream.setMatrixCallback(mat -> faceView.setFill(new ImagePattern(matToImage(cropCenter(mat)))));
 
-
-
         videoStream.setRepresentation3DCallback(mat -> representation3D.setImage(matToImage(mat)));
 
         videoStream.setFaceCallback(mat -> {
