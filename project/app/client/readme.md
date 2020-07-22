@@ -2,7 +2,3 @@
 - Set your gradle JVM to Java 11 (or above) in start.sh
 - run start.sh
 
-Note:
-
-please remove DATA folder before use
-
