@@ -1,5 +1,5 @@
 # FaceID
-face recognition with AI
+School projet lol
 
 #Demo
 ![alt text](https://github.com/BotanAtomic/FaceID/blob/master/demo/ec0a983f6c9c55eaf2ea2d4cef88c965.png)
