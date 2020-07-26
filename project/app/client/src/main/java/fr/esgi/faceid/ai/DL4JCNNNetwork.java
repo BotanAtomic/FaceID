@@ -2,15 +2,18 @@ package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
 import javafx.util.Pair;
+import org.datavec.api.io.filters.BalancedPathFilter;
+import org.datavec.api.io.labels.ParentPathLabelGenerator;
+import org.datavec.api.split.FileSplit;
+import org.datavec.api.split.InputSplit;
 import org.datavec.image.loader.NativeImageLoader;
+import org.datavec.image.recordreader.ImageRecordReader;
 import org.deeplearning4j.core.storage.StatsStorage;
+import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.inputs.InputType;
-import org.deeplearning4j.nn.conf.layers.ConvolutionLayer;
-import org.deeplearning4j.nn.conf.layers.DenseLayer;
-import org.deeplearning4j.nn.conf.layers.OutputLayer;
-import org.deeplearning4j.nn.conf.layers.SubsamplingLayer;
+import org.deeplearning4j.nn.conf.layers.*;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.ui.model.stats.StatsListener;
@@ -18,6 +21,8 @@ import org.deeplearning4j.ui.model.storage.InMemoryStatsStorage;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import org.nd4j.linalg.dataset.api.preprocessor.ImagePreProcessingScaler;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
@@ -28,6 +33,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
 
@@ -37,9 +43,9 @@ import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
  **/
 public class DL4JCNNNetwork implements NeuralNetwork {
 
-    private final static int IMG_SIZE = 28;
+    private final static int IMG_SIZE = 48;
 
-    private final static int IMG_CHANNEL = 1;
+    private final static int IMG_CHANNEL = 3;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 
@@ -65,39 +71,6 @@ public class DL4JCNNNetwork implements NeuralNetwork {
 
     private void buildNetwork() {
         if (users.size() > 1) {
-            ConvolutionLayer layer0 = new ConvolutionLayer.Builder(5, 5)
-                    .nIn(3)
-                    .nOut(16)
-                    .activation(Activation.RELU)
-                    .build();
-
-            SubsamplingLayer layer1 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                    .kernelSize(2, 2)
-                    .build();
-
-            ConvolutionLayer layer2 = new ConvolutionLayer.Builder(5, 5)
-                    .nOut(20)
-                    .activation(Activation.RELU)
-                    .build();
-
-            SubsamplingLayer layer3 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                    .kernelSize(2, 2)
-                    .build();
-
-            ConvolutionLayer layer4 = new ConvolutionLayer.Builder(5, 5)
-                    .nOut(20)
-                    .activation(Activation.RELU)
-                    .build();
-
-            SubsamplingLayer layer5 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                    .kernelSize(2, 2)
-                    .build();
-
-            OutputLayer layer6 = new OutputLayer.Builder(LossFunctions.LossFunction.RECONSTRUCTION_CROSSENTROPY)
-                    .activation(Activation.SOFTMAX)
-                    .nOut(users.size())
-                    .build();
-
             this.multiLayerNetwork = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
                     .weightInit(WeightInit.XAVIER)
                     .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
@@ -112,6 +85,7 @@ public class DL4JCNNNetwork implements NeuralNetwork {
                     .layer(4, maxPool("maxpool2", new int[]{2, 2}))
                     .layer(5, new DenseLayer.Builder().activation(Activation.RELU)
                             .nOut(512).dropOut(0.5).build())
+                    .layer(6, new DropoutLayer(0.75))
                     .layer(6, new OutputLayer.Builder(LossFunctions.LossFunction.RECONSTRUCTION_CROSSENTROPY)
                             .nOut(users.size())
                             .activation(Activation.SOFTMAX)
@@ -154,33 +128,29 @@ public class DL4JCNNNetwork implements NeuralNetwork {
         buildNetwork();
         multiLayerNetwork.init();
 
-        int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
+        File parentDir = new File("data/");
 
-        System.out.println("Loading dataset...");
+        var labelMaker = new ParentPathLabelGenerator();
+        var recordReader = new ImageRecordReader(IMG_SIZE, IMG_SIZE, IMG_CHANNEL, labelMaker);
 
-        INDArray inputs = Nd4j.create(filesSize, IMG_CHANNEL, IMG_SIZE, IMG_SIZE);
-        final INDArray labels = Nd4j.create(filesSize, users.size());
-        int index = 0;
-        for (User user : users) {
-            int userIndex = users.indexOf(user);
+        BalancedPathFilter pathFilter = new BalancedPathFilter(new Random(123), NativeImageLoader.ALLOWED_FORMATS, labelMaker);
+        InputSplit[] inputSplits = new FileSplit(parentDir).sample(pathFilter, 0.80, 0.20);
+        recordReader.initialize(inputSplits[0]);
 
-            int i = 0;
-            for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
-                if (i > 200) break;
-                INDArray imgArray = NATIVE_IMAGE_LOADER.asMatrix(image).div(255);
-                inputs.putRow(index, imgArray);
-                labels.putRow(index, generateLabels(userIndex));
-                index++;
-                i++;
-            }
-        }
+        DataSetIterator dataIter = new RecordReaderDataSetIterator(recordReader, 32, 1, users.size());
+        var preProcessor = new ImagePreProcessingScaler();
+        preProcessor.fit(dataIter);
+        dataIter.setPreProcessor(preProcessor);
 
-        System.out.println("Dataset loaded");
+        multiLayerNetwork.fit(dataIter, 2);
 
-        for (int i = 0; i < 150; i++) {
-            multiLayerNetwork.fit(inputs, labels);
-            System.out.println("Epohs " + i + ": done.");
-        }
+        recordReader.initialize(inputSplits[1]);
+        dataIter = new RecordReaderDataSetIterator(recordReader, 32, 1, users.size());
+        preProcessor.fit(dataIter);
+        dataIter.setPreProcessor(preProcessor);
+
+        var evaluation = multiLayerNetwork.evaluate(dataIter);
+        System.out.println(evaluation.stats(true, true));
         save();
     }
 

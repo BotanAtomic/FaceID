@@ -2,10 +2,21 @@ package fr.esgi.faceid.ai;
 
 import fr.esgi.faceid.entity.User;
 import javafx.util.Pair;
+import org.datavec.api.io.filters.BalancedPathFilter;
+import org.datavec.api.io.labels.ParentPathLabelGenerator;
+import org.datavec.api.split.FileSplit;
+import org.datavec.api.split.InputSplit;
 import org.datavec.image.loader.NativeImageLoader;
+import org.datavec.image.recordreader.ImageRecordReader;
+import org.datavec.image.transform.ScaleImageTransform;
 import org.deeplearning4j.core.storage.StatsStorage;
+import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
+import org.deeplearning4j.datasets.iterator.DataSetIteratorSplitter;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
+import org.deeplearning4j.nn.conf.inputs.InputType;
+import org.deeplearning4j.nn.conf.layers.Convolution3D;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
+import org.deeplearning4j.nn.conf.layers.DropoutLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
@@ -14,8 +25,12 @@ import org.deeplearning4j.ui.model.storage.InMemoryStatsStorage;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import org.nd4j.linalg.dataset.api.preprocessor.ImagePreProcessingScaler;
+import org.nd4j.linalg.dataset.api.preprocessor.NormalizerMinMaxScaler;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Adam;
+import org.nd4j.linalg.learning.regularization.L2Regularization;
 import org.opencv.core.Mat;
 
 import java.io.File;
@@ -23,6 +38,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import static fr.esgi.faceid.ai.NeuralNetworkManager.uiServer;
 
@@ -34,7 +50,7 @@ public class DL4JNetwork implements NeuralNetwork {
 
     private final static int IMG_SIZE = 96;
 
-    private final static int IMG_CHANNEL = 1;
+    private final static int IMG_CHANNEL = 3;
 
     public final static int IMG_TOTAL_SIZE = IMG_SIZE * IMG_SIZE * IMG_CHANNEL;
 
@@ -62,11 +78,12 @@ public class DL4JNetwork implements NeuralNetwork {
                     .weightInit(WeightInit.XAVIER)
                     .updater(new Adam())
                     .list()
-                    .layer(new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(512).activation(Activation.LEAKYRELU).build())
-                    .layer(new DenseLayer.Builder().nIn(512).nOut(256).activation(Activation.LEAKYRELU).build())
-                    .layer(new DenseLayer.Builder().nIn(256).nOut(128).activation(Activation.LEAKYRELU).build())
-                    .layer(new DenseLayer.Builder().nIn(128).nOut(64).activation(Activation.SIGMOID).build())
+                    .layer(new DenseLayer.Builder().nIn(IMG_TOTAL_SIZE).nOut(512).activation(Activation.RELU).build())
+                    .layer(new DenseLayer.Builder().nIn(512).nOut(256).activation(Activation.RELU).build())
+                    .layer(new DenseLayer.Builder().nIn(256).nOut(128).activation(Activation.RELU).build())
+                    .layer(new DenseLayer.Builder().nIn(128).nOut(64).activation(Activation.RELU).build())
                     .layer(new OutputLayer.Builder().nIn(64).nOut(users.size()).activation(Activation.SOFTMAX).build())
+                    .setInputType(InputType.convolutional(IMG_SIZE, IMG_SIZE, IMG_CHANNEL))
                     .build());
             StatsStorage statsStorage = new InMemoryStatsStorage();
             uiServer.attach(statsStorage);
@@ -81,7 +98,7 @@ public class DL4JNetwork implements NeuralNetwork {
         int index = (int) result.argMax(1).toDoubleVector()[0];
         double probability = result.toDoubleVector()[index] * 100;
 
-        if(probability < 90) return null;
+        if (probability < 80) return null;
 
         return new Pair<>(users.get(index), (int) probability);
     }
@@ -93,6 +110,14 @@ public class DL4JNetwork implements NeuralNetwork {
         return Nd4j.create(label);
     }
 
+    /**
+     *  Accuracy:        0.9849
+     *  Precision:       0.9853
+     *  Recall:          0.9849
+     *  F1 Score:        0.9849
+     * @throws Exception
+     */
+
     @Override
     public void train() throws Exception {
         System.out.println("Train DL4J");
@@ -102,25 +127,29 @@ public class DL4JNetwork implements NeuralNetwork {
         buildNetwork();
         multiLayerNetwork.init();
 
-        int filesSize = users.stream().mapToInt(u -> Objects.requireNonNull(u.getDirectory().listFiles()).length).sum();
+        File parentDir = new File("data/");
 
-        INDArray inputs = Nd4j.create(filesSize, IMG_TOTAL_SIZE);
-        final INDArray labels = Nd4j.create(filesSize, users.size());
-        int index = 0;
-        for (User user : users) {
-            int userIndex = users.indexOf(user);
+        var labelMaker = new ParentPathLabelGenerator();
+        var recordReader = new ImageRecordReader(IMG_SIZE, IMG_SIZE, IMG_CHANNEL, labelMaker);
 
-            for (File image : Objects.requireNonNull(user.getDirectory().listFiles())) {
-                INDArray imgArray = NATIVE_IMAGE_LOADER.asMatrix(image).reshape(IMG_TOTAL_SIZE).div(255);
-                inputs.putRow(index, imgArray);
-                labels.putRow(index, generateLabels(userIndex));
-                index++;
-            }
-        }
+        BalancedPathFilter pathFilter = new BalancedPathFilter(new Random(123), NativeImageLoader.ALLOWED_FORMATS, labelMaker);
+        InputSplit[] inputSplits = new FileSplit(parentDir).sample(pathFilter, 0.80, 0.20);
+        recordReader.initialize(inputSplits[0]);
 
-        for (int i = 0; i < 200; i++)
-            multiLayerNetwork.fit(inputs, labels);
+        DataSetIterator dataIter = new RecordReaderDataSetIterator(recordReader, 32, 1, users.size());
+        var preProcessor = new ImagePreProcessingScaler();
+        preProcessor.fit(dataIter);
+        dataIter.setPreProcessor(preProcessor);
 
+        multiLayerNetwork.fit(dataIter, 2);
+
+        recordReader.initialize(inputSplits[1]);
+        dataIter = new RecordReaderDataSetIterator(recordReader, 32, 1, users.size());
+        preProcessor.fit(dataIter);
+        dataIter.setPreProcessor(preProcessor);
+
+        var evaluation = multiLayerNetwork.evaluate(dataIter);
+        System.out.println(evaluation.stats(true, true));
         save();
     }
 

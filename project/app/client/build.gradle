@@ -25,12 +25,12 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation group: 'net.java.dev.jna', name: 'jna', version: '5.5.0'
     //implementation group: 'org.nd4j', name: 'nd4j-native-platform', version: '1.0.0-beta7'
-    implementation group: 'org.nd4j', name: 'nd4j-cuda-10.2-platform', version: '1.0.0-beta7'
-
+    implementation group: 'org.nd4j', name: 'nd4j-cuda-10.1-platform', version: '1.0.0-beta7'
     implementation group: 'org.nd4j', name: 'nd4j-api', version: '1.0.0-beta7'
     implementation group: 'org.datavec', name: 'datavec-data-image', version: '1.0.0-beta7'
-    implementation group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta7'
+    implementation group: 'org.deeplearning4j', name: 'deeplearning4j-cuda-10.1', version: '1.0.0-beta7'
     implementation group: 'org.deeplearning4j', name: 'deeplearning4j-ui', version: '1.0.0-beta7'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

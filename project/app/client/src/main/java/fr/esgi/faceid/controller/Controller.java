@@ -250,7 +250,7 @@ public class Controller {
         executor.execute(() -> {
             try {
                 neuralNetworkManager.train();
-                Platform.runLater(() ->         dragAndDrop(true));
+                Platform.runLater(() -> dragAndDrop(true));
             } catch (Exception e) {
                 e.printStackTrace();
             }
